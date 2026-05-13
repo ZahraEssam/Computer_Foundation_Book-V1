@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Eng. Zahra Essam">
+<meta name="contact" content="zahraaessam223@gmail.com">
+<meta name="copyright" content="Copyright © 2026 Zahra Essam — All Rights Reserved">
+<meta name="description" content="منهج تأسيس الكمبيوتر: مغامرة في عالم الديجيتال — تأليف: م. زهرة عصام">
+<meta name="keywords" content="تأسيس الكمبيوتر, برمجة للأطفال, تعليم تقنية, زهرة عصام">
+<title>منهج تأسيس الكمبيوتر | م. زهرة عصام</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   ROOT DESIGN SYSTEM
+══════════════════════════════════════════════════════ */
+:root {
+  --blue:        #1565C0;  --blue-2:  #1976D2;  --blue-lt:  #E3F2FD;  --blue-dk:  #0D3B7A;  --blue-ac:  #29B6F6;
+  --green:       #2E7D32;  --green-2: #388E3C;  --green-lt: #E8F5E9;  --green-dk: #1B4D1E;  --green-ac: #69F0AE;
+  --orange:      #E65100;  --orange-2:#F57C00;  --orange-lt:#FFF3E0;  --orange-dk:#7F2900;  --orange-ac:#FFAB40;
+  --purple:      #6A1B9A;  --purple-2:#7B1FA2;  --purple-lt:#F3E5F5;  --purple-dk:#3E0060;  --purple-ac:#E040FB;
+
+  --ink:   #0F1923;
+  --ink-2: #1C2B3A;
+  --ink-3: #334155;
+  --ink-4: #64748B;
+  --ink-5: #94A3B8;
+  --rule:  #E2E8F0;
+  --bg:    #F8FAFC;
+  --white: #FFFFFF;
+
+  --f-main: 'Cairo', 'Tajawal', sans-serif;
+  --f-mono: 'IBM Plex Mono', monospace;
+
+  --page-w: 850px;
+  --r:  16px;
+  --r-sm: 8px;
+  --r-xs: 4px;
+
+  --shadow: 0 4px 24px rgba(0,0,0,.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+
+body {
+  font-family: var(--f-main);
+  background: #1A1A2E;
+  color: var(--ink);
+  line-height: 1.7;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* ══════════════════════════════════════════════════════
+   PAGE WRAPPER
+══════════════════════════════════════════════════════ */
+.page {
+  width: var(--page-w);
+  min-height: 1123px;
+  background: var(--white);
+  margin: 0 auto 48px auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══════════════════════════════════════════════════════
+   FOOTER (EVERY PAGE)
+══════════════════════════════════════════════════════ */
+.pf {
+  margin-top: auto;
+  padding: 9px 32px;
+  background: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-family: var(--f-mono);
+  color: rgba(255,255,255,.4);
+  letter-spacing: 1px;
+}
+.pf-copy { font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: 2px; font-size: 10px; }
+.pf-contact { display: none; }
+.pf-pg { font-weight: 700; font-size: 11px; color: rgba(255,255,255,.6); }
+
+/* ══════════════════════════════════════════════════════
+   COVER PAGE
+══════════════════════════════════════════════════════ */
+.cover {
+  min-height: 1123px;
+  background: linear-gradient(150deg, #05102B 0%, #0A1940 40%, #0D1535 70%, #05102B 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 50px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(21,101,192,.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(106,27,154,.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(46,125,50,.1) 0%, transparent 60%);
+}
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(100,160,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,160,255,.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.cover-top {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: rgba(100,180,255,.5);
+  background: rgba(100,180,255,.08);
+  border: 1px solid rgba(100,180,255,.2);
+  padding: 7px 22px;
+  border-radius: 100px;
+  margin-bottom: 44px;
+  position: relative;
+  text-transform: uppercase;
+}
+.cover-robot {
+  position: relative;
+  margin-bottom: 36px;
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, #1565C0 0%, #1E88E5 60%, #42A5F5 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+  border: 4px solid rgba(100,180,255,.35);
+  box-shadow: 0 0 80px rgba(21,101,192,.5), inset 0 0 40px rgba(0,0,0,.25);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.cover-robot::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 2px dashed rgba(100,180,255,.25);
+  animation: coverSpin 20s linear infinite;
+}
+@keyframes coverSpin { to { transform: rotate(360deg); } }
+
+.cover-series {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 12px;
+  position: relative;
+}
+.cover-title-ar {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  position: relative;
+}
+.cover-title-en {
+  font-family: var(--f-mono);
+  font-size: 14px;
+  color: rgba(100,180,255,.7);
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+  position: relative;
+}
+.cover-divider {
+  width: 120px; height: 3px;
+  background: linear-gradient(90deg, var(--blue-ac), #AB47BC, #69F0AE);
+  border-radius: 2px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+.cover-chips {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+  position: relative;
+}
+.cc {
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .5px;
+}
+.cc span { display: block; font-size: 12px; font-weight: 800; margin-top: 2px; }
+.cc-b { background: rgba(21,101,192,.3); border: 1px solid rgba(41,182,246,.4); color: #90CAF9; }
+.cc-g { background: rgba(46,125,50,.3); border: 1px solid rgba(105,240,174,.4); color: #A5D6A7; }
+.cc-o { background: rgba(230,81,0,.3); border: 1px solid rgba(255,171,64,.4); color: #FFCC80; }
+.cc-p { background: rgba(106,27,154,.3); border: 1px solid rgba(224,64,251,.4); color: #CE93D8; }
+
+.cover-author-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r);
+  padding: 24px 36px;
+  max-width: 480px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+  margin-bottom: 36px;
+}
+.cover-author-card h3 {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 8px;
+}
+.cover-author-card .name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.cover-author-card .email {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: rgba(100,180,255,.6);
+  direction: ltr;
+}
+.cover-ded {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  font-style: italic;
+  position: relative;
+  margin-top: 6px;
+}
+.cover-ded span { color: rgba(200,160,255,.7); font-weight: 700; }
+.cover-foot {
+  position: absolute;
+  bottom: 20px;
+  left: 50%; transform: translateX(-50%);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.18);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════
+   TABLE OF CONTENTS
+══════════════════════════════════════════════════════ */
+.toc-wrap { padding: 52px 50px; flex: 1; }
+.toc-hdr { display: flex; align-items: center; gap: 16px; margin-bottom: 44px; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
+.toc-hdr-ic { width: 52px; height: 52px; background: var(--ink); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; flex-shrink: 0; }
+.toc-hdr h2 { font-size: 28px; font-weight: 900; }
+.toc-hdr p { color: var(--ink-4); font-size: 13px; margin-top: 2px; }
+.toc-ch { margin-bottom: 30px; }
+.toc-ch-row { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border-radius: var(--r-sm); margin-bottom: 10px; }
+.toc-ch-n { font-family: var(--f-mono); font-size: 28px; font-weight: 900; opacity: .15; line-height: 1; }
+.toc-ch-inf { flex: 1; }
+.toc-ch-ar { font-size: 18px; font-weight: 800; }
+.toc-ch-en { font-family: var(--f-mono); font-size: 10px; letter-spacing: 1.5px; margin-top: 2px; opacity: .65; }
+.toc-badge { font-size: 9px; font-weight: 800; letter-spacing: 2px; padding: 5px 12px; border-radius: 100px; font-family: var(--f-mono); }
+.toc-items { padding-right: 60px; }
+.toc-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule); font-size: 13px; }
+.toc-row-l { display: flex; align-items: center; gap: 10px; }
+.toc-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.toc-ar { font-weight: 600; }
+.toc-en { font-family: var(--f-mono); font-size: 9px; opacity: .4; letter-spacing: .5px; direction: ltr; }
+.toc-pg { font-family: var(--f-mono); font-size: 11px; opacity: .35; }
+
+.toc-b .toc-ch-row { background: var(--blue-lt); } .toc-b .toc-ch-ar { color: var(--blue-dk); } .toc-b .toc-ch-en { color: var(--blue); } .toc-b .toc-ch-n { color: var(--blue); } .toc-b .toc-badge { background: var(--blue); color: #fff; } .toc-b .toc-dot { background: var(--blue); }
+.toc-g .toc-ch-row { background: var(--green-lt); } .toc-g .toc-ch-ar { color: var(--green-dk); } .toc-g .toc-ch-en { color: var(--green); } .toc-g .toc-ch-n { color: var(--green); } .toc-g .toc-badge { background: var(--green); color: #fff; } .toc-g .toc-dot { background: var(--green); }
+.toc-o .toc-ch-row { background: var(--orange-lt); } .toc-o .toc-ch-ar { color: var(--orange-dk); } .toc-o .toc-ch-en { color: var(--orange); } .toc-o .toc-ch-n { color: var(--orange); } .toc-o .toc-badge { background: var(--orange); color: #fff; } .toc-o .toc-dot { background: var(--orange); }
+.toc-p .toc-ch-row { background: var(--purple-lt); } .toc-p .toc-ch-ar { color: var(--purple-dk); } .toc-p .toc-ch-en { color: var(--purple); } .toc-p .toc-ch-n { color: var(--purple); } .toc-p .toc-badge { background: var(--purple); color: #fff; } .toc-p .toc-dot { background: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   CHAPTER OPENER
+══════════════════════════════════════════════════════ */
+.ch-open {
+  min-height: 1123px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+.ch-bg-num {
+  position: absolute;
+  font-family: var(--f-mono);
+  font-size: 280px;
+  font-weight: 900;
+  opacity: .04;
+  bottom: -40px; left: -20px;
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -10px;
+  direction: ltr;
+}
+.ch-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 5px; padding: 8px 22px; border-radius: 100px; margin-bottom: 20px; }
+.ch-ico { font-size: 72px; margin-bottom: 28px; }
+.ch-en { font-family: var(--f-mono); font-size: 40px; font-weight: 900; letter-spacing: 2px; text-align: center; margin-bottom: 8px; }
+.ch-ar { font-size: 26px; font-weight: 800; text-align: center; opacity: .7; margin-bottom: 36px; }
+.ch-div { width: 80px; height: 4px; border-radius: 2px; margin: 0 auto 36px; }
+.ch-card { background: rgba(255,255,255,.72); backdrop-filter: blur(10px); border-radius: var(--r); padding: 28px 36px; max-width: 560px; width: 100%; }
+.ch-card h3 { font-family: var(--f-mono); font-size: 9px; letter-spacing: 3px; margin-bottom: 14px; }
+.ch-card ul { list-style: none; }
+.ch-card li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 13.5px; font-weight: 600; line-height: 1.6; border-bottom: 1px solid rgba(0,0,0,.06); }
+.ch-card li:last-child { border: none; }
+.ch-arr { font-family: var(--f-mono); font-size: 11px; margin-top: 3px; flex-shrink: 0; }
+.ch-author-strip {
+  position: absolute; bottom: 60px;
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: 2px;
+  color: rgba(0,0,0,.3);
+}
+
+/* Chapter opener themes */
+.op-b { background: linear-gradient(135deg,#D6EAFF,#BBD9F5,#A0C4F0); }
+.op-b .ch-tag { background: rgba(21,101,192,.12); color: var(--blue); border: 1px solid rgba(21,101,192,.2); }
+.op-b .ch-en,.op-b .ch-bg-num,.op-b .ch-ar { color: var(--blue-dk); }
+.op-b .ch-div { background: var(--blue); }
+.op-b .ch-card h3,.op-b .ch-arr { color: var(--blue); }
+.op-b .ch-author-strip { color: var(--blue-dk); opacity: .35; }
+
+.op-g { background: linear-gradient(135deg,#D4F5DC,#B8ECC3,#9FE0AE); }
+.op-g .ch-tag { background: rgba(46,125,50,.12); color: var(--green); border: 1px solid rgba(46,125,50,.2); }
+.op-g .ch-en,.op-g .ch-bg-num,.op-g .ch-ar { color: var(--green-dk); }
+.op-g .ch-div { background: var(--green); }
+.op-g .ch-card h3,.op-g .ch-arr { color: var(--green); }
+
+.op-o { background: linear-gradient(135deg,#FFE8CC,#FFD9AA,#FFC87A); }
+.op-o .ch-tag { background: rgba(230,81,0,.1); color: var(--orange); border: 1px solid rgba(230,81,0,.2); }
+.op-o .ch-en,.op-o .ch-bg-num,.op-o .ch-ar { color: var(--orange-dk); }
+.op-o .ch-div { background: var(--orange); }
+.op-o .ch-card h3,.op-o .ch-arr { color: var(--orange); }
+
+.op-p { background: linear-gradient(135deg,#EDD5FF,#DDB0FF,#C980F5); }
+.op-p .ch-tag { background: rgba(106,27,154,.1); color: var(--purple); border: 1px solid rgba(106,27,154,.2); }
+.op-p .ch-en,.op-p .ch-bg-num,.op-p .ch-ar { color: var(--purple-dk); }
+.op-p .ch-div { background: var(--purple); }
+.op-p .ch-card h3,.op-p .ch-arr { color: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   CONTENT PAGE LAYOUT
+══════════════════════════════════════════════════════ */
+.cp { padding: 40px 48px 16px; display: flex; flex-direction: column; gap: 20px; flex: 1; }
+.ph { display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 2.5px solid; margin-bottom: 4px; }
+.ph-l { display: flex; align-items: center; gap: 12px; }
+.ph-tag { font-family: var(--f-mono); font-size: 9px; letter-spacing: 3px; padding: 5px 14px; border-radius: 100px; font-weight: 700; }
+.ph-title { font-size: 14px; font-weight: 800; }
+.ph-pg { font-family: var(--f-mono); font-size: 11px; opacity: .35; }
+.ph-b { border-color: var(--blue); color: var(--blue); } .ph-b .ph-tag { background: var(--blue-lt); border: 1px solid rgba(21,101,192,.2); }
+.ph-g { border-color: var(--green); color: var(--green); } .ph-g .ph-tag { background: var(--green-lt); border: 1px solid rgba(46,125,50,.2); }
+.ph-o { border-color: var(--orange); color: var(--orange); } .ph-o .ph-tag { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.2); }
+.ph-p { border-color: var(--purple); color: var(--purple); } .ph-p .ph-tag { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.2); }
+
+/* ══════════════════════════════════════════════════════
+   LESSON BLOCK
+══════════════════════════════════════════════════════ */
+.lb { border-radius: var(--r); overflow: hidden; border: 2px solid; }
+.lb-h { padding: 15px 22px; display: flex; align-items: center; gap: 14px; }
+.lb-h-ic { width: 44px; height: 44px; background: rgba(255,255,255,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.lb-en { font-family: var(--f-mono); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: rgba(255,255,255,.6); }
+.lb-ar { font-size: 18px; font-weight: 900; color: #fff; margin-top: 2px; }
+.lb-body { background: var(--white); padding: 22px 24px; display: grid; grid-template-columns: 1fr 195px; gap: 18px; }
+.lb-body-full { background: var(--white); padding: 22px 24px; }
+.lb-main {}
+
+.lb-b { border-color: var(--blue); } .lb-b .lb-h { background: linear-gradient(135deg, var(--blue-dk), var(--blue)); }
+.lb-g { border-color: var(--green); } .lb-g .lb-h { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
+.lb-o { border-color: var(--orange); } .lb-o .lb-h { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
+.lb-p { border-color: var(--purple); } .lb-p .lb-h { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
+
+/* ══════════════════════════════════════════════════════
+   BRAIN TEASER
+══════════════════════════════════════════════════════ */
+.brain {
+  border-radius: var(--r-sm);
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.brain-ic { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.brain-lbl { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; font-weight: 700; margin-bottom: 4px; }
+.brain-q { font-size: 13.5px; font-weight: 700; line-height: 1.7; }
+.brain-b { background: var(--blue-lt); border: 1px solid rgba(21,101,192,.2); } .brain-b .brain-lbl { color: var(--blue); }
+.brain-g { background: var(--green-lt); border: 1px solid rgba(46,125,50,.2); } .brain-g .brain-lbl { color: var(--green); }
+.brain-o { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.2); } .brain-o .brain-lbl { color: var(--orange); }
+.brain-p { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.2); } .brain-p .brain-lbl { color: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   BYTE BOX
+══════════════════════════════════════════════════════ */
+.byte-box { border-radius: var(--r-sm); padding: 14px 18px; background: var(--bg); border-right: 4px solid; margin-bottom: 14px; }
+.byte-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.byte-av { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.byte-lbl { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; font-weight: 700; }
+.byte-txt { font-size: 13px; line-height: 2; color: var(--ink-3); }
+.byte-txt strong { font-family: var(--f-mono); font-size: 11.5px; font-weight: 700; background: rgba(0,0,0,.06); padding: 1px 5px; border-radius: 3px; }
+
+.bb-b { border-color: var(--blue); } .bb-b .byte-av { background: var(--blue); } .bb-b .byte-lbl { color: var(--blue); }
+.bb-g { border-color: var(--green); } .bb-g .byte-av { background: var(--green); } .bb-g .byte-lbl { color: var(--green); }
+.bb-o { border-color: var(--orange); } .bb-o .byte-av { background: var(--orange); } .bb-o .byte-lbl { color: var(--orange); }
+.bb-p { border-color: var(--purple); } .bb-p .byte-av { background: var(--purple); } .bb-p .byte-lbl { color: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   BYTE'S DICTIONARY SIDEBAR
+══════════════════════════════════════════════════════ */
+.dict { background: var(--ink); border-radius: var(--r-sm); padding: 16px 14px; color: #fff; height: fit-content; }
+.dict-t { font-family: var(--f-mono); font-size: 8px; letter-spacing: 3px; color: rgba(255,255,255,.3); margin-bottom: 12px; text-align: center; }
+.ditem { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.ditem:last-child { border: none; }
+.den { font-family: var(--f-mono); font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+.dar { font-size: 11.5px; color: rgba(255,255,255,.55); font-weight: 500; line-height: 1.5; }
+.dict-b .den { color: var(--blue-ac); }
+.dict-g .den { color: var(--green-ac); }
+.dict-o .den { color: var(--orange-ac); }
+.dict-p .den { color: var(--purple-ac); }
+
+/* ══════════════════════════════════════════════════════
+   CONCEPT BOXES & GRIDS
+══════════════════════════════════════════════════════ */
+.cg { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin: 12px 0; }
+.cg3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 11px; margin: 12px 0; }
+.cg4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+.cb { border-radius: var(--r-sm); padding: 14px; border: 1.5px solid; }
+.cb-ic { font-size: 22px; margin-bottom: 6px; }
+.cb-t { font-family: var(--f-mono); font-size: 9px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.cb-d { font-size: 11.5px; line-height: 1.7; }
+.cb-b { background: var(--blue-lt); border-color: rgba(21,101,192,.25); } .cb-b .cb-t { color: var(--blue); }
+.cb-g { background: var(--green-lt); border-color: rgba(46,125,50,.25); } .cb-g .cb-t { color: var(--green); }
+.cb-o { background: var(--orange-lt); border-color: rgba(230,81,0,.25); } .cb-o .cb-t { color: var(--orange); }
+.cb-p { background: var(--purple-lt); border-color: rgba(106,27,154,.25); } .cb-p .cb-t { color: var(--purple); }
+.cb-dark { background: var(--ink-2); border-color: var(--ink-3); } .cb-dark .cb-t,.cb-dark .cb-d { color: rgba(255,255,255,.8); } .cb-dark .cb-ic { filter: grayscale(0); }
+
+/* ══════════════════════════════════════════════════════
+   PRO-TIP
+══════════════════════════════════════════════════════ */
+.tip { border-radius: var(--r-sm); padding: 12px 16px; display: flex; gap: 11px; align-items: flex-start; margin: 12px 0; }
+.tip-ic { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.tip-lbl { font-family: var(--f-mono); font-size: 8px; letter-spacing: 2px; font-weight: 700; margin-bottom: 3px; }
+.tip-txt { font-size: 12.5px; line-height: 1.8; }
+.tip-b { background: var(--blue-lt); border: 1px solid rgba(21,101,192,.18); } .tip-b .tip-lbl { color: var(--blue); }
+.tip-g { background: var(--green-lt); border: 1px solid rgba(46,125,50,.18); } .tip-g .tip-lbl { color: var(--green); }
+.tip-o { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.18); } .tip-o .tip-lbl { color: var(--orange); }
+.tip-p { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.18); } .tip-p .tip-lbl { color: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   VISUAL AID
+══════════════════════════════════════════════════════ */
+.va { background: linear-gradient(135deg,#F0F4FF,#EBF0FF); border-radius: var(--r-sm); padding: 16px; margin: 12px 0; border: 1.5px dashed rgba(0,0,0,.1); text-align: center; }
+.va-lbl { font-family: var(--f-mono); font-size: 8px; letter-spacing: 2px; color: var(--ink-5); margin-bottom: 6px; }
+.va-content { font-size: 12px; color: var(--ink-4); line-height: 1.7; }
+.va-big { font-size: 36px; margin-bottom: 8px; }
+
+/* ══════════════════════════════════════════════════════
+   COMPARISON TABLE
+══════════════════════════════════════════════════════ */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 12px 0; border-radius: var(--r-sm); overflow: hidden; }
+.comp-table th { padding: 10px 14px; font-size: 11px; font-family: var(--f-mono); letter-spacing: 1px; text-align: center; color: #fff; }
+.comp-table td { padding: 9px 14px; text-align: center; border-bottom: 1px solid var(--rule); }
+.comp-table tr:last-child td { border: none; }
+.comp-table tr:nth-child(even) td { background: var(--bg); }
+.comp-table .hl { font-family: var(--f-mono); font-weight: 700; font-size: 14px; }
+
+/* ══════════════════════════════════════════════════════
+   PSEUDOCODE / CODE BOX
+══════════════════════════════════════════════════════ */
+.code-box { border-radius: var(--r-sm); overflow: hidden; margin: 12px 0; }
+.code-hd { padding: 9px 16px; display: flex; align-items: center; gap: 10px; }
+.code-hd-ic { font-size: 15px; }
+.code-hd-en { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; font-weight: 700; opacity: .7; }
+.code-hd-ar { font-size: 13px; font-weight: 800; color: #fff; margin-top: 1px; }
+.code-body { background: #1A1A2E; padding: 16px 20px; font-family: var(--f-mono); font-size: 12px; line-height: 2; }
+.kw { color: #569CD6; font-weight: 700; }
+.fn { color: #DCDCAA; }
+.str { color: #CE9178; }
+.cmt { color: #6A9955; font-style: italic; }
+.num { color: #B5CEA8; }
+.var { color: #9CDCFE; }
+.op  { color: #D4D4D4; }
+.ln  { display: block; padding: 1px 0; }
+.i1  { padding-right: 22px; }
+.i2  { padding-right: 44px; }
+.i3  { padding-right: 66px; }
+
+.cb-hd-b { background: linear-gradient(135deg, var(--blue-dk), var(--blue)); }
+.cb-hd-g { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
+.cb-hd-o { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
+.cb-hd-p { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
+
+/* ══════════════════════════════════════════════════════
+   FLOWCHART
+══════════════════════════════════════════════════════ */
+.flow-box { border-radius: var(--r-sm); overflow: hidden; margin: 12px 0; }
+.flow-hd { padding: 9px 16px; display: flex; align-items: center; gap: 10px; }
+.flow-hd-ar { font-size: 13px; font-weight: 800; color: #fff; }
+.flow-hd-en { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; opacity: .7; }
+.flow-body { background: #FAFBFF; padding: 18px 24px; }
+.frow { display: flex; flex-direction: column; align-items: center; }
+.fn-start,.fn-end { border-radius: 100px; background: var(--ink); color: #fff; padding: 9px 28px; font-size: 12px; font-weight: 700; text-align: center; min-width: 200px; }
+.fn-proc { border-radius: var(--r-xs); background: #fff; padding: 10px 20px; font-size: 12px; font-weight: 600; text-align: center; border: 2px solid; min-width: 220px; }
+.fn-dec { background: #fff; padding: 12px 20px; font-size: 11.5px; font-weight: 700; text-align: center; border: 2px solid; min-width: 200px; position: relative; clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%); padding: 18px 32px; }
+.farr { font-size: 22px; color: var(--ink-5); line-height: 1.3; text-align: center; }
+.farr-lbl { font-size: 10px; font-weight: 800; }
+.fbranch { display: flex; gap: 18px; align-items: flex-start; width: 100%; justify-content: center; margin: 6px 0; }
+.fbr-arm { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 210px; }
+.fbr-lbl { font-family: var(--f-mono); font-size: 10px; font-weight: 800; padding: 3px 12px; border-radius: 100px; margin-bottom: 4px; }
+.yes { background: var(--green-lt); color: var(--green); }
+.no  { background: #FFEBEE; color: #C62828; }
+.flow-hd-b { background: linear-gradient(135deg, var(--blue-dk), var(--blue)); }
+.flow-hd-g { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
+.flow-hd-o { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
+.flow-hd-p { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
+.fnp-b { color: var(--blue); } .fnp-g { color: var(--green); } .fnp-o { color: var(--orange); } .fnp-p { color: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   THE LAB
+══════════════════════════════════════════════════════ */
+.lab { border-radius: var(--r); overflow: hidden; border: 2px solid; }
+.lab-hd { padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+.lab-hd-ic { font-size: 18px; }
+.lab-hd-en { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; opacity: .7; }
+.lab-hd-ar { font-size: 14px; font-weight: 900; color: #fff; }
+.lab-body { background: var(--white); padding: 18px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lab-solved,.lab-task { border-radius: var(--r-sm); overflow: hidden; }
+.lab-sol-hd,.lab-task-hd { padding: 8px 14px; font-family: var(--f-mono); font-size: 9px; letter-spacing: 1px; font-weight: 700; }
+.lab-sol-body,.lab-task-body { padding: 12px 14px; background: var(--bg); font-size: 12.5px; line-height: 1.8; }
+.lab-q { font-weight: 800; margin-bottom: 6px; font-size: 13px; }
+.lab-a { color: var(--ink-3); font-family: var(--f-mono); font-size: 11.5px; line-height: 1.9; }
+.ans-line { height: 2px; border-radius: 1px; opacity: .2; margin-top: 8px; }
+.ans-lines { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.lab-b { border-color: var(--blue); } .lab-b .lab-hd { background: linear-gradient(135deg,var(--blue-dk),var(--blue)); } .lab-b .lab-solved { border: 2px solid rgba(21,101,192,.25); } .lab-b .lab-sol-hd { background: var(--blue-lt); color: var(--blue); } .lab-b .lab-task { border: 2px dashed rgba(21,101,192,.3); } .lab-b .lab-task-hd { background: var(--blue-lt); color: var(--blue); } .lab-b .ans-line { background: var(--blue); }
+.lab-g { border-color: var(--green); } .lab-g .lab-hd { background: linear-gradient(135deg,var(--green-dk),var(--green)); } .lab-g .lab-solved { border: 2px solid rgba(46,125,50,.25); } .lab-g .lab-sol-hd { background: var(--green-lt); color: var(--green); } .lab-g .lab-task { border: 2px dashed rgba(46,125,50,.3); } .lab-g .lab-task-hd { background: var(--green-lt); color: var(--green); } .lab-g .ans-line { background: var(--green); }
+.lab-o { border-color: var(--orange); } .lab-o .lab-hd { background: linear-gradient(135deg,var(--orange-dk),var(--orange)); } .lab-o .lab-solved { border: 2px solid rgba(230,81,0,.25); } .lab-o .lab-sol-hd { background: var(--orange-lt); color: var(--orange); } .lab-o .lab-task { border: 2px dashed rgba(230,81,0,.3); } .lab-o .lab-task-hd { background: var(--orange-lt); color: var(--orange); } .lab-o .ans-line { background: var(--orange); }
+.lab-p { border-color: var(--purple); } .lab-p .lab-hd { background: linear-gradient(135deg,var(--purple-dk),var(--purple)); } .lab-p .lab-solved { border: 2px solid rgba(106,27,154,.25); } .lab-p .lab-sol-hd { background: var(--purple-lt); color: var(--purple); } .lab-p .lab-task { border: 2px dashed rgba(106,27,154,.3); } .lab-p .lab-task-hd { background: var(--purple-lt); color: var(--purple); } .lab-p .ans-line { background: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   QUIZ / REVIEW
+══════════════════════════════════════════════════════ */
+.quiz { border-radius: var(--r); overflow: hidden; border: 2px solid; }
+.quiz-hd { padding: 14px 22px; display: flex; align-items: center; gap: 12px; }
+.quiz-hd-ic { font-size: 22px; }
+.quiz-hd-ar { font-size: 16px; font-weight: 900; color: #fff; }
+.quiz-hd-en { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2px; opacity: .7; }
+.quiz-body { background: var(--white); padding: 22px 26px; }
+.qn { margin-bottom: 20px; }
+.qn-hd { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.qn-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.qn-q { font-size: 13.5px; font-weight: 700; line-height: 1.6; padding-top: 3px; }
+.qn-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-right: 38px; }
+.qopt { border-radius: var(--r-sm); padding: 9px 14px; font-size: 12.5px; border: 1.5px solid var(--rule); display: flex; align-items: center; gap: 8px; }
+.qopt-lbl { font-family: var(--f-mono); font-size: 11px; font-weight: 800; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; }
+.qn-ans-line { height: 2px; border-radius: 1px; margin-top: 8px; opacity: .2; }
+.qn-ans-long { border-bottom: 1.5px dashed var(--rule); padding-bottom: 14px; margin-top: 6px; min-height: 40px; }
+
+.quiz-b { border-color: var(--blue); } .quiz-b .quiz-hd { background: linear-gradient(135deg,var(--blue-dk),var(--blue)); } .quiz-b .qn-num { background: var(--blue); } .quiz-b .qopt-lbl { background: var(--blue); } .quiz-b .qn-ans-line { background: var(--blue); }
+.quiz-g { border-color: var(--green); } .quiz-g .quiz-hd { background: linear-gradient(135deg,var(--green-dk),var(--green)); } .quiz-g .qn-num { background: var(--green); } .quiz-g .qopt-lbl { background: var(--green); } .quiz-g .qn-ans-line { background: var(--green); }
+.quiz-o { border-color: var(--orange); } .quiz-o .quiz-hd { background: linear-gradient(135deg,var(--orange-dk),var(--orange)); } .quiz-o .qn-num { background: var(--orange); } .quiz-o .qopt-lbl { background: var(--orange); } .quiz-o .qn-ans-line { background: var(--orange); }
+.quiz-p { border-color: var(--purple); } .quiz-p .quiz-hd { background: linear-gradient(135deg,var(--purple-dk),var(--purple)); } .quiz-p .qn-num { background: var(--purple); } .quiz-p .qopt-lbl { background: var(--purple); } .quiz-p .qn-ans-line { background: var(--purple); }
+
+/* ══════════════════════════════════════════════════════
+   ANALOGY STRIP
+══════════════════════════════════════════════════════ */
+.analogy { display: flex; align-items: center; gap: 0; padding: 10px 0; margin: 10px 0; }
+.an-box { flex: 1; text-align: center; padding: 12px 10px; border-radius: var(--r-sm); }
+.an-t { font-family: var(--f-mono); font-size: 9px; letter-spacing: 1px; margin-bottom: 4px; opacity: .6; font-weight: 700; }
+.an-d { font-size: 12.5px; font-weight: 700; line-height: 1.5; }
+.an-arr { font-size: 20px; color: var(--ink-5); padding: 0 8px; flex-shrink: 0; }
+.an-eq { font-family: var(--f-mono); font-size: 18px; font-weight: 900; padding: 0 12px; color: var(--ink-4); flex-shrink: 0; }
+
+/* Binary table */
+.bin-t { width: 100%; border-collapse: collapse; font-family: var(--f-mono); font-size: 12.5px; margin: 12px 0; }
+.bin-t th { background: var(--ink); color: #fff; padding: 9px 12px; text-align: center; font-size: 10px; letter-spacing: 1.5px; }
+.bin-t td { padding: 9px 12px; text-align: center; border-bottom: 1px solid var(--rule); }
+.bin-t tr:nth-child(even) td { background: var(--bg); }
+.bin-hl { color: var(--orange); font-weight: 900; font-size: 15px; }
+
+/* Memory closet visual */
+.closet { display: flex; gap: 3px; align-items: stretch; padding: 12px 0; flex-wrap: wrap; }
+.slot { border: 2px solid; border-radius: 4px; padding: 8px 5px; text-align: center; min-width: 36px; flex: 1; }
+.slot-n { font-family: var(--f-mono); font-size: 8px; opacity: .5; margin-bottom: 3px; }
+.slot-v { font-family: var(--f-mono); font-size: 13px; font-weight: 900; }
+.sl-b { border-color: var(--blue); } .sl-b .slot-v { color: var(--blue); }
+.sl-g { border-color: var(--green); } .sl-g .slot-v { color: var(--green); }
+.sl-o { border-color: var(--orange); } .sl-o .slot-v { color: var(--orange); }
+.sl-p { border-color: var(--purple); } .sl-p .slot-v { color: var(--purple); }
+.sl-off { background: #F0F0F0; border-color: #CCC; } .sl-off .slot-v { color: #999; }
+
+/* SDLC timeline */
+.sdlc { display: flex; gap: 0; align-items: center; margin: 14px 0; overflow: hidden; border-radius: var(--r-sm); }
+.sdlc-step { flex: 1; padding: 14px 10px; text-align: center; position: relative; }
+.sdlc-step::after { content: '❯'; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); font-size: 18px; color: rgba(255,255,255,.4); z-index: 1; }
+.sdlc-step:first-child::after { display: none; }
+.sdlc-ic { font-size: 24px; margin-bottom: 4px; }
+.sdlc-n { font-family: var(--f-mono); font-size: 8px; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; color: rgba(255,255,255,.6); }
+.sdlc-ar { font-size: 11px; font-weight: 800; color: #fff; }
+
+/* ══════════════════════════════════════════════════════
+   SEPARATOR
+══════════════════════════════════════════════════════ */
+.sep { height: 1px; background: var(--rule); margin: 4px 0; }
+
+/* ══════════════════════════════════════════════════════
+   BYTE INTRO CARD (Chapter 1 welcome)
+══════════════════════════════════════════════════════ */
+.byte-intro-card {
+  background: linear-gradient(135deg, #0A1940 0%, #1565C0 100%);
+  border-radius: var(--r);
+  padding: 24px 28px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(41,182,246,.35);
+  box-shadow: 0 6px 30px rgba(21,101,192,.25);
+}
+.byte-intro-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 90% 50%, rgba(41,182,246,.15) 0%, transparent 60%);
+}
+.byte-intro-avatar {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, #1976D2, #42A5F5);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+  border: 3px solid rgba(41,182,246,.5);
+  box-shadow: 0 0 24px rgba(41,182,246,.4);
+  position: relative;
+}
+.byte-intro-avatar::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(41,182,246,.3);
+  animation: byteSpinIntro 12s linear infinite;
+}
+@keyframes byteSpinIntro { to { transform: rotate(360deg); } }
+.byte-intro-text { position: relative; flex: 1; }
+.byte-intro-name-tag {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(41,182,246,.8);
+  background: rgba(41,182,246,.1);
+  border: 1px solid rgba(41,182,246,.25);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.byte-intro-headline {
+  font-size: 17px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.byte-intro-headline span { color: #29B6F6; }
+.byte-intro-body {
+  font-size: 13px;
+  line-height: 2;
+  color: rgba(255,255,255,.75);
+}
+.byte-intro-body strong {
+  color: #69F0AE;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  background: rgba(105,240,174,.1);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.byte-intro-badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.byte-intro-badge {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+.bib-b { background: rgba(21,101,192,.3); border-color: rgba(41,182,246,.4); color: #90CAF9; }
+.bib-g { background: rgba(46,125,50,.3); border-color: rgba(105,240,174,.4); color: #A5D6A7; }
+.bib-o { background: rgba(230,81,0,.3); border-color: rgba(255,171,64,.4); color: #FFCC80; }
+.bib-p { background: rgba(106,27,154,.3); border-color: rgba(224,64,251,.4); color: #CE93D8; }
+
+/* ══════════════════════════════════════════════════════
+   IMAGE PLACEHOLDER
+══════════════════════════════════════════════════════ */
+.img-placeholder {
+  background: #F5F7FA;
+  border: 2px dashed #C8D3E0;
+  border-radius: var(--r-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0;
+}
+.img-placeholder-icon {
+  width: 52px; height: 52px;
+  background: #E2E8F0;
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 1.5px dashed #B0BEC5;
+}
+.img-placeholder-text {}
+.img-placeholder-label {
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #90A4AE;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.img-placeholder-desc {
+  font-size: 12px;
+  color: #546E7A;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════
+   GRAND FINALE PAGE
+══════════════════════════════════════════════════════ */
+.finale-hd {
+  background: linear-gradient(150deg, #05102B 0%, #0A1940 50%, #0D1535 100%);
+  padding: 40px 50px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.finale-hd::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 50%, rgba(21,101,192,.3) 0%, transparent 50%);
+}
+.finale-hd-ic { font-size: 52px; position: relative; }
+.finale-hd-txt { position: relative; }
+.finale-hd-en { font-family: var(--f-mono); font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,.4); margin-bottom: 6px; }
+.finale-hd-ar { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px; }
+.finale-hd-sub { font-size: 13px; color: rgba(255,255,255,.5); }
+.finale-score { font-family: var(--f-mono); font-size: 13px; color: rgba(255,255,255,.4); margin-top: 8px; }
+.finale-score span { color: #69F0AE; font-weight: 900; }
+
+/* ══════════════════════════════════════════════════════
+   PRINT STYLES
+══════════════════════════════════════════════════════ */
+@media print {
+  body { background: #fff; }
+  .page { box-shadow: none; margin: 0; page-break-after: always; break-after: page; }
+  .ch-open { page-break-before: always; break-before: page; }
+  @page { size: A4; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║                    COVER PAGE                            ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-top">COMPUTER FOUNDATION CURRICULUM · 2026</div>
+  <div class="cover-robot">🤖</div>
+  <div class="cover-series">DIGITAL ADVENTURE SERIES — LEVEL 01</div>
+  <div class="cover-title-ar">منهج تأسيس الكمبيوتر</div>
+  <div class="cover-title-en">COMPUTER FOUNDATION: A DIGITAL ADVENTURE</div>
+  <div class="cover-divider"></div>
+  <div class="cover-chips">
+    <div class="cc cc-b">CH.01<span>Blue 🔵</span></div>
+    <div class="cc cc-g">CH.02<span>Green 🟢</span></div>
+    <div class="cc cc-o">CH.03<span>Orange 🟠</span></div>
+    <div class="cc cc-p">CH.04<span>Purple 🟣</span></div>
+  </div>
+  <div class="cover-foot">ZAHRA ESSAM</div>
+</div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║               TABLE OF CONTENTS                          ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="toc-wrap">
+  <div class="toc-hdr">
+    <div class="toc-hdr-ic">📋</div>
+    <div><h2>فهرس المحتويات</h2><p>Table of Contents — رحلتك الرقمية الكاملة</p></div>
+  </div>
+
+  <div class="toc-ch toc-b">
+    <div class="toc-ch-row"><div class="toc-ch-n">01</div><div class="toc-ch-inf"><div class="toc-ch-ar">مقدمة لعالم الكمبيوتر</div><div class="toc-ch-en">INTRODUCTION TO THE COMPUTER WORLD</div></div><div class="toc-badge">TECH BLUE</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">ما هو الكمبيوتر؟ الأقوى والأضعف</div><div class="toc-en">What is a Computer? Strengths vs. Humans</div></div></div><div class="toc-pg">04</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">الجسد والروح: Hardware وSoftware</div><div class="toc-en">Body & Soul: Hardware vs. Software</div></div></div><div class="toc-pg">06</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">العمليات الأربعة: دورة IPO</div><div class="toc-en">The 4 Operations: IPO Cycle</div></div></div><div class="toc-pg">09</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">البيانات vs. المعلومات</div><div class="toc-en">Data vs. Information</div></div></div><div class="toc-pg">11</div></div>
+    </div>
+  </div>
+
+  <div class="toc-ch toc-g">
+    <div class="toc-ch-row"><div class="toc-ch-n">02</div><div class="toc-ch-inf"><div class="toc-ch-ar">رحلة داخل لغة الكهرباء</div><div class="toc-ch-en">JOURNEY INSIDE THE LANGUAGE OF ELECTRICITY</div></div><div class="toc-badge">CYBER GREEN</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">التاريخ والترانزستور</div><div class="toc-en">History & Transistors</div></div></div><div class="toc-pg">15</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">السر الثنائي: Binary</div><div class="toc-en">The Binary Secret: 0s and 1s</div></div></div><div class="toc-pg">17</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">Bits & Bytes: خزانة الذاكرة</div><div class="toc-en">Bits & Bytes: The Memory Closet</div></div></div><div class="toc-pg">19</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المترجمون: Compiler & Interpreter</div><div class="toc-en">The Translators</div></div></div><div class="toc-pg">22</div></div>
+    </div>
+  </div>
+
+  <div class="toc-ch toc-o">
+    <div class="toc-ch-row"><div class="toc-ch-n">03</div><div class="toc-ch-inf"><div class="toc-ch-ar">فكّر كمبرمج — حل المشكلات</div><div class="toc-ch-en">THINK LIKE A PROGRAMMER — PROBLEM SOLVING</div></div><div class="toc-badge">LOGIC ORANGE</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">ما هي الخوارزمية؟</div><div class="toc-en">What is an Algorithm?</div></div></div><div class="toc-pg">26</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">أدوات المبرمج: Pseudocode و Flowcharts</div><div class="toc-en">Tools: Pseudocode & Flowcharts</div></div></div><div class="toc-pg">28</div></div>
+    </div>
+  </div>
+
+  <div class="toc-ch toc-p">
+    <div class="toc-ch-row"><div class="toc-ch-n">04</div><div class="toc-ch-inf"><div class="toc-ch-ar">أدوات المبرمج الصغير — SDLC</div><div class="toc-ch-en">YOUNG PROGRAMMER'S TOOLS — SDLC</div></div><div class="toc-badge">CODE PURPLE</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المتغيرات: الصناديق الموسومة</div><div class="toc-en">Variables: Labeled Boxes</div></div></div><div class="toc-pg">33</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">مفاهيم البرمجة: Conditions, Loops, Arrays, Functions</div><div class="toc-en">Programming Concepts</div></div></div><div class="toc-pg">36</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">دورة تطوير البرمجيات: SDLC</div><div class="toc-en">Software Development Life Cycle</div></div></div><div class="toc-pg">40</div></div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg);border-radius:var(--r-sm);padding:12px 18px;display:flex;align-items:center;gap:12px;margin-top:20px;border:1.5px dashed var(--rule);">
+    <span style="font-size:20px;">🏆</span>
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--ink-4);margin-bottom:3px;">GRAND FINALE</div>
+      <div style="font-size:14px;font-weight:800;">الامتحان الشامل النهائي — Grand Final Exam</div>
+    </div>
+    <div style="margin-right:auto;font-family:var(--f-mono);font-size:11px;opacity:.4;">P. 44</div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">فهرس</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║              CHAPTER 1 OPENER — BLUE                     ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-b">
+  <div class="ch-bg-num">01</div>
+  <div class="ch-ico">🖥️</div>
+  <div class="ch-tag">CHAPTER ONE · TECH BLUE</div>
+  <div class="ch-en">THE COMPUTER WORLD</div>
+  <div class="ch-ar">مقدمة لعالم الكمبيوتر</div>
+  <div class="ch-div" style="background:var(--blue)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--blue)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--blue)">▶</span>تعريف الكمبيوتر ومميزاته مقارنةً بالإنسان</li>
+      <li><span class="ch-arr" style="color:var(--blue)">▶</span>الفرق بين الـ Hardware والـ Software</li>
+      <li><span class="ch-arr" style="color:var(--blue)">▶</span>فهم دورة IPO وعملياتها الأربعة</li>
+      <li><span class="ch-arr" style="color:var(--blue)">▶</span>التمييز بين البيانات والمعلومات</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip">Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">3</div></div>
+</div>
+
+<!-- ─── CH1 · TOPIC 1.1: What is a Computer ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">ما هو الكمبيوتر؟</span></div><div class="ph-pg">04</div></div>
+
+  <!-- ★ BYTE INTRO CARD — صديق الاستكشاف -->
+  <div class="byte-intro-card">
+    <div class="byte-intro-avatar">🤖</div>
+    <div class="byte-intro-text">
+      <div class="byte-intro-name-tag">MEET YOUR GUIDE · تعرّف على مرشدك</div>
+      <div class="byte-intro-headline">أهلاً، أنا <span>Byte</span>! 👋 صديقك في رحلة الديجيتال</div>
+      <div class="byte-intro-body">
+        أنا روبوت ذكي اسمي <strong>Byte</strong>، وهكون معاك في كل صفحة من الكتاب ده! هفسّرلك كل حاجة بأسلوب سهل وممتع، وهبعتلك <strong>Pro-Tips</strong> سرية عن طريقة تفكير الكمبيوتر من جوّاه. جاهز؟ يلّا بينا نبدأ المغامرة! 🚀 — في كل فصل هتلاقيني بلون مختلف زي ما هتشوف:
+      </div>
+      <div class="byte-intro-badges">
+        <span class="byte-intro-badge bib-b">🔵 فصل 1 — الكمبيوتر</span>
+        <span class="byte-intro-badge bib-g">🟢 فصل 2 — الكهرباء</span>
+        <span class="byte-intro-badge bib-o">🟠 فصل 3 — البرمجة</span>
+        <span class="byte-intro-badge bib-p">🟣 فصل 4 — الأدوات</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="brain brain-b">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">إيه اللي بتعرفه عن الكمبيوتر؟ هوّ بس شاشة وكيبورد؟ ولا في حاجة تانية؟ جاوب الأول ثم اتفرج!</div></div>
+  </div>
+
+  <div class="lb lb-b">
+    <div class="lb-h"><div class="lb-h-ic">💻</div><div><div class="lb-en">TOPIC 1.1 · WHAT IS A COMPUTER?</div><div class="lb-ar">ما هو الكمبيوتر؟ الأقوى والأضعف</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-b">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--blue)">🤖</div><div class="byte-lbl" style="color:var(--blue)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">الكمبيوتر مش بس اللاب توب أو الديسك توب! أي <strong>Smart Device</strong> بيعالج البيانات هو كمبيوتر — التلفون، التابلت، حتى الـ <strong>Smart TV</strong>. الفكرة الأساسية: الكمبيوتر جهاز إلكتروني بيستقبل بيانات ويعالجها ويطلّع نتيجة. لكن في حاجة مهمة جداً: <strong>من غيرك مفيش!</strong> هو سريع ومش بيتعب، لكن من غير أوامرك — هو مجرد علبة معدن.</div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-b"><div class="cb-ic">🤖</div><div class="cb-t">COMPUTER STRENGTHS</div><div class="cb-d"><strong>السرعة</strong>: ينفّذ مليارات العمليات في الثانية.<br><strong>التخزين</strong>: يحفظ تريليونات الملفات بدون نسيان.<br><strong>الدقة</strong>: لا يخطئ في الحسابات أبداً.</div></div>
+          <div class="cb cb-b"><div class="cb-ic">🧑</div><div class="cb-t">HUMAN STRENGTHS</div><div class="cb-d"><strong>الإبداع</strong>: يخترع أفكاراً جديدة.<br><strong>المشاعر</strong>: يحسّ ويفهم السياق.<br><strong>الحكم</strong>: يتخذ قرارات ذكية في مواقف جديدة.</div></div>
+        </div>
+        <div class="tip tip-b"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">الكمبيوتر زي آلة حاسبة عملاقة — قوية جداً، لكن بس لما حد يوجّهها. <strong>أنت المايسترو</strong>، والكمبيوتر هو الأوركسترا كلها!</div></div></div>
+      </div>
+      <div class="dict dict-b">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Computer</div><div class="dar">الكمبيوتر — أي جهاز ذكي بيعالج بيانات</div></div>
+        <div class="ditem"><div class="den">Smart Device</div><div class="dar">جهاز ذكي — زي الموبايل والتابلت</div></div>
+        <div class="ditem"><div class="den">Data</div><div class="dar">بيانات — الخامة الخام قبل المعالجة</div></div>
+        <div class="ditem"><div class="den">Process</div><div class="dar">معالجة — الكمبيوتر بيشتغل على الداتا</div></div>
+        <div class="ditem"><div class="den">Speed</div><div class="dar">سرعة — الكمبيوتر بطل فيها</div></div>
+        <div class="ditem"><div class="den">Creativity</div><div class="dar">إبداع — دي ميزتك إنت!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-b">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · TOPIC 1.1</div><div class="lab-hd-ar">المختبر — فكّر وحل</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ هل الآيباد كمبيوتر؟ عدّد 3 أسباب.</div>
+          <div class="lab-a">نعم! لأن:<br>1. بيستقبل Input (من الشاشة اللمسية)<br>2. بيعالج البيانات (CPU داخله)<br>3. بيطلّع Output (الصور والصوت)</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ أذكر 3 مهام يتفوّق فيها الكمبيوتر عليك، و3 مهام تتفوّق فيها عليه.</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--blue)"></div><div class="ans-line" style="background:var(--blue)"></div><div class="ans-line" style="background:var(--blue)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">04</div></div>
+</div>
+
+<!-- ─── CH1 · TOPIC 1.2: Hardware vs Software ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">الجسد والروح: Hardware وSoftware</span></div><div class="ph-pg">06</div></div>
+
+  <div class="brain brain-b">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو عندك جهاز كمبيوتر بدون Windows أو أي برنامج — تقدر تعمل بيه إيه؟ فكّر قبل ما تكمّل!</div></div>
+  </div>
+
+  <div class="lb lb-b">
+    <div class="lb-h"><div class="lb-h-ic">⚡</div><div><div class="lb-en">TOPIC 1.2 · HARDWARE vs. SOFTWARE</div><div class="lb-ar">الجسد والروح — الأجزاء المادية والبرمجيات</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-b">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--blue)">🤖</div><div class="byte-lbl" style="color:var(--blue)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">تخيّل الكمبيوتر زي إنسان: <strong>Hardware</strong> = الجسد الملموس (اليدين، الدماغ، القلب). <strong>Software</strong> = الروح والعقل (الأفكار، المشاعر، القرارات). من غير Hardware، الـ Software مش عنده مكان يعيش فيه. ومن غير Software، الـ Hardware مجرد علبة. والـ <strong>Operating System</strong> زي "المدير الكبير" — هو اللي بيحكم كل حاجة!</div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-b"><div class="cb-ic">🔩</div><div class="cb-t">HARDWARE EXAMPLES</div><div class="cb-d">CPU · RAM · Hard Disk<br>Monitor · Keyboard · Mouse<br>GPU · Motherboard · Printer<br><em style="font-size:11px;color:var(--ink-4)">كل ما تقدر تلمسه بإيدك!</em></div></div>
+          <div class="cb cb-b"><div class="cb-ic">💿</div><div class="cb-t">SOFTWARE EXAMPLES</div><div class="cb-d">Windows · macOS · Android<br>Chrome · Word · Photoshop<br>Python · Games · Apps<br><em style="font-size:11px;color:var(--ink-4)">كل ما هو تعليمات ومنطق!</em></div></div>
+        </div>
+
+        <!-- IMAGE PLACEHOLDER: Hardware vs Software -->
+        <div class="img-placeholder">
+          <div class="img-placeholder-icon">🖼️</div>
+          <div class="img-placeholder-text">
+            <div class="img-placeholder-label">IMAGE PLACEHOLDER — صورة توضيحية</div>
+            <div class="img-placeholder-desc">رسم بياني مقسوم لنصفين: الجانب الأيمن يُظهر مكوّنات Hardware الملموسة (CPU، RAM، شاشة، كيبورد) بألوان زرقاء — والجانب الأيسر يُظهر أيقونات Software (Windows، Chrome، ألعاب) في فقاعة رقمية. في المنتصف سهم يشير لتكاملهما معاً.</div>
+          </div>
+        </div>
+
+        <div class="cb cb-dark" style="margin:10px 0">
+          <div class="cb-ic">👑</div>
+          <div class="cb-t">OPERATING SYSTEM — المدير الكبير</div>
+          <div class="cb-d" style="color:rgba(255,255,255,.75);">الـ OS (Operating System) هو برنامج بيشتغل فوق الـ Hardware مباشرةً، وبيدير كل البرامج التانية. بدونه، ما فيش برنامج يشتغل! أمثلة: <strong>Windows, macOS, Linux, Android, iOS</strong>. هو الوسيط بينك وبين الجهاز.</div>
+        </div>
+        <div class="tip tip-b"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">أسهل طريقة تتذكر الفرق: <strong>لو ممكن تودّيه على السيرفيس</strong> = Hardware. <strong>لو بتنزّله من الإنترنت</strong> = Software!</div></div></div>
+      </div>
+      <div class="dict dict-b">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Hardware</div><div class="dar">عتاد — الحاجات المادية اللي تلمسها</div></div>
+        <div class="ditem"><div class="den">Software</div><div class="dar">برمجيات — التعليمات والبرامج</div></div>
+        <div class="ditem"><div class="den">OS</div><div class="dar">نظام التشغيل — المدير الكبير</div></div>
+        <div class="ditem"><div class="den">CPU</div><div class="dar">المعالج — دماغ الكمبيوتر</div></div>
+        <div class="ditem"><div class="den">RAM</div><div class="dar">ذاكرة مؤقتة — المكتب اللي بتشتغل عليه</div></div>
+        <div class="ditem"><div class="den">Application</div><div class="dar">تطبيق — برنامج بيخدم غرض معيّن</div></div>
+        <div class="ditem"><div class="den">Driver</div><div class="dar">برنامج تشغيل الأجهزة</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-b">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · TOPIC 1.2</div><div class="lab-hd-ar">المختبر — فكّر وحل</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ صنّف: Screen / Firefox / RAM / Python</div>
+          <div class="lab-a">Screen → Hardware<br>Firefox → Software (App)<br>RAM → Hardware<br>Python → Software (Language)</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ صنّف الآتي: Keyboard · Windows · Printer · YouTube · GPU · Adobe Photoshop</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--blue)"></div><div class="ans-line" style="background:var(--blue)"></div><div class="ans-line" style="background:var(--blue)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">06</div></div>
+</div>
+
+<!-- ─── CH1 · TOPIC 1.3: IPO Cycle ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">العمليات الأربعة — دورة IPO</span></div><div class="ph-pg">09</div></div>
+
+  <div class="brain brain-b">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لما بتاكل — بتدخّل أكل، جسمك بيعالجه، وبيطلع طاقة. الكمبيوتر بيعمل نفس الحاجة بالظبط! إزّاي؟</div></div>
+  </div>
+
+  <div class="lb lb-b">
+    <div class="lb-h"><div class="lb-h-ic">🔄</div><div><div class="lb-en">TOPIC 1.3 · THE 4 OPERATIONS — IPO CYCLE</div><div class="lb-ar">العمليات الأربعة: الإدخال، المعالجة، الإخراج، التخزين</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-b">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--blue)">🤖</div><div class="byte-lbl" style="color:var(--blue)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">كل حاجة بيعملها الكمبيوتر بتمر بأربع مراحل زي الأكل والطاقة: <strong>Input</strong> (بتاكل) → <strong>Process</strong> (جسمك يهضم) → <strong>Output</strong> (طاقة وحركة) → <strong>Storage</strong> (شوية بتتخزّن كدهون 😂). نفس الحاجة بالظبط في الكمبيوتر!</div>
+        </div>
+        <div class="cg4">
+          <div class="cb cb-b"><div class="cb-ic">⬇️</div><div class="cb-t">INPUT</div><div class="cb-d">إدخال — ما تدخله للجهاز<br><small>كيبورد · ماوس · ميكروفون</small></div></div>
+          <div class="cb cb-b"><div class="cb-ic">⚙️</div><div class="cb-t">PROCESS</div><div class="cb-d">معالجة — الـ CPU يشتغل<br><small>حساب · تحليل · تنفيذ</small></div></div>
+          <div class="cb cb-b"><div class="cb-ic">⬆️</div><div class="cb-t">OUTPUT</div><div class="cb-d">إخراج — النتيجة النهائية<br><small>شاشة · سماعات · طابعة</small></div></div>
+          <div class="cb cb-b"><div class="cb-ic">💾</div><div class="cb-t">STORAGE</div><div class="cb-d">تخزين — حفظ النتائج<br><small>HDD · SSD · USB</small></div></div>
+        </div>
+        <div class="analogy">
+          <div class="an-box" style="background:var(--blue-lt)"><div class="an-t" style="color:var(--blue)">INPUT</div><div class="an-d">🍕 أكل</div></div>
+          <div class="an-arr">→</div>
+          <div class="an-box" style="background:var(--blue-lt)"><div class="an-t" style="color:var(--blue)">PROCESS</div><div class="an-d">🫀 هضم</div></div>
+          <div class="an-arr">→</div>
+          <div class="an-box" style="background:var(--blue-lt)"><div class="an-t" style="color:var(--blue)">OUTPUT</div><div class="an-d">⚡ طاقة</div></div>
+          <div class="an-arr">→</div>
+          <div class="an-box" style="background:var(--blue-lt)"><div class="an-t" style="color:var(--blue)">STORAGE</div><div class="an-d">💪 دهون!</div></div>
+        </div>
+      </div>
+      <div class="dict dict-b">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Input</div><div class="dar">إدخال — إيه اللي بندخّله</div></div>
+        <div class="ditem"><div class="den">Processing</div><div class="dar">معالجة — الكمبيوتر بيشتغل</div></div>
+        <div class="ditem"><div class="den">Output</div><div class="dar">إخراج — النتيجة اللي بنشوفها</div></div>
+        <div class="ditem"><div class="den">Storage</div><div class="dar">تخزين — حفظ النتائج</div></div>
+        <div class="ditem"><div class="den">IPO Cycle</div><div class="dar">دورة الإدخال-المعالجة-الإخراج</div></div>
+        <div class="ditem"><div class="den">CPU</div><div class="dar">وحدة المعالجة المركزية</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-b">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · TOPIC 1.3</div><div class="lab-hd-ar">المختبر — دورة IPO</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ لما بتكتب كلمة في Word وتحفظها — حدّد الـ 4 عمليات.</div>
+          <div class="lab-a">Input: ضغط الكيبورد<br>Process: CPU يحوّل الضغط لحرف<br>Output: الحرف يظهر على الشاشة<br>Storage: حفظ الملف على HDD</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ لما بتبعت voice message على واتساب — حدّد مرحلة الـ Input والـ Output.</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--blue)"></div><div class="ans-line" style="background:var(--blue)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">09</div></div>
+</div>
+
+<!-- ─── CH1 · TOPIC 1.4: Data vs Information ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">البيانات vs. المعلومات</span></div><div class="ph-pg">11</div></div>
+
+  <div class="brain brain-b">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">"25, Cairo, 95, Ahmed" — ده بيانات. لما تعرف إن Ahmed عنده 25 سنة وعاش في القاهرة وجاب 95 في الامتحان — ده معلومة! ليه؟</div></div>
+  </div>
+
+  <div class="lb lb-b">
+    <div class="lb-h"><div class="lb-h-ic">📊</div><div><div class="lb-en">TOPIC 1.4 · DATA vs. INFORMATION</div><div class="lb-ar">البيانات والمعلومات — الفرق المهم</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-b">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--blue)">🤖</div><div class="byte-lbl" style="color:var(--blue)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt"><strong>Data</strong> = أرقام وحروف خام من غير سياق. زي حبوب القمح.<br><strong>Information</strong> = البيانات بعد ما اتعالجت وبقى ليها معنى. زي الخبز اللي اتخبز من القمح.<br>المعادلة البسيطة: <strong>Data + Context + Processing = Information</strong></div>
+        </div>
+        <table class="comp-table">
+          <tr><th style="background:var(--blue)">البيانات (Data)</th><th style="background:var(--ink)">السياق (Context)</th><th style="background:var(--blue-dk)">المعلومة (Information)</th></tr>
+          <tr><td>85, 90, 70, 95</td><td>درجات امتحان</td><td><strong>متوسط الفصل = 85%</strong></td></tr>
+          <tr><td>01/01/2010</td><td>تاريخ ميلاد</td><td><strong>العمر = 15 سنة</strong></td></tr>
+          <tr><td>37.2</td><td>درجة حرارة</td><td><strong>الحرارة طبيعية ✓</strong></td></tr>
+          <tr><td>500, Cairo, 2hr</td><td>رحلة</td><td><strong>القاهرة على 500 كم · ساعتين</strong></td></tr>
+        </table>
+        <div class="tip tip-b"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">السر: <strong>Data</strong> مجرد حقائق خام. <strong>Information</strong> هي Data بعد ما حطّيت عليها معنى وسياق. الكمبيوتر بيشتغل على الـ Data، وإنت تاخد منه المعلومة!</div></div></div>
+      </div>
+      <div class="dict dict-b">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Data</div><div class="dar">بيانات — خامة خام، من غير معنى</div></div>
+        <div class="ditem"><div class="den">Information</div><div class="dar">معلومة — Data + معنى + سياق</div></div>
+        <div class="ditem"><div class="den">Context</div><div class="dar">سياق — الإطار اللي يعطي المعنى</div></div>
+        <div class="ditem"><div class="den">Database</div><div class="dar">قاعدة بيانات — مخزن البيانات</div></div>
+        <div class="ditem"><div class="den">Raw Data</div><div class="dar">بيانات خام — قبل أي معالجة</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 1 QUIZ -->
+  <div class="quiz quiz-b">
+    <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 1 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الأول — اختبر نفسك!</div></div></div>
+    <div class="quiz-body">
+      <div class="cg">
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">1</div><div class="qn-q">أي مما يلي يُعد Hardware؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div> Windows 11</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div> RAM</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div> Chrome</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div> Python</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">2</div><div class="qn-q">ما هو دور الـ Operating System؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div> تخزين الملفات</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div> إدارة Hardware والبرامج</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div> تصميم الواجهة</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div> البرمجة</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">3</div><div class="qn-q">في دورة IPO — ما هي مرحلة "الكيبورد"؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div> Output</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div> Process</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div> Input</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div> Storage</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">4</div><div class="qn-q">الفرق الأساسي بين الكمبيوتر والإنسان هو؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div> الكمبيوتر أسرع دائماً</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div> الإنسان يبدع والكمبيوتر ينفذ</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div> الكمبيوتر يفهم المشاعر</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div> لا فرق بينهما</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">5</div><div class="qn-q">حوّل الـ Data التالية لمعلومة: "98.6°F"</div></div>
+            <div class="qn-ans-long"></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">6</div><div class="qn-q">اذكر جهازين Input وجهازين Output من الكمبيوتر.</div></div>
+            <div class="qn-ans-long"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">11</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║              CHAPTER 2 OPENER — GREEN                    ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-g">
+  <div class="ch-bg-num">02</div>
+  <div class="ch-ico">⚡</div>
+  <div class="ch-tag" style="background:rgba(46,125,50,.12);color:var(--green);border:1px solid rgba(46,125,50,.2)">CHAPTER TWO · CYBER GREEN</div>
+  <div class="ch-en" style="color:var(--green-dk)">LANGUAGE OF ELECTRICITY</div>
+  <div class="ch-ar" style="color:var(--green)">رحلة داخل لغة الكهرباء</div>
+  <div class="ch-div" style="background:var(--green)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--green)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--green)">▶</span>فهم تاريخ الكمبيوتر من ENIAC للـ Transistor</li>
+      <li><span class="ch-arr" style="color:var(--green)">▶</span>استيعاب نظام الـ Binary وعلاقته بالكهرباء</li>
+      <li><span class="ch-arr" style="color:var(--green)">▶</span>فهم Bits و Bytes ووحدات القياس</li>
+      <li><span class="ch-arr" style="color:var(--green)">▶</span>معرفة دور الـ Compiler والـ Interpreter</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip" style="color:var(--green-dk)">م. زهرة عصام — Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">14</div></div>
+</div>
+
+<!-- ─── CH2 · TOPIC 2.1: History & Transistors ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">التاريخ والترانزستور</span></div><div class="ph-pg">15</div></div>
+
+  <div class="brain brain-g">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">تخيّل كمبيوتر بحجم غرفة كاملة — بيعمل اللي موبايلك بيعمله! إيه اللي غيّر الدنيا وخلّى الكمبيوتر يبقى في إيدك؟</div></div>
+  </div>
+
+  <div class="lb lb-g">
+    <div class="lb-h"><div class="lb-h-ic">🏛️</div><div><div class="lb-en">TOPIC 2.1 · HISTORY & TRANSISTORS</div><div class="lb-ar">التاريخ والترانزستور — من ENIAC للـ Chip</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-g">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--green)">🤖</div><div class="byte-lbl" style="color:var(--green)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">في 1945 عملوا أول كمبيوتر اسمه <strong>ENIAC</strong> — كان بحجم غرفة كبيرة، وزنه 30 طن، وبياكل كهرباء زي بيت كامل! ليه؟ لأنه كان مبني من لمبات الفراغ (<strong>Vacuum Tubes</strong>). بعدين في 1947 اخترعوا الـ <strong>Transistor</strong> — مفتاح كهربائي صغير جداً. ده اللي غيّر كل حاجة! دلوقتي في الـ CPU الواحد أكتر من <strong>مليار Transistor</strong> بحجم أصغر من الذرة!</div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-g"><div class="cb-ic">🏗️</div><div class="cb-t">ENIAC (1945)</div><div class="cb-d">الكمبيوتر الأول · بحجم غرفة · 30 طن · 18,000 Vacuum Tube · يحسب الحسابات العسكرية فقط</div></div>
+          <div class="cb cb-g"><div class="cb-ic">⚡</div><div class="cb-t">TRANSISTOR (1947)</div><div class="cb-d">مفتاح كهربائي صغير · يحلّ محل Vacuum Tube · ملايين منه في CPU واحد · صغير جداً جداً!</div></div>
+        </div>
+        <div class="cb cb-dark" style="margin:10px 0">
+          <div class="cb-d" style="color:rgba(255,255,255,.8);text-align:center;font-size:12.5px;">
+            الـ CPU في موبايلك الصغير ده يحتوي على أكتر من <strong style="color:#69F0AE;font-size:16px;">15,000,000,000</strong> ترانزستور!<br>كلهم أصغر من ذرة واحدة، وكل واحد منهم مفتاح ON/OFF بيشتغل مليارات المرات في الثانية.
+          </div>
+        </div>
+        <div class="tip tip-g"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">قانون مور (Moore's Law): كل سنتين عدد الـ Transistors في الـ CPU بيتضاعف! ده اللي بيخلي التكنولوجيا تتقدم بالسرعة دي كل سنة.</div></div></div>
+      </div>
+      <div class="dict dict-g">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">ENIAC</div><div class="dar">أول كمبيوتر — بحجم غرفة (1945)</div></div>
+        <div class="ditem"><div class="den">Vacuum Tube</div><div class="dar">لمبة الفراغ — المفتاح القديم</div></div>
+        <div class="ditem"><div class="den">Transistor</div><div class="dar">ترانزستور — المفتاح الصغير الحديث</div></div>
+        <div class="ditem"><div class="den">Silicon</div><div class="dar">سيليكون — مادة صنع الـ Chips</div></div>
+        <div class="ditem"><div class="den">Moore's Law</div><div class="dar">قانون مور — الـ Chips تتضاعف كل سنتين</div></div>
+        <div class="ditem"><div class="den">Chip</div><div class="dar">الرقاقة الإلكترونية</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">15</div></div>
+</div>
+
+<!-- ─── CH2 · TOPIC 2.2: Binary ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">السر الثنائي — Binary</span></div><div class="ph-pg">17</div></div>
+
+  <div class="brain brain-g">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">الكمبيوتر بيتكلم عربي؟ إنجليزي؟ لأ! بيتكلم لغة واحدة بس فيها رقمين فقط: 0 و1. ده ممكن؟!</div></div>
+  </div>
+
+  <div class="lb lb-g">
+    <div class="lb-h"><div class="lb-h-ic">0️⃣1️⃣</div><div><div class="lb-en">TOPIC 2.2 · THE BINARY SECRET — 0s AND 1s</div><div class="lb-ar">السر الثنائي — لغة الكهرباء: 0 و1</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-g">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--green)">🤖</div><div class="byte-lbl" style="color:var(--green)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">الكمبيوتر ما بيفهمش عربي ولا إنجليزي! هو بيحسّ بس بحاجتين: <strong>فيه كهرباء (ON = 1)</strong> أو <strong>مفيش كهرباء (OFF = 0)</strong>. كل حرف بتكتبه، كل صورة بتبعتها، كل لعبة بتلعبها — كلها في النهاية <strong>صفرات ووحدات</strong> بيتحوّلوا لنبضات كهربائية جوّا الـ Transistors!</div>
+        </div>
+        <div class="analogy">
+          <div class="an-box" style="background:var(--green-lt)"><div class="an-t" style="color:var(--green)">مفتاح إضاءة</div><div class="an-d">💡 ON<br>= 1</div></div>
+          <div class="an-eq">=</div>
+          <div class="an-box" style="background:var(--green-lt)"><div class="an-t" style="color:var(--green)">Transistor</div><div class="an-d">⚡ كهرباء<br>= 1</div></div>
+          <div class="an-arr" style="padding:0 20px">و</div>
+          <div class="an-box" style="background:#F5F5F5"><div class="an-t" style="color:#888">مفتاح مطفي</div><div class="an-d">🌑 OFF<br>= 0</div></div>
+          <div class="an-eq">=</div>
+          <div class="an-box" style="background:#F5F5F5"><div class="an-t" style="color:#888">بلا كهرباء</div><div class="an-d">⚫ بلا كهرباء<br>= 0</div></div>
+        </div>
+        <table class="bin-t">
+          <tr><th>الرقم العشري (Decimal)</th><th>الثنائي (Binary)</th><th>مثال بالـ Transistors</th></tr>
+          <tr><td>0</td><td class="bin-hl">0000</td><td>OFF OFF OFF OFF</td></tr>
+          <tr><td>1</td><td class="bin-hl">0001</td><td>OFF OFF OFF ON</td></tr>
+          <tr><td>5</td><td class="bin-hl">0101</td><td>OFF ON OFF ON</td></tr>
+          <tr><td>10</td><td class="bin-hl">1010</td><td>ON OFF ON OFF</td></tr>
+          <tr><td>15</td><td class="bin-hl">1111</td><td>ON ON ON ON</td></tr>
+        </table>
+      </div>
+      <div class="dict dict-g">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Binary</div><div class="dar">نظام ثنائي — بس 0 و1</div></div>
+        <div class="ditem"><div class="den">ON / OFF</div><div class="dar">شغّال / مطفي = 1 / 0</div></div>
+        <div class="ditem"><div class="den">Decimal</div><div class="dar">النظام العشري — أرقامنا العادية</div></div>
+        <div class="ditem"><div class="den">Voltage</div><div class="dar">جهد كهربائي — يمثّل الـ 1</div></div>
+        <div class="ditem"><div class="den">Base-2</div><div class="dar">النظام الثنائي — أساسه 2</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-g">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · BINARY</div><div class="lab-hd-ar">المختبر — العب بالـ Binary</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ حوّل الرقم 6 للـ Binary.</div>
+          <div class="lab-a">6 = 4 + 2<br>= 1×4 + 1×2 + 0×1<br>Binary = <strong>0110</strong></div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ حوّل الأرقام التالية للـ Binary: 3 و 7 و 12</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--green)"></div><div class="ans-line" style="background:var(--green)"></div><div class="ans-line" style="background:var(--green)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">17</div></div>
+</div>
+
+<!-- ─── CH2 · TOPIC 2.3: Bits & Bytes ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">Bits & Bytes — خزانة الذاكرة</span></div><div class="ph-pg">19</div></div>
+
+  <div class="brain brain-g">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو عندك خزانة ملابس فيها 8 خانات صغيرة — كل خانة فيها إما تيشيرت أو فراغ. كم مجموعة ملابس مختلفة تقدر تعمل؟</div></div>
+  </div>
+
+  <div class="lb lb-g">
+    <div class="lb-h"><div class="lb-h-ic">🗄️</div><div><div class="lb-en">TOPIC 2.3 · BITS & BYTES — THE MEMORY CLOSET</div><div class="lb-ar">Bits و Bytes — خزانة الذاكرة والوحدات</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-g">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--green)">🤖</div><div class="byte-lbl" style="color:var(--green)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">تخيّل الذاكرة زي خزانة ملابس عملاقة. كل خانة صغيرة فيها ممكن تحوت تيشيرت أو تبقى فاضية — ده اسمه <strong>Bit</strong> (واحدة من 0 أو 1). لما بتجمع <strong>8 Bits مع بعض</strong> بتعمل <strong>Byte</strong> واحدة — وكل Byte تقدر تخزّن <strong>حرف واحد</strong> زي "A" أو "م"!</div>
+        </div>
+        <div style="background:var(--green-lt);border-radius:var(--r-sm);padding:14px;margin:10px 0;">
+          <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--green);margin-bottom:8px;">MEMORY CLOSET — خزانة الذاكرة · حرف "A" = 01000001</div>
+          <div class="closet">
+            <div class="slot sl-off"><div class="slot-n">Bit 1</div><div class="slot-v">0</div></div>
+            <div class="slot sl-g"><div class="slot-n">Bit 2</div><div class="slot-v">1</div></div>
+            <div class="slot sl-off"><div class="slot-n">Bit 3</div><div class="slot-v">0</div></div>
+            <div class="slot sl-off"><div class="slot-n">Bit 4</div><div class="slot-v">0</div></div>
+            <div class="slot sl-off"><div class="slot-n">Bit 5</div><div class="slot-v">0</div></div>
+            <div class="slot sl-off"><div class="slot-n">Bit 6</div><div class="slot-v">0</div></div>
+            <div class="slot sl-off"><div class="slot-n">Bit 7</div><div class="slot-v">0</div></div>
+            <div class="slot sl-g"><div class="slot-n">Bit 8</div><div class="slot-v">1</div></div>
+          </div>
+          <div style="text-align:center;font-family:var(--f-mono);font-size:11px;color:var(--green-dk);margin-top:6px;">8 Bits = 1 Byte = حرف "A" واحد</div>
+        </div>
+
+        <!-- IMAGE PLACEHOLDER: 8 Bits → 1 Byte Closet Analogy -->
+        <div class="img-placeholder">
+          <div class="img-placeholder-icon">🗄️</div>
+          <div class="img-placeholder-text">
+            <div class="img-placeholder-label">IMAGE PLACEHOLDER — صورة توضيحية</div>
+            <div class="img-placeholder-desc">رسم كرتوني لخزانة ملابس خضراء اللون فيها 8 خانات أفقية — 6 منها فارغة (= 0) و2 فيها تيشيرت (= 1). تحت الخزانة نتيجة: "0 1 0 0 0 0 0 1 = حرف A". السهم على اليمين يشير لحرف "A" كبير بخط جميل.</div>
+          </div>
+        </div>
+
+        <div class="cg">
+          <div class="cb cb-g">
+            <div class="cb-ic">📏</div>
+            <div class="cb-t">UNITS OF MEMORY</div>
+            <div class="cb-d" style="font-family:var(--f-mono);font-size:12px;line-height:2.2;">
+              8 Bits = 1 <strong>Byte</strong> (حرف واحد)<br>
+              1024 Bytes = 1 <strong>KB</strong> (كيلوبايت)<br>
+              1024 KB = 1 <strong>MB</strong> (ميجابايت)<br>
+              1024 MB = 1 <strong>GB</strong> (جيجابايت)<br>
+              1024 GB = 1 <strong>TB</strong> (تيرابايت)
+            </div>
+          </div>
+          <div class="cb cb-g">
+            <div class="cb-ic">🌍</div>
+            <div class="cb-t">REAL LIFE SIZES</div>
+            <div class="cb-d">رسالة واتساب ≈ بضع KB<br>صورة سيلفي ≈ 3-5 MB<br>فيلم سينما ≈ 1-4 GB<br>هارد قديم ≈ 500 GB<br>Cloud Storage ≈ TBs</div>
+          </div>
+        </div>
+      </div>
+      <div class="dict dict-g">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Bit</div><div class="dar">أصغر وحدة — 0 أو 1 فقط</div></div>
+        <div class="ditem"><div class="den">Byte</div><div class="dar">بايت — 8 Bits = حرف واحد</div></div>
+        <div class="ditem"><div class="den">KB (Kilobyte)</div><div class="dar">كيلوبايت = 1024 بايت</div></div>
+        <div class="ditem"><div class="den">MB (Megabyte)</div><div class="dar">ميجابايت = صورة تقريباً</div></div>
+        <div class="ditem"><div class="den">GB (Gigabyte)</div><div class="dar">جيجابايت = فيلم تقريباً</div></div>
+        <div class="ditem"><div class="den">TB (Terabyte)</div><div class="dar">تيرابايت = ألف جيجا!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-g">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · BITS & BYTES</div><div class="lab-hd-ar">المختبر — الحسابات</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ كلمة "Hi" بتأخذ كم Byte؟</div>
+          <div class="lab-a">H = 1 Byte<br>i = 1 Byte<br>المجموع = 2 Bytes = 16 Bits</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ كم Bit تحتاج لتخزين كلمة "Egypt"؟ وكم MB تحتاج لـ 1,000 صورة بحجم 4MB لكل صورة؟</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--green)"></div><div class="ans-line" style="background:var(--green)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">19</div></div>
+</div>
+
+<!-- ─── CH2 · TOPIC 2.4: Compiler & Interpreter + Quiz ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">المترجمون: Compiler & Interpreter</span></div><div class="ph-pg">22</div></div>
+
+  <div class="brain brain-g">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو كلّمت حد بالفرنساوي وهو مش فاهم — محتاج حد يترجمله. الكمبيوتر نفس الحكاية — بيفهم Binary بس، وإحنا بنكتب Python. مين اللي بيترجم؟!</div></div>
+  </div>
+
+  <div class="lb lb-g">
+    <div class="lb-h"><div class="lb-h-ic">🔄</div><div><div class="lb-en">TOPIC 2.4 · THE TRANSLATORS — COMPILER & INTERPRETER</div><div class="lb-ar">المترجمون — من الكود للـ Binary</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-g">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--green)">🤖</div><div class="byte-lbl" style="color:var(--green)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">تخيّل كده: إنت بتكتب أوامرك للكمبيوتر بلغة سهلة زي Python، بس الكمبيوتر مفهمش غير الـ <strong>Binary</strong> (صفرات ووحدات). فمين اللي يترجم؟ في حاجة اسمها <strong>Compiler</strong> — بيشيل الكود كله، يترجمه كله دفعة واحدة، وبعدين يشغّله. زي ما تترجم كتاب كامل الأول، وبعدين تقرأه. وفي كمان <strong>Interpreter</strong> — بيترجم سطر بسطر وهو ماشي، زي مترجم فوري بيترجم وأنت بتتكلم. Python تستخدم Interpreter — عشان كده بتشوف النتيجة فوراً لما تكتب سطر!</div>
+        </div>
+        <div class="analogy">
+          <div class="an-box" style="background:var(--green-lt)"><div class="an-t" style="color:var(--green)">COMPILER</div><div class="an-d">📚 مترجم كتاب<br><small>يترجم الكل أولاً<br>ثم تقرأ</small></div></div>
+          <div class="an-arr" style="padding:0 20px;font-size:26px;color:var(--ink-4)">VS</div>
+          <div class="an-box" style="background:var(--green-lt)"><div class="an-t" style="color:var(--green)">INTERPRETER</div><div class="an-d">🎙️ مترجم فوري<br><small>يترجم جملة<br>بجملة</small></div></div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-g"><div class="cb-ic">⚡</div><div class="cb-t">COMPILER</div><div class="cb-d">يترجم الكود كله مرة واحدة → ملف تنفيذي سريع. أمثلة: C++, Java. الميزة: <strong>سرعة عالية</strong> وقت التشغيل.</div></div>
+          <div class="cb cb-g"><div class="cb-ic">🔄</div><div class="cb-t">INTERPRETER</div><div class="cb-d">يترجم سطر بسطر لحظة التشغيل. أمثلة: Python, JavaScript. الميزة: <strong>مرونة</strong> وسهولة الاختبار.</div></div>
+        </div>
+        <div class="tip tip-g"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">Python بتستخدم Interpreter — ده اللي بيخليه سهل للتعلّم. لما بتكتب سطر وتشغّله، بتشوف النتيجة فوراً! C++ بتستخدم Compiler — أسرع بكتير لكن بتحتاج تكمّل الكود كله قبل ما تشوف النتيجة.</div></div></div>
+      </div>
+      <div class="dict dict-g">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Binary Code</div><div class="dar">كود ثنائي — لغة الكمبيوتر الأصلية</div></div>
+        <div class="ditem"><div class="den">Assembly</div><div class="dar">لغة التجميع — بين Binary والبشر</div></div>
+        <div class="ditem"><div class="den">High-Level</div><div class="dar">لغة عالية المستوى — Python, Java</div></div>
+        <div class="ditem"><div class="den">Compiler</div><div class="dar">مترجم كلّي — يترجم مرة واحدة</div></div>
+        <div class="ditem"><div class="den">Interpreter</div><div class="dar">مترجم فوري — سطر بسطر</div></div>
+        <div class="ditem"><div class="den">Source Code</div><div class="dar">الكود الأصلي اللي تكتبه</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 2 QUIZ -->
+  <div class="quiz quiz-g">
+    <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 2 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الثاني</div></div></div>
+    <div class="quiz-body">
+      <div class="cg">
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">1</div><div class="qn-q">ما الذي اخترع عام 1947 وغيّر عالم الحوسبة؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">أ</div>الإنترنت</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ب</div>الترانزستور</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ج</div>البايت</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">د</div>Python</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">2</div><div class="qn-q">كم Bit يساوي 1 Byte؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">أ</div>4</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ب</div>16</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ج</div>8</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">د</div>2</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">3</div><div class="qn-q">ما هو Binary للرقم 3؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">أ</div>1010</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ب</div>0011</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ج</div>0110</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">د</div>1100</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">4</div><div class="qn-q">Python تستخدم أي نوع من المترجمين؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">أ</div>Compiler</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ب</div>Interpreter</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ج</div>Assembly</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">د</div>Binary</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">5</div><div class="qn-q">كام GB تساوي 1 TB؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">أ</div>100</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ب</div>512</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">ج</div>1024</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--green)">د</div>2048</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--green)">6</div><div class="qn-q">اشرح الفرق بين Compiler و Interpreter بمثال.</div></div>
+            <div class="qn-ans-long"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">22</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║              CHAPTER 3 OPENER — ORANGE                   ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-o">
+  <div class="ch-bg-num">03</div>
+  <div class="ch-ico">🧩</div>
+  <div class="ch-tag">CHAPTER THREE · LOGIC ORANGE</div>
+  <div class="ch-en" style="color:var(--orange-dk)">THINK LIKE A PROGRAMMER</div>
+  <div class="ch-ar" style="color:var(--orange)">فكّر كمبرمج — حل المشكلات</div>
+  <div class="ch-div" style="background:var(--orange)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--orange)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--orange)">▶</span>تعريف الـ Algorithm وخصائصه</li>
+      <li><span class="ch-arr" style="color:var(--orange)">▶</span>كتابة Pseudocode بشكل منطقي وهرمي</li>
+      <li><span class="ch-arr" style="color:var(--orange)">▶</span>رسم Flowcharts بالرموز الصحيحة</li>
+      <li><span class="ch-arr" style="color:var(--orange)">▶</span>تحويل مشكلة يومية لـ Algorithm قابل للتنفيذ</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip" style="color:var(--orange-dk);opacity:.5">م. زهرة عصام — Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">25</div></div>
+</div>
+
+<!-- ─── CH3 · TOPIC 3.1: Algorithm ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-o"><div class="ph-l"><div class="ph-tag">CH.03 · ORANGE</div><span class="ph-title">ما هي الخوارزمية؟</span></div><div class="ph-pg">26</div></div>
+
+  <div class="brain brain-o">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو حد طلب منك "اعمل كوباية شاي" — هتقوله الخطوات إيه؟ قولها بدقة، لأن الكمبيوتر مش بيفهم "اعمل شاي" — محتاج كل خطوة بالتفصيل!</div></div>
+  </div>
+
+  <div class="lb lb-o">
+    <div class="lb-h"><div class="lb-h-ic">🧮</div><div><div class="lb-en">TOPIC 3.1 · WHAT IS AN ALGORITHM?</div><div class="lb-ar">ما هي الخوارزمية؟ — وصفة الحل</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-o">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--orange)">🤖</div><div class="byte-lbl" style="color:var(--orange)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">تخيّل إنك عايز تعمل كوباية شاي. لو قلت "اعمل شاي" — ده مش كافي! الكمبيوتر محتاج <strong>كل خطوة</strong> بالتفصيل. الـ <strong>Algorithm</strong> هو وصفة الحل — مجموعة خطوات مرتّبة ودقيقة، لو اتبعتها صح، هتحل المشكلة كل مرة بدون غلط. زي وصفة الكيكة بالظبط — "حطّ كوباية دقيق" أحسن من "حطّ دقيق كتير"! الـ Algorithm لازم يكون: <strong>واضح · بيخلّص · صح · يشتغل مع أي حاجة</strong>.</div>
+        </div>
+        <div class="cg4">
+          <div class="cb cb-o"><div class="cb-ic">🎯</div><div class="cb-t">CLEAR</div><div class="cb-d">واضحة — كل خطوة محددة ومش فيها لبس</div></div>
+          <div class="cb cb-o"><div class="cb-ic">🔚</div><div class="cb-t">FINITE</div><div class="cb-d">منتهية — لازم توقف في نقطة معيّنة</div></div>
+          <div class="cb cb-o"><div class="cb-ic">✅</div><div class="cb-t">CORRECT</div><div class="cb-d">صحيحة — بتحل المشكلة الصح</div></div>
+          <div class="cb cb-o"><div class="cb-ic">🌍</div><div class="cb-t">GENERAL</div><div class="cb-d">عامة — بتشتغل مع أي input</div></div>
+        </div>
+        <div class="code-box">
+          <div class="code-hd cb-hd-o"><div class="code-hd-ic">☕</div><div><div class="code-hd-en">ALGORITHM EXAMPLE — PSEUDOCODE</div><div class="code-hd-ar">خوارزمية عمل كوباية شاي</div></div></div>
+          <div class="code-body">
+<span class="ln"><span class="kw">ALGORITHM</span> MakeTea</span>
+<span class="ln"><span class="kw">BEGIN</span></span>
+<span class="ln i1">  <span class="num">1.</span> <span class="var">kettle</span> ← <span class="fn">FillWithWater</span>(cup_amount)</span>
+<span class="ln i1">  <span class="num">2.</span> <span class="fn">PlaceOnHeat</span>(kettle)</span>
+<span class="ln i1">  <span class="num">3.</span> <span class="kw">WAIT</span> <span class="kw">UNTIL</span> water.isBoiling = <span class="kw">TRUE</span></span>
+<span class="ln i1">  <span class="num">4.</span> <span class="fn">AddTeaBag</span>(cup)</span>
+<span class="ln i1">  <span class="num">5.</span> <span class="fn">PourBoilingWater</span>(cup)</span>
+<span class="ln i1">  <span class="num">6.</span> <span class="kw">WAIT</span> 3 minutes</span>
+<span class="ln i1">  <span class="num">7.</span> <span class="fn">RemoveTeaBag</span>(cup)</span>
+<span class="ln i1">  <span class="num">8.</span> <span class="kw">IF</span> user.wantsSugar <span class="kw">THEN</span> <span class="fn">AddSugar</span>(cup)</span>
+<span class="ln i1">  <span class="num">9.</span> <span class="kw">RETURN</span> cup <span class="cmt">-- ☕ استمتع!</span></span>
+<span class="ln"><span class="kw">END</span></span>
+          </div>
+        </div>
+        <div class="tip tip-o"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">الـ Algorithm ما هوش كود! هو التفكير المنطقي قبل الكود. المبرمجون المحترفين بيفضلوا وقت أطول في التفكير والـ Algorithm، والكود يبقى سريع بعدها.</div></div></div>
+      </div>
+      <div class="dict dict-o">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Algorithm</div><div class="dar">خوارزمية — وصفة الحل خطوة بخطوة</div></div>
+        <div class="ditem"><div class="den">Pseudocode</div><div class="dar">شبه كود — بلغة بشر مش بلغة برمجة</div></div>
+        <div class="ditem"><div class="den">Step</div><div class="dar">خطوة — جزء واحد من الحل</div></div>
+        <div class="ditem"><div class="den">Logic</div><div class="dar">منطق — ترتيب الخطوات صح</div></div>
+        <div class="ditem"><div class="den">Precision</div><div class="dar">دقة — مش "شوية سكر"، قُل "ملعقة"!</div></div>
+        <div class="ditem"><div class="den">Input / Output</div><div class="dar">مدخل / مخرج الـ Algorithm</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">26</div></div>
+</div>
+
+<!-- ─── CH3 · TOPIC 3.2: Pseudocode & Flowcharts ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-o"><div class="ph-l"><div class="ph-tag">CH.03 · ORANGE</div><span class="ph-title">Pseudocode و Flowcharts — أدوات التفكير</span></div><div class="ph-pg">28</div></div>
+
+  <div class="brain brain-o">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو محتاج توصّل حد لبيتك — تبعته رسالة مكتوبة بالخطوات، ولا تبعتله خريطة؟ مبرمجون بيعملوا الاتنين — إيه الفرق؟</div></div>
+  </div>
+
+  <div class="lb lb-o">
+    <div class="lb-h"><div class="lb-h-ic">🗺️</div><div><div class="lb-en">TOPIC 3.2 · PSEUDOCODE & FLOWCHARTS</div><div class="lb-ar">Pseudocode والـ Flowcharts — أدوات رسم الحل</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-o">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--orange)">🤖</div><div class="byte-lbl" style="color:var(--orange)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">قبل ما تكتب كود حقيقي، المبرمج بيفكّر الأول بإحدى طريقتين! الأولى هي الـ <strong>Pseudocode</strong> — بتكتب الخطوات بكلام عادي زي "اطلب رقم من المستخدم" و"لو الرقم أكبر من 10 قوله مبروك" — مش كود، بس منطق واضح. الثانية هي الـ <strong>Flowchart</strong> — بترسم الخطوات على شكل صناديق وسهام وماسات. كل شكل له معنى. الاتنين بيساعدوك تفكّر وتحل المشكلة <em>قبل</em> ما تفتح الكمبيوتر!</div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-o"><div class="cb-ic">📝</div><div class="cb-t">FLOWCHART SYMBOLS</div><div class="cb-d">⬭ Oval = البداية / النهاية<br>⬜ Rectangle = عملية / Process<br>◇ Diamond = قرار / Decision<br>→ Arrow = اتجاه التدفق<br>⬡ Parallelogram = Input / Output</div></div>
+          <div class="cb cb-o"><div class="cb-ic">✏️</div><div class="cb-t">PSEUDOCODE RULES</div><div class="cb-d">كل خطوة في سطر منفصل<br>استخدم KEYWORDS بالإنجليزي<br>الـ Indentation مهم جداً<br>كن دقيقاً ومحدداً<br>لا تستخدم كود حقيقي</div></div>
+        </div>
+      </div>
+      <div class="dict dict-o">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Flowchart</div><div class="dar">مخطط تدفق — رسم بصري للـ Algorithm</div></div>
+        <div class="ditem"><div class="den">Pseudocode</div><div class="dar">شبه كود — كتابة منطقية بلغة بشر</div></div>
+        <div class="ditem"><div class="den">Decision</div><div class="dar">قرار — سؤال بإجابة نعم/لا</div></div>
+        <div class="ditem"><div class="den">Iteration</div><div class="dar">تكرار — عمل نفس الحاجة أكثر من مرة</div></div>
+        <div class="ditem"><div class="den">Condition</div><div class="dar">شرط — IF true THEN do something</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLVED FLOWCHART: Morning Routine -->
+  <div class="flow-box">
+    <div class="flow-hd flow-hd-o"><div class="code-hd-ic">✅</div><div><div class="flow-hd-en">SOLVED FLOWCHART — MORNING ROUTINE</div><div class="flow-hd-ar">خريطة تدفق محلولة: الروتين الصباحي</div></div></div>
+    <div class="flow-body">
+      <div class="frow">
+        <div class="fn-start">▶ START — الاستيقاظ</div>
+        <div class="farr">↓</div>
+        <div class="fn-proc fnp-o">قم واغسل وجهك</div>
+        <div class="farr">↓</div>
+        <div class="fn-proc fnp-o" style="border-color:var(--orange)">⬦ هل الجو بارد؟</div>
+        <div class="fbranch">
+          <div class="fbr-arm">
+            <div class="fbr-lbl yes">نعم ✓</div>
+            <div class="farr">↓</div>
+            <div class="fn-proc fnp-g" style="font-size:11.5px;">البِس ملابس دافئة</div>
+          </div>
+          <div class="fbr-arm">
+            <div class="fbr-lbl no">لا ✗</div>
+            <div class="farr">↓</div>
+            <div class="fn-proc" style="color:var(--orange-dk);font-size:11.5px;">البِس ملابس خفيفة</div>
+          </div>
+        </div>
+        <div class="farr">↓</div>
+        <div class="fn-proc fnp-o" style="border-color:var(--orange)">كُل فطارك</div>
+        <div class="farr">↓</div>
+        <div class="fn-end">■ END — اتجه للمدرسة</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab lab-o">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · FLOWCHARTS</div><div class="lab-hd-ar">المختبر — ارسم الخريطة</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ Pseudocode — تسجيل الدخول</div>
+        <div class="lab-sol-body">
+          <div class="lab-a">BEGIN Login<br>  INPUT username, password<br>  IF credentials.correct THEN<br>    DISPLAY "Welcome!"<br>  ELSE<br>    DISPLAY "Wrong!"<br>  ENDIF<br>END</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 ارسم Flowchart</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ ارسم Flowchart لـ: "فحص إذا كان الطالب ناجح أم راسب — الدرجة >= 50 = ناجح"</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--orange)"></div><div class="ans-line" style="background:var(--orange)"></div><div class="ans-line" style="background:var(--orange)"></div><div class="ans-line" style="background:var(--orange)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 3 QUIZ -->
+  <div class="quiz quiz-o">
+    <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 3 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الثالث</div></div></div>
+    <div class="quiz-body">
+      <div class="cg">
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">1</div><div class="qn-q">ما هو الشكل الصحيح لرمز "القرار" في الـ Flowchart؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">أ</div>مستطيل</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">ب</div>بيضاوي</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">ج</div>معيّن ◇</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">د</div>دائرة</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">2</div><div class="qn-q">الـ Algorithm لازم يكون؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">أ</div>بالإنجليزي</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">ب</div>واضح ومنتهٍ وصحيح</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">ج</div>مكتوب بلغة برمجة</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--orange)">د</div>قصير دائماً</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">3</div><div class="qn-q">الفرق بين Pseudocode والـ Flowchart؟</div></div>
+            <div class="qn-ans-long"></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">4</div><div class="qn-q">اكتب Pseudocode لإيجاد أكبر عددين.</div></div>
+            <div class="qn-ans-long" style="min-height:60px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">28</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║              CHAPTER 4 OPENER — PURPLE                   ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-p">
+  <div class="ch-bg-num">04</div>
+  <div class="ch-ico">🛠️</div>
+  <div class="ch-tag">CHAPTER FOUR · CODE PURPLE</div>
+  <div class="ch-en" style="color:var(--purple-dk)">YOUNG PROGRAMMER'S TOOLS</div>
+  <div class="ch-ar" style="color:var(--purple)">أدوات المبرمج الصغير — SDLC</div>
+  <div class="ch-div" style="background:var(--purple)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--purple)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--purple)">▶</span>فهم مفهوم الـ Variables والـ Data Types</li>
+      <li><span class="ch-arr" style="color:var(--purple)">▶</span>استيعاب مفاهيم If/Else, Loops, Arrays, Functions</li>
+      <li><span class="ch-arr" style="color:var(--purple)">▶</span>معرفة مراحل SDLC كاملةً</li>
+      <li><span class="ch-arr" style="color:var(--purple)">▶</span>إدراك أن الكود هو خطوة واحدة من SDLC</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip" style="color:var(--purple-dk);opacity:.4">م. زهرة عصام — Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">32</div></div>
+</div>
+
+<!-- ─── CH4 · TOPIC 4.1: Variables ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">المتغيرات — الصناديق الموسومة</span></div><div class="ph-pg">33</div></div>
+
+  <div class="brain brain-p">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">تخيّل عندك خزانة فيها صناديق وكل صندوق عليه ورقة بكلمة: "اسمي" أو "عمري" أو "درجتي". ده بالظبط إيه اللي الكمبيوتر بيعمله جوّاه!</div></div>
+  </div>
+
+  <div class="lb lb-p">
+    <div class="lb-h"><div class="lb-h-ic">📦</div><div><div class="lb-en">TOPIC 4.1 · VARIABLES — LABELED BOXES IN MEMORY</div><div class="lb-ar">المتغيرات — الصناديق الموسومة في الذاكرة</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-p">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--purple)">🤖</div><div class="byte-lbl" style="color:var(--purple)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">الـ <strong>Variable</strong> هو صندوق في الـ RAM عليه اسم ويحفظ قيمة معيّنة. البرنامج ممكن يغيّر القيمة دي في أي وقت. زي ما عندك صندوق "درجتي" فيه 85 النهارده، وبكره يبقى 90. كل Variable عنده <strong>اسم</strong> و<strong>نوع</strong> و<strong>قيمة</strong>.</div>
+        </div>
+        <div class="cg">
+          <div class="cb cb-p">
+            <div class="cb-ic">🏷️</div><div class="cb-t">DATA TYPES</div>
+            <div class="cb-d" style="font-family:var(--f-mono);font-size:11.5px;line-height:2.1;">
+              <strong>Integer</strong> → عدد صحيح: age = 15<br>
+              <strong>Float</strong> → عدد عشري: price = 9.99<br>
+              <strong>String</strong> → نص: name = "Zahra"<br>
+              <strong>Boolean</strong> → صح/خطأ: isStudent = True<br>
+              <strong>Char</strong> → حرف واحد: grade = 'A'
+            </div>
+          </div>
+          <div class="cb cb-p">
+            <div class="cb-ic">🗄️</div><div class="cb-t">MEMORY CLOSET — في الـ RAM</div>
+            <div style="margin-top:8px">
+              <div class="closet">
+                <div class="slot sl-p"><div class="slot-n">name</div><div class="slot-v" style="font-size:9px;">"Zahra"</div></div>
+                <div class="slot sl-p"><div class="slot-n">age</div><div class="slot-v">15</div></div>
+                <div class="slot sl-p"><div class="slot-n">score</div><div class="slot-v">95</div></div>
+                <div class="slot sl-off"><div class="slot-n">empty</div><div class="slot-v">—</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-hd cb-hd-p"><div class="code-hd-ic">📝</div><div><div class="code-hd-en">PSEUDOCODE — VARIABLES</div><div class="code-hd-ar">تعريف واستخدام المتغيرات</div></div></div>
+          <div class="code-body">
+<span class="ln"><span class="cmt">-- تعريف المتغيرات</span></span>
+<span class="ln"><span class="kw">DECLARE</span> <span class="var">studentName</span> <span class="kw">AS</span> String ← <span class="str">"Zahra"</span></span>
+<span class="ln"><span class="kw">DECLARE</span> <span class="var">studentAge</span>  <span class="kw">AS</span> Integer ← <span class="num">15</span></span>
+<span class="ln"><span class="kw">DECLARE</span> <span class="var">examScore</span>   <span class="kw">AS</span> Float ← <span class="num">95.5</span></span>
+<span class="ln"><span class="kw">DECLARE</span> <span class="var">isPassed</span>    <span class="kw">AS</span> Boolean ← <span class="kw">TRUE</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="cmt">-- استخدامها</span></span>
+<span class="ln"><span class="kw">PRINT</span> <span class="str">"مرحباً، أنا "</span> + <span class="var">studentName</span></span>
+<span class="ln"><span class="kw">PRINT</span> <span class="str">"درجتي: "</span> + <span class="var">examScore</span></span>
+          </div>
+        </div>
+        <div class="tip tip-p"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">سمّي الـ Variables بأسماء واضحة! <strong>studentAge</strong> أحسن بكتير من <strong>x</strong>. كودك المنظّم ده اللي بيفرّق بين مبتدئ ومحترف!</div></div></div>
+      </div>
+      <div class="dict dict-p">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Variable</div><div class="dar">متغير — صندوق بيخزّن قيمة</div></div>
+        <div class="ditem"><div class="den">Integer</div><div class="dar">عدد صحيح — 1, 2, 100, -5</div></div>
+        <div class="ditem"><div class="den">Float</div><div class="dar">عدد عشري — 3.14, 9.99</div></div>
+        <div class="ditem"><div class="den">String</div><div class="dar">نص — "أي كلام بين علامتين"</div></div>
+        <div class="ditem"><div class="den">Boolean</div><div class="dar">True أو False — بس</div></div>
+        <div class="ditem"><div class="den">DECLARE</div><div class="dar">تعريف متغير جديد</div></div>
+        <div class="ditem"><div class="den">Assignment (←)</div><div class="dar">إسناد قيمة للمتغير</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">33</div></div>
+</div>
+
+<!-- ─── CH4 · TOPIC 4.2: Programming Concepts ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">مفاهيم البرمجة: If/Else, Loops, Arrays, Functions</span></div><div class="ph-pg">36</div></div>
+
+  <div class="brain brain-p">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو برنامجك محتاج ينفّذ نفس الحاجة 1000 مرة — هتكتب 1000 سطر؟ أو لو محتاج يأخذ قرار بناءً على شرط — هيعمل إيه؟</div></div>
+  </div>
+
+  <div class="lb lb-p">
+    <div class="lb-h"><div class="lb-h-ic">💡</div><div><div class="lb-en">TOPIC 4.2 · PROGRAMMING CONCEPTS</div><div class="lb-ar">مفاهيم البرمجة الأساسية</div></div></div>
+    <div class="lb-body-full">
+      <div class="cg">
+        <!-- IF/ELSE -->
+        <div>
+          <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">🔀</div><div class="cb-t">IF / ELSE — القرارات</div><div class="cb-d">بتسأل الكمبيوتر سؤال: "هل الشرط صح؟" لو آه — نفّذ كده. لو لأ — نفّذ كده تاني.</div></div>
+          <div class="code-box">
+            <div class="code-hd cb-hd-p"><div class="code-hd-ic">🔀</div><div><div class="code-hd-ar">IF / ELSE Pseudocode</div></div></div>
+            <div class="code-body" style="font-size:11.5px">
+<span class="ln"><span class="kw">IF</span> score >= <span class="num">50</span> <span class="kw">THEN</span></span>
+<span class="ln i1">  <span class="kw">PRINT</span> <span class="str">"ناجح 🎉"</span></span>
+<span class="ln"><span class="kw">ELSE IF</span> score >= <span class="num">40</span> <span class="kw">THEN</span></span>
+<span class="ln i1">  <span class="kw">PRINT</span> <span class="str">"إعادة 😟"</span></span>
+<span class="ln"><span class="kw">ELSE</span></span>
+<span class="ln i1">  <span class="kw">PRINT</span> <span class="str">"راسب ❌"</span></span>
+<span class="ln"><span class="kw">END IF</span></span>
+            </div>
+          </div>
+        </div>
+        <!-- LOOPS -->
+        <div>
+          <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">🔄</div><div class="cb-t">LOOPS — التكرار</div><div class="cb-d">بدل ما تكتب نفس الكود 100 مرة — بقوله "كرّر اللي جوّاك 100 مرة"! FOR loop و WHILE loop.</div></div>
+          <div class="code-box">
+            <div class="code-hd cb-hd-p"><div class="code-hd-ic">🔄</div><div><div class="code-hd-ar">LOOP Pseudocode</div></div></div>
+            <div class="code-body" style="font-size:11.5px">
+<span class="ln"><span class="cmt">-- FOR: عد من 1 لـ 5</span></span>
+<span class="ln"><span class="kw">FOR</span> i ← <span class="num">1</span> <span class="kw">TO</span> <span class="num">5</span> <span class="kw">DO</span></span>
+<span class="ln i1">  <span class="kw">PRINT</span> <span class="str">"الرقم: "</span> + i</span>
+<span class="ln"><span class="kw">END FOR</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="cmt">-- WHILE: طالما</span></span>
+<span class="ln"><span class="kw">WHILE</span> lives > <span class="num">0</span> <span class="kw">DO</span></span>
+<span class="ln i1">  <span class="fn">playGame</span>()</span>
+<span class="ln"><span class="kw">END WHILE</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cg">
+        <!-- ARRAYS -->
+        <div>
+          <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">📋</div><div class="cb-t">ARRAYS — صندوق القائمة</div><div class="cb-d">بدل ما تعمل متغير لكل طالب — بتعمل Array واحدة فيها كل الأسماء! كل عنصر له رقم (Index) يبدأ من 0.</div></div>
+          <div class="code-box">
+            <div class="code-hd cb-hd-p"><div class="code-hd-ic">📋</div><div><div class="code-hd-ar">ARRAY Pseudocode</div></div></div>
+            <div class="code-body" style="font-size:11.5px">
+<span class="ln"><span class="kw">DECLARE</span> students[<span class="num">3</span>] <span class="kw">AS</span> String</span>
+<span class="ln">students[<span class="num">0</span>] ← <span class="str">"Zahra"</span></span>
+<span class="ln">students[<span class="num">1</span>] ← <span class="str">"Ahmed"</span></span>
+<span class="ln">students[<span class="num">2</span>] ← <span class="str">"Sara"</span></span>
+<span class="ln"><span class="kw">PRINT</span> students[<span class="num">0</span>] <span class="cmt">-- "Zahra"</span></span>
+            </div>
+          </div>
+        </div>
+        <!-- FUNCTIONS -->
+        <div>
+          <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">⚙️</div><div class="cb-t">FUNCTIONS — الماكينة القابلة لإعادة الاستخدام</div><div class="cb-d">كود بتكتبه مرة واحدة وتستدعيه كتير! بيأخذ Input وبيرجّع Output. اكتب مرة، استخدم ألف مرة!</div></div>
+          <div class="code-box">
+            <div class="code-hd cb-hd-p"><div class="code-hd-ic">⚙️</div><div><div class="code-hd-ar">FUNCTION Pseudocode</div></div></div>
+            <div class="code-body" style="font-size:11.5px">
+<span class="ln"><span class="kw">FUNCTION</span> <span class="fn">calcAverage</span>(a, b, c)</span>
+<span class="ln i1">  total ← a + b + c</span>
+<span class="ln i1">  avg ← total / <span class="num">3</span></span>
+<span class="ln i1">  <span class="kw">RETURN</span> avg</span>
+<span class="ln"><span class="kw">END FUNCTION</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="cmt">-- استدعاء</span></span>
+<span class="ln">result ← <span class="fn">calcAverage</span>(<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tip tip-p"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt"><strong>Functions</strong> هي سر الكود النظيف! بدل ما تكتب نفس الكود 10 مرات، اعمله Function مرة واحدة واستدعيه. ده اللي بيفرّق بين beginner وpro!</div></div></div>
+    </div>
+  </div>
+
+  <div class="lab lab-p">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · PROGRAMMING CONCEPTS</div><div class="lab-hd-ar">المختبر — طبّق مفاهيم البرمجة</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ اكتب Function تحسب مساحة مستطيل.</div>
+          <div class="lab-a">FUNCTION calcArea(length, width)<br>  area ← length * width<br>  RETURN area<br>END FUNCTION</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ اكتب Pseudocode لـ Array من 5 درجات واستخدم FOR Loop لإيجاد المجموع.</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--purple)"></div><div class="ans-line" style="background:var(--purple)"></div><div class="ans-line" style="background:var(--purple)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">36</div></div>
+</div>
+
+<!-- ─── CH4 · TOPIC 4.3: SDLC ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">دورة تطوير البرمجيات — SDLC</span></div><div class="ph-pg">40</div></div>
+
+  <div class="brain brain-p">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو عايز تبني عمارة — هتبدأ مباشرةً بالبناء؟ أو محتاج تخطّط وتصمّم أول؟ نفس الكلام في البرمجة!</div></div>
+  </div>
+
+  <div class="lb lb-p">
+    <div class="lb-h"><div class="lb-h-ic">🚀</div><div><div class="lb-en">TOPIC 4.3 · SDLC — SOFTWARE DEVELOPMENT LIFE CYCLE</div><div class="lb-ar">دورة حياة تطوير البرمجيات — SDLC</div></div></div>
+    <div class="lb-body-full">
+      <div class="byte-box bb-p">
+        <div class="byte-hd"><div class="byte-av" style="background:var(--purple)">🤖</div><div class="byte-lbl" style="color:var(--purple)">BYTE SAYS · بايت بيقول</div></div>
+        <div class="byte-txt">الـ <strong>SDLC</strong> هو الرحلة الكاملة لعمل برنامج من الفكرة للتسليم. معظم الناس بتفتكر إن البرمجة = كتابة كود فقط. لأ! الكود ده بس مرحلة <strong>واحدة</strong> من <strong>خمس مراحل</strong>! المبرمج المحترف بيفضل ٪60 من وقته في التخطيط والتصميم والاختبار — مش في الكود!</div>
+      </div>
+      <div class="sdlc">
+        <div class="sdlc-step" style="background:var(--blue)"><div class="sdlc-ic">📋</div><div class="sdlc-n">PLANNING</div><div class="sdlc-ar">تخطيط</div></div>
+        <div class="sdlc-step" style="background:var(--green)"><div class="sdlc-ic">🔍</div><div class="sdlc-n">ANALYSIS</div><div class="sdlc-ar">تحليل</div></div>
+        <div class="sdlc-step" style="background:var(--orange)"><div class="sdlc-ic">✏️</div><div class="sdlc-n">DESIGN</div><div class="sdlc-ar">تصميم</div></div>
+        <div class="sdlc-step" style="background:var(--purple)"><div class="sdlc-ic">💻</div><div class="sdlc-n">CODING</div><div class="sdlc-ar">برمجة</div></div>
+        <div class="sdlc-step" style="background:var(--ink)"><div class="sdlc-ic">🧪</div><div class="sdlc-n">TESTING</div><div class="sdlc-ar">اختبار</div></div>
+      </div>
+      <div class="cg3" style="margin-top:14px">
+        <div class="cb cb-p"><div class="cb-ic">📋</div><div class="cb-t">1. PLANNING</div><div class="cb-d">إيه المشكلة؟ إيه الهدف؟ كام وقت ومصاريف؟ هل الفكرة ممكنة؟</div></div>
+        <div class="cb cb-p"><div class="cb-ic">🔍</div><div class="cb-t">2. ANALYSIS</div><div class="cb-d">محتاج إيه بالظبط؟ مين المستخدمين؟ إيه المتطلبات؟ (Requirements)</div></div>
+        <div class="cb cb-p"><div class="cb-ic">✏️</div><div class="cb-t">3. DESIGN</div><div class="cb-d">رسم الواجهة وقاعدة البيانات وتصميم Architecture البرنامج.</div></div>
+        <div class="cb cb-p"><div class="cb-ic">💻</div><div class="cb-t">4. CODING</div><div class="cb-d">تحويل الـ Design لكود حقيقي. ده بس خطوة واحدة!</div></div>
+        <div class="cb cb-p"><div class="cb-ic">🧪</div><div class="cb-t">5. TESTING</div><div class="cb-d">جرّب البرنامج. دوّر على Bugs. تأكد إن كل حاجة شغّالة صح.</div></div>
+        <div class="cb cb-dark"><div class="cb-ic">🔄</div><div class="cb-t" style="color:rgba(255,255,255,.7)">MAINTENANCE</div><div class="cb-d" style="color:rgba(255,255,255,.6);">بعد التسليم — تحديثات وإصلاح مشاكل. البرنامج مستمر!</div></div>
+      </div>
+      <div class="tip tip-p"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">أشهر غلطة بيعملها المبرمج المبتدئ: يبدأ بالكود مباشرةً! المحترف بيفضل <strong>أكتر وقت في Planning وAnalysis</strong>. كل ساعة في التخطيط توفّر عليك 10 ساعات في إصلاح الأخطاء!</div></div></div>
+    </div>
+  </div>
+
+  <div class="lab lab-p">
+    <div class="lab-hd"><div class="lab-hd-ic">🔬</div><div><div class="lab-hd-en">THE LAB · SDLC</div><div class="lab-hd-ar">المختبر — طبّق الـ SDLC</div></div></div>
+    <div class="lab-body">
+      <div class="lab-solved">
+        <div class="lab-sol-hd">✅ مثال محلول</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ أي مرحلة SDLC تتعلق بـ "رسم شاشات التطبيق"؟</div>
+          <div class="lab-a">مرحلة الـ Design — حيث نرسم الـ UI/UX وWireframes قبل الكود.</div>
+        </div>
+      </div>
+      <div class="lab-task">
+        <div class="lab-task-hd">🤔 فكّر وحل</div>
+        <div class="lab-sol-body">
+          <div class="lab-q">❓ عايز تعمل App لحجز موعد دكتور — حدّد مرحلة واحدة من الـ SDLC واشرحها للـ App ده.</div>
+          <div class="ans-lines"><div class="ans-line" style="background:var(--purple)"></div><div class="ans-line" style="background:var(--purple)"></div><div class="ans-line" style="background:var(--purple)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 4 QUIZ -->
+  <div class="quiz quiz-p">
+    <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 4 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الرابع</div></div></div>
+    <div class="quiz-body">
+      <div class="cg">
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">1</div><div class="qn-q">ما نوع البيانات المناسب لاسم الطالب؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">أ</div>Integer</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ب</div>Float</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ج</div>String</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">د</div>Boolean</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">2</div><div class="qn-q">الـ SDLC تتكوّن من كام مرحلة؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">أ</div>3</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ب</div>4</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ج</div>5</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">د</div>7</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">3</div><div class="qn-q">Index الأول في الـ Array بيكون؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">أ</div>1</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ب</div>-1</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ج</div>0</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">د</div>أي رقم</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">4</div><div class="qn-q">ما ميزة الـ Functions في البرمجة؟</div></div>
+            <div class="qn-opts">
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">أ</div>تخزين الصور</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ب</div>إعادة استخدام الكود</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">ج</div>تصميم الواجهة</div>
+              <div class="qopt"><div class="qopt-lbl" style="background:var(--purple)">د</div>تحويل Binary</div>
+            </div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">5</div><div class="qn-q">اكتب Pseudocode لحلقة FOR تطبع الأرقام من 1 لـ 10.</div></div>
+            <div class="qn-ans-long" style="min-height:60px"></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--purple)">6</div><div class="qn-q">لماذا يُقال إن الـ Coding مرحلة واحدة فقط في SDLC؟</div></div>
+            <div class="qn-ans-long"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">40</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║             GRAND FINAL EXAM                             ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="finale-hd">
+  <div class="finale-hd-ic">🏆</div>
+  <div class="finale-hd-txt">
+    <div class="finale-hd-en">GRAND FINAL EXAM</div>
+    <div class="finale-hd-ar">الامتحان الشامل النهائي</div>
+    <div class="finale-hd-sub">اختبر معرفتك الكاملة من الفصول الأربعة!</div>
+    <div class="finale-score">الدرجة الكلية: <span>50 درجة</span> | الوقت: <span>60 دقيقة</span></div>
+  </div>
+</div>
+<div class="cp" style="padding-top:24px">
+  <!-- SECTION A: MCQ -->
+  <div class="quiz quiz-b" style="border-color:var(--blue)">
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--blue-dk),var(--blue))"><div class="quiz-hd-ic">🔵</div><div><div class="quiz-hd-en">SECTION A — MULTIPLE CHOICE (20 Marks)</div><div class="quiz-hd-ar">قسم أ — اختيار من متعدد (20 درجة)</div></div></div>
+    <div class="quiz-body">
+      <div class="cg">
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">1</div><div class="qn-q">الـ RAM هي مثال على؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Software</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Hardware</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Algorithm</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Flowchart</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">2</div><div class="qn-q">أي مما يلي يُمثّل Binary للرقم 5؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>1100</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>0101</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>1010</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>0110</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">3</div><div class="qn-q">كم Byte تساوي الكلمة "Cairo"؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>4 Bytes</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>5 Bytes</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>6 Bytes</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>40 Bytes</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">4</div><div class="qn-q">الـ Flowchart بيستخدم المعيّن ◇ لـ؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>عملية</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>بداية</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>قرار</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>تخزين</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">5</div><div class="qn-q">أي لغة برمجة تستخدم Compiler؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Python</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>JavaScript</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>C++</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Ruby</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">6</div><div class="qn-q">أول كمبيوتر في العالم اسمه؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>UNIVAC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>ENIAC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>IBM PC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Apple I</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">7</div><div class="qn-q">الـ Boolean يحمل؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>أعداد فقط</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>نصوص</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>True أو False</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>صور</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">8</div><div class="qn-q">الـ SDLC يبدأ بأي مرحلة؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Coding</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Testing</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Planning</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Design</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">9</div><div class="qn-q">Index الثالث في Array = ؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Index [3]</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Index [2]</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Index [1]</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Index [0]</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">10</div><div class="qn-q">الكمبيوتر يفهم فقط نظام؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Decimal</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Hexadecimal</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Binary</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Octal</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION B: Short Answers -->
+  <div class="quiz" style="border-color:var(--green)">
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--green-dk),var(--green))"><div class="quiz-hd-ic">🟢</div><div><div class="quiz-hd-en">SECTION B — SHORT ANSWERS (15 Marks)</div><div class="quiz-hd-ar">قسم ب — إجابات قصيرة (15 درجة)</div></div></div>
+    <div class="quiz-body">
+      <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">1</div><div class="qn-q">اشرح دورة IPO بمثال من حياتك اليومية. (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
+      <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">2</div><div class="qn-q">ما الفرق بين Data والـ Information؟ مع مثال. (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
+      <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">3</div><div class="qn-q">لماذا يحتاج الكمبيوتر لـ Transistors؟ وما الصلة بينها وبين Binary؟ (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
+      <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">4</div><div class="qn-q">ما هي خصائص الـ Algorithm الجيد الأربعة؟ (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
+      <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">5</div><div class="qn-q">اذكر مراحل الـ SDLC بالترتيب وفسّر لماذا الكود مرحلة واحدة فقط. (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">44</div></div>
+</div>
+
+<!-- ─── GRAND FINAL EXAM — PAGE 2 ─── -->
+<div class="page">
+<div class="cp" style="padding-top:36px">
+
+  <!-- SECTION C: Practical -->
+  <div class="quiz" style="border-color:var(--orange)">
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--orange-dk),var(--orange))"><div class="quiz-hd-ic">🟠</div><div><div class="quiz-hd-en">SECTION C — PRACTICAL APPLICATIONS (15 Marks)</div><div class="quiz-hd-ar">قسم ج — تطبيقات عملية (15 درجة)</div></div></div>
+    <div class="quiz-body">
+      <div class="qn">
+        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">1</div><div class="qn-q">اكتب Pseudocode لـ Algorithm يطلب رقم من المستخدم ويحدد إذا كان زوجي أم فردي. (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:120px"></div>
+      </div>
+      <div class="qn">
+        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">2</div><div class="qn-q">ارسم Flowchart لبرنامج يحوّل الدرجة لحرف: A (90+)، B (80-89)، C (70-79)، D (60-69)، F (أقل من 60). (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:180px"></div>
+      </div>
+      <div class="qn">
+        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">3</div><div class="qn-q">اكتب Function بـ Pseudocode اسمها calculateSum تأخذ Array من 5 أعداد وترجع مجموعهم. (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:130px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORE CARD -->
+  <div style="background:var(--ink);border-radius:var(--r);padding:22px 28px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;text-align:center">
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">STUDENT NAME</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px"></div>
+    </div>
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION A</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--blue-ac);font-size:11px">/ 20</div>
+    </div>
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION B</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--green-ac);font-size:11px">/ 15</div>
+    </div>
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION C</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--orange-ac);font-size:11px">/ 15</div>
+    </div>
+    <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1.5px solid rgba(255,255,255,.1)">
+      <div style="font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5)">TOTAL SCORE</div>
+      <div style="font-family:var(--f-mono);font-size:18px;font-weight:700;color:#fff">_____ / 50</div>
+      <div style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,.4)">GRADE: _____</div>
+    </div>
+  </div>
+
+  <!-- CLOSING BYTE MESSAGE -->
+  <div style="background:linear-gradient(135deg,#05102B,#0A1940);border-radius:var(--r);padding:28px 32px;display:flex;align-items:center;gap:20px;margin-top:8px">
+    <div style="font-size:56px;flex-shrink:0">🤖</div>
+    <div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:rgba(100,180,255,.5);margin-bottom:8px">BYTE'S FINAL MESSAGE</div>
+      <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:6px">بايت بيقول: مبروووووك! 🎉</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8;">كملت أصعب رحلة في عالم التقنية! من أول ما الكمبيوتر ده عبارة إيه، لحد ما عرفت تكتب Algorithm وتفهم Binary والـ SDLC. <strong style="color:#69F0AE;">ده مش نهاية — ده البداية الحقيقية!</strong> دلوقتي عندك الأساس اللي كل مبرمج في العالم بنى عليه. الخطوة الجاية؟ افتح Python وابدأ تكتب كود حقيقي!</div>
+    </div>
+  </div>
+
+  <!-- AUTHOR CREDIT -->
+  <div style="text-align:center;padding:16px;background:var(--bg);border-radius:var(--r-sm);margin-top:8px;border:1.5px solid var(--rule)">
+    <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:var(--ink-5);margin-bottom:4px">AUTHORED & DESIGNED BY</div>
+    <div style="font-size:17px;font-weight:900;color:var(--ink)">م. زهرة عصام — Eng. Zahra Essam</div>
+    <div style="font-family:var(--f-mono);font-size:11px;color:var(--ink-4);margin-top:3px;direction:ltr">zahraaessam223@gmail.com</div>
+    <div style="font-size:12px;color:var(--ink-5);margin-top:6px;font-style:italic">إهداء إلى د. عبدالله حبشي — Dedicated to Dr. Abdullah Habashy</div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">46</div></div>
+</div>
+
+</body>
+</html>
