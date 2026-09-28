@@ -6,9 +6,9 @@
 <meta name="author" content="Eng. Zahra Essam">
 <meta name="contact" content="zahraaessam223@gmail.com">
 <meta name="copyright" content="Copyright © 2026 Zahra Essam — All Rights Reserved">
-<meta name="description" content="منهج تأسيس الكمبيوتر: مغامرة في عالم الديجيتال — تأليف: م. زهرة عصام">
-<meta name="keywords" content="تأسيس الكمبيوتر, برمجة للأطفال, تعليم تقنية, زهرة عصام">
-<title>منهج تأسيس الكمبيوتر | م. زهرة عصام</title>
+<meta name="description" content="منهج تأسيس الكمبيوتر الكامل: مغامرة في عالم الديجيتال + Problem Solving — تأليف: م. زهرة عصام">
+<meta name="keywords" content="تأسيس الكمبيوتر, برمجة للأطفال, تعليم تقنية, زهرة عصام, Problem Solving, Python">
+<title>منهج تأسيس الكمبيوتر الكامل | م. زهرة عصام</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════════════
@@ -19,6 +19,8 @@
   --green:       #2E7D32;  --green-2: #388E3C;  --green-lt: #E8F5E9;  --green-dk: #1B4D1E;  --green-ac: #69F0AE;
   --orange:      #E65100;  --orange-2:#F57C00;  --orange-lt:#FFF3E0;  --orange-dk:#7F2900;  --orange-ac:#FFAB40;
   --purple:      #6A1B9A;  --purple-2:#7B1FA2;  --purple-lt:#F3E5F5;  --purple-dk:#3E0060;  --purple-ac:#E040FB;
+  --teal:        #00897B;  --teal-lt: #E0F2F1;  --teal-dk: #004D40;  --teal-ac: #4DB6AC;
+  --red:         #C62828;  --red-lt:  #FFEBEE;  --red-dk:  #7F0000;  --red-ac:  #EF5350;
 
   --ink:   #0F1923;
   --ink-2: #1C2B3A;
@@ -208,6 +210,8 @@ body {
 .cc-g { background: rgba(46,125,50,.3); border: 1px solid rgba(105,240,174,.4); color: #A5D6A7; }
 .cc-o { background: rgba(230,81,0,.3); border: 1px solid rgba(255,171,64,.4); color: #FFCC80; }
 .cc-p { background: rgba(106,27,154,.3); border: 1px solid rgba(224,64,251,.4); color: #CE93D8; }
+.cc-t { background: rgba(0,137,123,.3); border: 1px solid rgba(77,182,172,.4); color: #80CBC4; }
+.cc-r { background: rgba(198,40,40,.3); border: 1px solid rgba(239,83,80,.4); color: #EF9A9A; }
 
 .cover-author-card {
   background: rgba(255,255,255,.06);
@@ -285,6 +289,8 @@ body {
 .toc-g .toc-ch-row { background: var(--green-lt); } .toc-g .toc-ch-ar { color: var(--green-dk); } .toc-g .toc-ch-en { color: var(--green); } .toc-g .toc-ch-n { color: var(--green); } .toc-g .toc-badge { background: var(--green); color: #fff; } .toc-g .toc-dot { background: var(--green); }
 .toc-o .toc-ch-row { background: var(--orange-lt); } .toc-o .toc-ch-ar { color: var(--orange-dk); } .toc-o .toc-ch-en { color: var(--orange); } .toc-o .toc-ch-n { color: var(--orange); } .toc-o .toc-badge { background: var(--orange); color: #fff; } .toc-o .toc-dot { background: var(--orange); }
 .toc-p .toc-ch-row { background: var(--purple-lt); } .toc-p .toc-ch-ar { color: var(--purple-dk); } .toc-p .toc-ch-en { color: var(--purple); } .toc-p .toc-ch-n { color: var(--purple); } .toc-p .toc-badge { background: var(--purple); color: #fff; } .toc-p .toc-dot { background: var(--purple); }
+.toc-t .toc-ch-row { background: var(--teal-lt); } .toc-t .toc-ch-ar { color: var(--teal-dk); } .toc-t .toc-ch-en { color: var(--teal); } .toc-t .toc-ch-n { color: var(--teal); } .toc-t .toc-badge { background: var(--teal); color: #fff; } .toc-t .toc-dot { background: var(--teal); }
+.toc-r .toc-ch-row { background: var(--red-lt); } .toc-r .toc-ch-ar { color: var(--red-dk); } .toc-r .toc-ch-en { color: var(--red); } .toc-r .toc-ch-n { color: var(--red); } .toc-r .toc-badge { background: var(--red); color: #fff; } .toc-r .toc-dot { background: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    CHAPTER OPENER
@@ -332,7 +338,6 @@ body {
 .op-b .ch-en,.op-b .ch-bg-num,.op-b .ch-ar { color: var(--blue-dk); }
 .op-b .ch-div { background: var(--blue); }
 .op-b .ch-card h3,.op-b .ch-arr { color: var(--blue); }
-.op-b .ch-author-strip { color: var(--blue-dk); opacity: .35; }
 
 .op-g { background: linear-gradient(135deg,#D4F5DC,#B8ECC3,#9FE0AE); }
 .op-g .ch-tag { background: rgba(46,125,50,.12); color: var(--green); border: 1px solid rgba(46,125,50,.2); }
@@ -352,6 +357,18 @@ body {
 .op-p .ch-div { background: var(--purple); }
 .op-p .ch-card h3,.op-p .ch-arr { color: var(--purple); }
 
+.op-t { background: linear-gradient(135deg,#B2DFDB,#80CBC4,#4DB6AC); }
+.op-t .ch-tag { background: rgba(0,137,123,.12); color: var(--teal); border: 1px solid rgba(0,137,123,.2); }
+.op-t .ch-en,.op-t .ch-bg-num,.op-t .ch-ar { color: var(--teal-dk); }
+.op-t .ch-div { background: var(--teal); }
+.op-t .ch-card h3,.op-t .ch-arr { color: var(--teal); }
+
+.op-r { background: linear-gradient(135deg,#FFCDD2,#EF9A9A,#E57373); }
+.op-r .ch-tag { background: rgba(198,40,40,.12); color: var(--red); border: 1px solid rgba(198,40,40,.2); }
+.op-r .ch-en,.op-r .ch-bg-num,.op-r .ch-ar { color: var(--red-dk); }
+.op-r .ch-div { background: var(--red); }
+.op-r .ch-card h3,.op-r .ch-arr { color: var(--red); }
+
 /* ══════════════════════════════════════════════════════
    CONTENT PAGE LAYOUT
 ══════════════════════════════════════════════════════ */
@@ -365,6 +382,8 @@ body {
 .ph-g { border-color: var(--green); color: var(--green); } .ph-g .ph-tag { background: var(--green-lt); border: 1px solid rgba(46,125,50,.2); }
 .ph-o { border-color: var(--orange); color: var(--orange); } .ph-o .ph-tag { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.2); }
 .ph-p { border-color: var(--purple); color: var(--purple); } .ph-p .ph-tag { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.2); }
+.ph-t { border-color: var(--teal); color: var(--teal); } .ph-t .ph-tag { background: var(--teal-lt); border: 1px solid rgba(0,137,123,.2); }
+.ph-r { border-color: var(--red); color: var(--red); } .ph-r .ph-tag { background: var(--red-lt); border: 1px solid rgba(198,40,40,.2); }
 
 /* ══════════════════════════════════════════════════════
    LESSON BLOCK
@@ -382,6 +401,8 @@ body {
 .lb-g { border-color: var(--green); } .lb-g .lb-h { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
 .lb-o { border-color: var(--orange); } .lb-o .lb-h { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
 .lb-p { border-color: var(--purple); } .lb-p .lb-h { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
+.lb-t { border-color: var(--teal); } .lb-t .lb-h { background: linear-gradient(135deg, var(--teal-dk), var(--teal)); }
+.lb-r { border-color: var(--red); } .lb-r .lb-h { background: linear-gradient(135deg, var(--red-dk), var(--red)); }
 
 /* ══════════════════════════════════════════════════════
    BRAIN TEASER
@@ -401,6 +422,8 @@ body {
 .brain-g { background: var(--green-lt); border: 1px solid rgba(46,125,50,.2); } .brain-g .brain-lbl { color: var(--green); }
 .brain-o { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.2); } .brain-o .brain-lbl { color: var(--orange); }
 .brain-p { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.2); } .brain-p .brain-lbl { color: var(--purple); }
+.brain-t { background: var(--teal-lt); border: 1px solid rgba(0,137,123,.2); } .brain-t .brain-lbl { color: var(--teal); }
+.brain-r { background: var(--red-lt); border: 1px solid rgba(198,40,40,.2); } .brain-r .brain-lbl { color: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    BYTE BOX
@@ -416,6 +439,8 @@ body {
 .bb-g { border-color: var(--green); } .bb-g .byte-av { background: var(--green); } .bb-g .byte-lbl { color: var(--green); }
 .bb-o { border-color: var(--orange); } .bb-o .byte-av { background: var(--orange); } .bb-o .byte-lbl { color: var(--orange); }
 .bb-p { border-color: var(--purple); } .bb-p .byte-av { background: var(--purple); } .bb-p .byte-lbl { color: var(--purple); }
+.bb-t { border-color: var(--teal); } .bb-t .byte-av { background: var(--teal); } .bb-t .byte-lbl { color: var(--teal); }
+.bb-r { border-color: var(--red); } .bb-r .byte-av { background: var(--red); } .bb-r .byte-lbl { color: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    BYTE'S DICTIONARY SIDEBAR
@@ -430,6 +455,8 @@ body {
 .dict-g .den { color: var(--green-ac); }
 .dict-o .den { color: var(--orange-ac); }
 .dict-p .den { color: var(--purple-ac); }
+.dict-t2 .den { color: var(--teal-ac); }
+.dict-r .den { color: var(--red-ac); }
 
 /* ══════════════════════════════════════════════════════
    CONCEPT BOXES & GRIDS
@@ -445,6 +472,8 @@ body {
 .cb-g { background: var(--green-lt); border-color: rgba(46,125,50,.25); } .cb-g .cb-t { color: var(--green); }
 .cb-o { background: var(--orange-lt); border-color: rgba(230,81,0,.25); } .cb-o .cb-t { color: var(--orange); }
 .cb-p { background: var(--purple-lt); border-color: rgba(106,27,154,.25); } .cb-p .cb-t { color: var(--purple); }
+.cb-t2 { background: var(--teal-lt); border-color: rgba(0,137,123,.25); } .cb-t2 .cb-t { color: var(--teal); }
+.cb-r { background: var(--red-lt); border-color: rgba(198,40,40,.25); } .cb-r .cb-t { color: var(--red); }
 .cb-dark { background: var(--ink-2); border-color: var(--ink-3); } .cb-dark .cb-t,.cb-dark .cb-d { color: rgba(255,255,255,.8); } .cb-dark .cb-ic { filter: grayscale(0); }
 
 /* ══════════════════════════════════════════════════════
@@ -458,6 +487,8 @@ body {
 .tip-g { background: var(--green-lt); border: 1px solid rgba(46,125,50,.18); } .tip-g .tip-lbl { color: var(--green); }
 .tip-o { background: var(--orange-lt); border: 1px solid rgba(230,81,0,.18); } .tip-o .tip-lbl { color: var(--orange); }
 .tip-p { background: var(--purple-lt); border: 1px solid rgba(106,27,154,.18); } .tip-p .tip-lbl { color: var(--purple); }
+.tip-t2 { background: var(--teal-lt); border: 1px solid rgba(0,137,123,.18); } .tip-t2 .tip-lbl { color: var(--teal); }
+.tip-r { background: var(--red-lt); border: 1px solid rgba(198,40,40,.18); } .tip-r .tip-lbl { color: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    VISUAL AID
@@ -502,6 +533,8 @@ body {
 .cb-hd-g { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
 .cb-hd-o { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
 .cb-hd-p { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
+.cb-hd-t { background: linear-gradient(135deg, var(--teal-dk), var(--teal)); }
+.cb-hd-r { background: linear-gradient(135deg, var(--red-dk), var(--red)); }
 
 /* ══════════════════════════════════════════════════════
    FLOWCHART
@@ -526,7 +559,8 @@ body {
 .flow-hd-g { background: linear-gradient(135deg, var(--green-dk), var(--green)); }
 .flow-hd-o { background: linear-gradient(135deg, var(--orange-dk), var(--orange)); }
 .flow-hd-p { background: linear-gradient(135deg, var(--purple-dk), var(--purple)); }
-.fnp-b { color: var(--blue); } .fnp-g { color: var(--green); } .fnp-o { color: var(--orange); } .fnp-p { color: var(--purple); }
+.flow-hd-t { background: linear-gradient(135deg, var(--teal-dk), var(--teal)); }
+.fnp-b { color: var(--blue); } .fnp-g { color: var(--green); } .fnp-o { color: var(--orange); } .fnp-p { color: var(--purple); } .fnp-t { color: var(--teal); }
 
 /* ══════════════════════════════════════════════════════
    THE LAB
@@ -548,6 +582,8 @@ body {
 .lab-g { border-color: var(--green); } .lab-g .lab-hd { background: linear-gradient(135deg,var(--green-dk),var(--green)); } .lab-g .lab-solved { border: 2px solid rgba(46,125,50,.25); } .lab-g .lab-sol-hd { background: var(--green-lt); color: var(--green); } .lab-g .lab-task { border: 2px dashed rgba(46,125,50,.3); } .lab-g .lab-task-hd { background: var(--green-lt); color: var(--green); } .lab-g .ans-line { background: var(--green); }
 .lab-o { border-color: var(--orange); } .lab-o .lab-hd { background: linear-gradient(135deg,var(--orange-dk),var(--orange)); } .lab-o .lab-solved { border: 2px solid rgba(230,81,0,.25); } .lab-o .lab-sol-hd { background: var(--orange-lt); color: var(--orange); } .lab-o .lab-task { border: 2px dashed rgba(230,81,0,.3); } .lab-o .lab-task-hd { background: var(--orange-lt); color: var(--orange); } .lab-o .ans-line { background: var(--orange); }
 .lab-p { border-color: var(--purple); } .lab-p .lab-hd { background: linear-gradient(135deg,var(--purple-dk),var(--purple)); } .lab-p .lab-solved { border: 2px solid rgba(106,27,154,.25); } .lab-p .lab-sol-hd { background: var(--purple-lt); color: var(--purple); } .lab-p .lab-task { border: 2px dashed rgba(106,27,154,.3); } .lab-p .lab-task-hd { background: var(--purple-lt); color: var(--purple); } .lab-p .ans-line { background: var(--purple); }
+.lab-t { border-color: var(--teal); } .lab-t .lab-hd { background: linear-gradient(135deg,var(--teal-dk),var(--teal)); } .lab-t .lab-solved { border: 2px solid rgba(0,137,123,.25); } .lab-t .lab-sol-hd { background: var(--teal-lt); color: var(--teal); } .lab-t .lab-task { border: 2px dashed rgba(0,137,123,.3); } .lab-t .lab-task-hd { background: var(--teal-lt); color: var(--teal); } .lab-t .ans-line { background: var(--teal); }
+.lab-r { border-color: var(--red); } .lab-r .lab-hd { background: linear-gradient(135deg,var(--red-dk),var(--red)); } .lab-r .lab-solved { border: 2px solid rgba(198,40,40,.25); } .lab-r .lab-sol-hd { background: var(--red-lt); color: var(--red); } .lab-r .lab-task { border: 2px dashed rgba(198,40,40,.3); } .lab-r .lab-task-hd { background: var(--red-lt); color: var(--red); } .lab-r .ans-line { background: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    QUIZ / REVIEW
@@ -572,6 +608,8 @@ body {
 .quiz-g { border-color: var(--green); } .quiz-g .quiz-hd { background: linear-gradient(135deg,var(--green-dk),var(--green)); } .quiz-g .qn-num { background: var(--green); } .quiz-g .qopt-lbl { background: var(--green); } .quiz-g .qn-ans-line { background: var(--green); }
 .quiz-o { border-color: var(--orange); } .quiz-o .quiz-hd { background: linear-gradient(135deg,var(--orange-dk),var(--orange)); } .quiz-o .qn-num { background: var(--orange); } .quiz-o .qopt-lbl { background: var(--orange); } .quiz-o .qn-ans-line { background: var(--orange); }
 .quiz-p { border-color: var(--purple); } .quiz-p .quiz-hd { background: linear-gradient(135deg,var(--purple-dk),var(--purple)); } .quiz-p .qn-num { background: var(--purple); } .quiz-p .qopt-lbl { background: var(--purple); } .quiz-p .qn-ans-line { background: var(--purple); }
+.quiz-t { border-color: var(--teal); } .quiz-t .quiz-hd { background: linear-gradient(135deg,var(--teal-dk),var(--teal)); } .quiz-t .qn-num { background: var(--teal); } .quiz-t .qopt-lbl { background: var(--teal); } .quiz-t .qn-ans-line { background: var(--teal); }
+.quiz-r { border-color: var(--red); } .quiz-r .quiz-hd { background: linear-gradient(135deg,var(--red-dk),var(--red)); } .quiz-r .qn-num { background: var(--red); } .quiz-r .qopt-lbl { background: var(--red); } .quiz-r .qn-ans-line { background: var(--red); }
 
 /* ══════════════════════════════════════════════════════
    ANALOGY STRIP
@@ -599,6 +637,7 @@ body {
 .sl-g { border-color: var(--green); } .sl-g .slot-v { color: var(--green); }
 .sl-o { border-color: var(--orange); } .sl-o .slot-v { color: var(--orange); }
 .sl-p { border-color: var(--purple); } .sl-p .slot-v { color: var(--purple); }
+.sl-t { border-color: var(--teal); } .sl-t .slot-v { color: var(--teal); }
 .sl-off { background: #F0F0F0; border-color: #CCC; } .sl-off .slot-v { color: #999; }
 
 /* SDLC timeline */
@@ -616,7 +655,7 @@ body {
 .sep { height: 1px; background: var(--rule); margin: 4px 0; }
 
 /* ══════════════════════════════════════════════════════
-   BYTE INTRO CARD (Chapter 1 welcome)
+   BYTE INTRO CARD
 ══════════════════════════════════════════════════════ */
 .byte-intro-card {
   background: linear-gradient(135deg, #0A1940 0%, #1565C0 100%);
@@ -711,6 +750,8 @@ body {
 .bib-g { background: rgba(46,125,50,.3); border-color: rgba(105,240,174,.4); color: #A5D6A7; }
 .bib-o { background: rgba(230,81,0,.3); border-color: rgba(255,171,64,.4); color: #FFCC80; }
 .bib-p { background: rgba(106,27,154,.3); border-color: rgba(224,64,251,.4); color: #CE93D8; }
+.bib-t { background: rgba(0,137,123,.3); border-color: rgba(77,182,172,.4); color: #80CBC4; }
+.bib-r { background: rgba(198,40,40,.3); border-color: rgba(239,83,80,.4); color: #EF9A9A; }
 
 /* ══════════════════════════════════════════════════════
    IMAGE PLACEHOLDER
@@ -734,7 +775,6 @@ body {
   flex-shrink: 0;
   border: 1.5px dashed #B0BEC5;
 }
-.img-placeholder-text {}
 .img-placeholder-label {
   font-family: var(--f-mono);
   font-size: 8px;
@@ -751,7 +791,113 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════
-   GRAND FINALE PAGE
+   PROBLEM SOLVING COMPONENTS (from website)
+══════════════════════════════════════════════════════ */
+.ps-phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pspb-t { background: var(--teal-lt); color: var(--teal); border: 1px solid rgba(0,137,123,.25); }
+.pspb-r { background: var(--red-lt); color: var(--red); border: 1px solid rgba(198,40,40,.25); }
+
+.ps-level-card {
+  border: 2px solid var(--rule);
+  border-radius: var(--r);
+  padding: 18px 22px;
+  margin: 14px 0;
+  background: var(--white);
+  border-inline-start: 5px solid var(--teal);
+}
+.ps-level-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.ps-level-num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--teal-lt);
+  color: var(--teal);
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(0,137,123,.25);
+}
+.ps-level-title { font-size: 17px; font-weight: 900; color: var(--ink); flex: 1; }
+.ps-level-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.75; margin-bottom: 10px; }
+.ps-concepts { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.ps-chip {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-3);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+.ps-problems-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+.prob-card {
+  border: 1.5px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  background: var(--white);
+  transition: all .2s;
+}
+.prob-card:hover {
+  border-color: rgba(0,137,123,.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+.prob-card.status-solved { border-inline-start: 4px solid #059669; }
+.prob-card.status-in-progress { border-inline-start: 4px solid #D97706; }
+.prob-card.status-needs-review { border-inline-start: 4px solid #DC2626; }
+.prob-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+.prob-num { font-family: var(--f-mono); font-size: 9.5px; font-weight: 700; color: var(--ink-5); letter-spacing: 1px; }
+.prob-diff {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+.prob-diff.easy { color: #059669; background: rgba(5,150,105,.1); border: 1px solid rgba(5,150,105,.25); }
+.prob-diff.medium { color: #D97706; background: rgba(217,119,6,.1); border: 1px solid rgba(217,119,6,.25); }
+.prob-title { font-size: 13px; font-weight: 800; color: var(--ink); line-height: 1.35; margin-bottom: 3px; }
+.prob-topic { font-family: var(--f-mono); font-size: 9.5px; color: var(--teal); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; margin-bottom: 6px; }
+.prob-obj { font-size: 11px; color: var(--ink-4); line-height: 1.55; margin-bottom: 8px; }
+.prob-foot { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px dashed var(--rule); }
+.prob-status { display: inline-flex; align-items: center; gap: 5px; font-family: var(--f-mono); font-size: 9px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+.prob-status .sdot { width: 6px; height: 6px; border-radius: 50%; }
+.prob-status.not-started { color: var(--ink-5); }
+.prob-status.not-started .sdot { background: var(--ink-5); }
+.prob-status.in-progress { color: #D97706; }
+.prob-status.in-progress .sdot { background: #D97706; }
+.prob-status.solved { color: #059669; }
+.prob-status.solved .sdot { background: #059669; }
+.prob-status.needs-review { color: #DC2626; }
+.prob-status.needs-review .sdot { background: #DC2626; }
+
+/* Roadmap visual */
+.roadmap { display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+.rm-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: var(--r-sm); border: 1.5px solid var(--rule); background: var(--white); }
+.rm-num { font-family: var(--f-mono); font-size: 11px; font-weight: 800; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+.rm-title { font-size: 13px; font-weight: 800; color: var(--ink); }
+.rm-sub { font-size: 11px; color: var(--ink-4); margin-top: 2px; }
+
+/* ══════════════════════════════════════════════════════
+   GRAND FINALE
 ══════════════════════════════════════════════════════ */
 .finale-hd {
   background: linear-gradient(150deg, #05102B 0%, #0A1940 50%, #0D1535 100%);
@@ -769,7 +915,6 @@ body {
   background-image: radial-gradient(circle at 80% 50%, rgba(21,101,192,.3) 0%, transparent 50%);
 }
 .finale-hd-ic { font-size: 52px; position: relative; }
-.finale-hd-txt { position: relative; }
 .finale-hd-en { font-family: var(--f-mono); font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,.4); margin-bottom: 6px; }
 .finale-hd-ar { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px; }
 .finale-hd-sub { font-size: 13px; color: rgba(255,255,255,.5); }
@@ -795,30 +940,38 @@ body {
 <div class="page">
 <div class="cover">
   <div class="cover-grid"></div>
-  <div class="cover-top">COMPUTER FOUNDATION CURRICULUM · 2026</div>
+  <div class="cover-top">COMPUTER FOUNDATION CURRICULUM · 2026 · EXTENDED EDITION</div>
   <div class="cover-robot">🤖</div>
-  <div class="cover-series">DIGITAL ADVENTURE SERIES — LEVEL 01</div>
-  <div class="cover-title-ar">منهج تأسيس الكمبيوتر</div>
-  <div class="cover-title-en">COMPUTER FOUNDATION: A DIGITAL ADVENTURE</div>
+  <div class="cover-series">DIGITAL ADVENTURE SERIES — COMPLETE EDITION</div>
+  <div class="cover-title-ar">منهج تأسيس الكمبيوتر الكامل</div>
+  <div class="cover-title-en">COMPUTER FOUNDATION + PROBLEM SOLVING — A DIGITAL ADVENTURE</div>
   <div class="cover-divider"></div>
   <div class="cover-chips">
     <div class="cc cc-b">CH.01<span>Blue 🔵</span></div>
     <div class="cc cc-g">CH.02<span>Green 🟢</span></div>
     <div class="cc cc-o">CH.03<span>Orange 🟠</span></div>
     <div class="cc cc-p">CH.04<span>Purple 🟣</span></div>
+    <div class="cc cc-t">CH.05<span>Teal 🩵</span></div>
+    <div class="cc cc-r">CH.06<span>Red 🔴</span></div>
   </div>
+  <div class="cover-author-card">
+    <h3>AUTHORED & DESIGNED BY</h3>
+    <div class="name">م. زهرة عصام — Eng. Zahra Essam</div>
+    <div class="email">zahraaessam223@gmail.com</div>
+  </div>
+  <div class="cover-ded">إهداء إلى <span>د. عبدالله حبشي</span> — Dedicated to Dr. Abdullah Habashy</div>
   <div class="cover-foot">ZAHRA ESSAM</div>
 </div>
 </div>
 
 <!-- ╔══════════════════════════════════════════════════════════╗
-     ║               TABLE OF CONTENTS                          ║
+     ║               TABLE OF CONTENTS — EXTENDED               ║
      ╚══════════════════════════════════════════════════════════╝ -->
 <div class="page">
 <div class="toc-wrap">
   <div class="toc-hdr">
     <div class="toc-hdr-ic">📋</div>
-    <div><h2>فهرس المحتويات</h2><p>Table of Contents — رحلتك الرقمية الكاملة</p></div>
+    <div><h2>فهرس المحتويات الكامل</h2><p>Extended Table of Contents — رحلتك الرقمية الكاملة</p></div>
   </div>
 
   <div class="toc-ch toc-b">
@@ -858,13 +1011,35 @@ body {
     </div>
   </div>
 
+  <div class="toc-ch toc-t">
+    <div class="toc-ch-row"><div class="toc-ch-n">05</div><div class="toc-ch-inf"><div class="toc-ch-ar">حل المشكلات — Problem Solving ✨ جديد</div><div class="toc-ch-en">PROBLEM SOLVING ROADMAP — 6 PHASES ✨ NEW</div></div><div class="toc-badge">DISCOVERY TEAL</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">مقدمة حل المشكلات — Problem Solving Mindset</div><div class="toc-en">Introduction to Problem Solving</div></div></div><div class="toc-pg">46</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 1: الأساسيات — المتغيرات والشروط</div><div class="toc-en">Phase 1: Variables, Data Types & Conditions</div></div></div><div class="toc-pg">48</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 2: التكرار — Loops</div><div class="toc-en">Phase 2: Loops & Repetition</div></div></div><div class="toc-pg">51</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 3: القوائم — Python Lists</div><div class="toc-en">Phase 3: Python Lists</div></div></div><div class="toc-pg">54</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 4: النصوص والدوال</div><div class="toc-en">Phase 4: Strings & Functions</div></div></div><div class="toc-pg">57</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 5: الرياضيات والهندسة</div><div class="toc-en">Phase 5: Math & Geometry</div></div></div><div class="toc-pg">60</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">المرحلة 6: حل المشكلات المستقل</div><div class="toc-en">Phase 6: Independent Problem Solving</div></div></div><div class="toc-pg">62</div></div>
+    </div>
+  </div>
+
+  <div class="toc-ch toc-r">
+    <div class="toc-ch-row"><div class="toc-ch-n">06</div><div class="toc-ch-inf"><div class="toc-ch-ar">ما بعد الأساسيات — Data Structures & Python ✨ جديد</div><div class="toc-ch-en">BEYOND THE BASICS — DATA STRUCTURES & PYTHON ✨ NEW</div></div><div class="toc-badge">ADVANCED RED</div></div>
+    <div class="toc-items">
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">مقدمة هياكل البيانات والذاكرة</div><div class="toc-en">Data Structures & Memory Foundations</div></div></div><div class="toc-pg">66</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">Stack, Queue, Trees & Graphs</div><div class="toc-en">Stack, Queue, Trees & Graphs</div></div></div><div class="toc-pg">68</div></div>
+      <div class="toc-row"><div class="toc-row-l"><div class="toc-dot"></div><div><div class="toc-ar">خريطة الطريق الكاملة للمرحلة القادمة</div><div class="toc-en">The Complete Roadmap Ahead</div></div></div><div class="toc-pg">70</div></div>
+    </div>
+  </div>
+
   <div style="background:var(--bg);border-radius:var(--r-sm);padding:12px 18px;display:flex;align-items:center;gap:12px;margin-top:20px;border:1.5px dashed var(--rule);">
     <span style="font-size:20px;">🏆</span>
     <div>
-      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--ink-4);margin-bottom:3px;">GRAND FINALE</div>
-      <div style="font-size:14px;font-weight:800;">الامتحان الشامل النهائي — Grand Final Exam</div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--ink-4);margin-bottom:3px;">GRAND FINALE + PROBLEM SOLVING APPENDIX</div>
+      <div style="font-size:14px;font-weight:800;">الامتحان الشامل + ملحق المشاكل الكامل — Grand Final + Problems Appendix</div>
     </div>
-    <div style="margin-right:auto;font-family:var(--f-mono);font-size:11px;opacity:.4;">P. 44</div>
+    <div style="margin-right:auto;font-family:var(--f-mono);font-size:11px;opacity:.4;">P. 72</div>
   </div>
 </div>
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">فهرس</div></div>
@@ -895,25 +1070,26 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">3</div></div>
 </div>
 
-<!-- ─── CH1 · TOPIC 1.1: What is a Computer ─── -->
+<!-- ─── CH1 · TOPIC 1.1 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">ما هو الكمبيوتر؟</span></div><div class="ph-pg">04</div></div>
 
-  <!-- ★ BYTE INTRO CARD — صديق الاستكشاف -->
   <div class="byte-intro-card">
     <div class="byte-intro-avatar">🤖</div>
     <div class="byte-intro-text">
       <div class="byte-intro-name-tag">MEET YOUR GUIDE · تعرّف على مرشدك</div>
       <div class="byte-intro-headline">أهلاً، أنا <span>Byte</span>! 👋 صديقك في رحلة الديجيتال</div>
       <div class="byte-intro-body">
-        أنا روبوت ذكي اسمي <strong>Byte</strong>، وهكون معاك في كل صفحة من الكتاب ده! هفسّرلك كل حاجة بأسلوب سهل وممتع، وهبعتلك <strong>Pro-Tips</strong> سرية عن طريقة تفكير الكمبيوتر من جوّاه. جاهز؟ يلّا بينا نبدأ المغامرة! 🚀 — في كل فصل هتلاقيني بلون مختلف زي ما هتشوف:
+        أنا روبوت ذكي اسمي <strong>Byte</strong>، وهكون معاك في كل صفحة من الكتاب ده! هفسّرلك كل حاجة بأسلوب سهل وممتع، وهبعتلك <strong>Pro-Tips</strong> سرية عن طريقة تفكير الكمبيوتر من جوّاه. جاهز؟ يلّا بينا نبدأ المغامرة! 🚀
       </div>
       <div class="byte-intro-badges">
         <span class="byte-intro-badge bib-b">🔵 فصل 1 — الكمبيوتر</span>
         <span class="byte-intro-badge bib-g">🟢 فصل 2 — الكهرباء</span>
         <span class="byte-intro-badge bib-o">🟠 فصل 3 — البرمجة</span>
         <span class="byte-intro-badge bib-p">🟣 فصل 4 — الأدوات</span>
+        <span class="byte-intro-badge bib-t">🩵 فصل 5 — حل المشكلات</span>
+        <span class="byte-intro-badge bib-r">🔴 فصل 6 — المتقدم</span>
       </div>
     </div>
   </div>
@@ -972,7 +1148,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">04</div></div>
 </div>
 
-<!-- ─── CH1 · TOPIC 1.2: Hardware vs Software ─── -->
+<!-- ─── CH1 · TOPIC 1.2 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">الجسد والروح: Hardware وSoftware</span></div><div class="ph-pg">06</div></div>
@@ -995,7 +1171,6 @@ body {
           <div class="cb cb-b"><div class="cb-ic">💿</div><div class="cb-t">SOFTWARE EXAMPLES</div><div class="cb-d">Windows · macOS · Android<br>Chrome · Word · Photoshop<br>Python · Games · Apps<br><em style="font-size:11px;color:var(--ink-4)">كل ما هو تعليمات ومنطق!</em></div></div>
         </div>
 
-        <!-- IMAGE PLACEHOLDER: Hardware vs Software -->
         <div class="img-placeholder">
           <div class="img-placeholder-icon">🖼️</div>
           <div class="img-placeholder-text">
@@ -1047,7 +1222,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">06</div></div>
 </div>
 
-<!-- ─── CH1 · TOPIC 1.3: IPO Cycle ─── -->
+<!-- ─── CH1 · TOPIC 1.3 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">العمليات الأربعة — دورة IPO</span></div><div class="ph-pg">09</div></div>
@@ -1116,7 +1291,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">09</div></div>
 </div>
 
-<!-- ─── CH1 · TOPIC 1.4: Data vs Information ─── -->
+<!-- ─── CH1 · TOPIC 1.4 + QUIZ ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-b"><div class="ph-l"><div class="ph-tag">CH.01 · BLUE</div><span class="ph-title">البيانات vs. المعلومات</span></div><div class="ph-pg">11</div></div>
@@ -1154,7 +1329,6 @@ body {
     </div>
   </div>
 
-  <!-- CHAPTER 1 QUIZ -->
   <div class="quiz quiz-b">
     <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 1 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الأول — اختبر نفسك!</div></div></div>
     <div class="quiz-body">
@@ -1239,7 +1413,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">14</div></div>
 </div>
 
-<!-- ─── CH2 · TOPIC 2.1: History & Transistors ─── -->
+<!-- ─── CH2 · TOPIC 2.1 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">التاريخ والترانزستور</span></div><div class="ph-pg">15</div></div>
@@ -1283,7 +1457,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">15</div></div>
 </div>
 
-<!-- ─── CH2 · TOPIC 2.2: Binary ─── -->
+<!-- ─── CH2 · TOPIC 2.2 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">السر الثنائي — Binary</span></div><div class="ph-pg">17</div></div>
@@ -1353,7 +1527,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">17</div></div>
 </div>
 
-<!-- ─── CH2 · TOPIC 2.3: Bits & Bytes ─── -->
+<!-- ─── CH2 · TOPIC 2.3 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">Bits & Bytes — خزانة الذاكرة</span></div><div class="ph-pg">19</div></div>
@@ -1386,7 +1560,6 @@ body {
           <div style="text-align:center;font-family:var(--f-mono);font-size:11px;color:var(--green-dk);margin-top:6px;">8 Bits = 1 Byte = حرف "A" واحد</div>
         </div>
 
-        <!-- IMAGE PLACEHOLDER: 8 Bits → 1 Byte Closet Analogy -->
         <div class="img-placeholder">
           <div class="img-placeholder-icon">🗄️</div>
           <div class="img-placeholder-text">
@@ -1449,7 +1622,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">19</div></div>
 </div>
 
-<!-- ─── CH2 · TOPIC 2.4: Compiler & Interpreter + Quiz ─── -->
+<!-- ─── CH2 · TOPIC 2.4 + QUIZ ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-g"><div class="ph-l"><div class="ph-tag">CH.02 · GREEN</div><span class="ph-title">المترجمون: Compiler & Interpreter</span></div><div class="ph-pg">22</div></div>
@@ -1490,7 +1663,6 @@ body {
     </div>
   </div>
 
-  <!-- CHAPTER 2 QUIZ -->
   <div class="quiz quiz-g">
     <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 2 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الثاني</div></div></div>
     <div class="quiz-body">
@@ -1580,7 +1752,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">25</div></div>
 </div>
 
-<!-- ─── CH3 · TOPIC 3.1: Algorithm ─── -->
+<!-- ─── CH3 · TOPIC 3.1 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-o"><div class="ph-l"><div class="ph-tag">CH.03 · ORANGE</div><span class="ph-title">ما هي الخوارزمية؟</span></div><div class="ph-pg">26</div></div>
@@ -1638,7 +1810,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">26</div></div>
 </div>
 
-<!-- ─── CH3 · TOPIC 3.2: Pseudocode & Flowcharts ─── -->
+<!-- ─── CH3 · TOPIC 3.2 + QUIZ ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-o"><div class="ph-l"><div class="ph-tag">CH.03 · ORANGE</div><span class="ph-title">Pseudocode و Flowcharts — أدوات التفكير</span></div><div class="ph-pg">28</div></div>
@@ -1672,7 +1844,6 @@ body {
     </div>
   </div>
 
-  <!-- SOLVED FLOWCHART: Morning Routine -->
   <div class="flow-box">
     <div class="flow-hd flow-hd-o"><div class="code-hd-ic">✅</div><div><div class="flow-hd-en">SOLVED FLOWCHART — MORNING ROUTINE</div><div class="flow-hd-ar">خريطة تدفق محلولة: الروتين الصباحي</div></div></div>
     <div class="flow-body">
@@ -1721,7 +1892,6 @@ body {
     </div>
   </div>
 
-  <!-- CHAPTER 3 QUIZ -->
   <div class="quiz quiz-o">
     <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 3 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الثالث</div></div></div>
     <div class="quiz-body">
@@ -1788,7 +1958,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">32</div></div>
 </div>
 
-<!-- ─── CH4 · TOPIC 4.1: Variables ─── -->
+<!-- ─── CH4 · TOPIC 4.1 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">المتغيرات — الصناديق الموسومة</span></div><div class="ph-pg">33</div></div>
@@ -1861,7 +2031,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">33</div></div>
 </div>
 
-<!-- ─── CH4 · TOPIC 4.2: Programming Concepts ─── -->
+<!-- ─── CH4 · TOPIC 4.2 ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">مفاهيم البرمجة: If/Else, Loops, Arrays, Functions</span></div><div class="ph-pg">36</div></div>
@@ -1875,7 +2045,6 @@ body {
     <div class="lb-h"><div class="lb-h-ic">💡</div><div><div class="lb-en">TOPIC 4.2 · PROGRAMMING CONCEPTS</div><div class="lb-ar">مفاهيم البرمجة الأساسية</div></div></div>
     <div class="lb-body-full">
       <div class="cg">
-        <!-- IF/ELSE -->
         <div>
           <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">🔀</div><div class="cb-t">IF / ELSE — القرارات</div><div class="cb-d">بتسأل الكمبيوتر سؤال: "هل الشرط صح؟" لو آه — نفّذ كده. لو لأ — نفّذ كده تاني.</div></div>
           <div class="code-box">
@@ -1891,7 +2060,6 @@ body {
             </div>
           </div>
         </div>
-        <!-- LOOPS -->
         <div>
           <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">🔄</div><div class="cb-t">LOOPS — التكرار</div><div class="cb-d">بدل ما تكتب نفس الكود 100 مرة — بقوله "كرّر اللي جوّاك 100 مرة"! FOR loop و WHILE loop.</div></div>
           <div class="code-box">
@@ -1911,7 +2079,6 @@ body {
         </div>
       </div>
       <div class="cg">
-        <!-- ARRAYS -->
         <div>
           <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">📋</div><div class="cb-t">ARRAYS — صندوق القائمة</div><div class="cb-d">بدل ما تعمل متغير لكل طالب — بتعمل Array واحدة فيها كل الأسماء! كل عنصر له رقم (Index) يبدأ من 0.</div></div>
           <div class="code-box">
@@ -1925,7 +2092,6 @@ body {
             </div>
           </div>
         </div>
-        <!-- FUNCTIONS -->
         <div>
           <div class="cb cb-p" style="margin-bottom:10px"><div class="cb-ic">⚙️</div><div class="cb-t">FUNCTIONS — الماكينة القابلة لإعادة الاستخدام</div><div class="cb-d">كود بتكتبه مرة واحدة وتستدعيه كتير! بيأخذ Input وبيرجّع Output. اكتب مرة، استخدم ألف مرة!</div></div>
           <div class="code-box">
@@ -1970,7 +2136,7 @@ body {
 <div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">36</div></div>
 </div>
 
-<!-- ─── CH4 · TOPIC 4.3: SDLC ─── -->
+<!-- ─── CH4 · TOPIC 4.3 + QUIZ ─── -->
 <div class="page">
 <div class="cp">
   <div class="ph ph-p"><div class="ph-l"><div class="ph-tag">CH.04 · PURPLE</div><span class="ph-title">دورة تطوير البرمجيات — SDLC</span></div><div class="ph-pg">40</div></div>
@@ -2026,7 +2192,6 @@ body {
     </div>
   </div>
 
-  <!-- CHAPTER 4 QUIZ -->
   <div class="quiz quiz-p">
     <div class="quiz-hd"><div class="quiz-hd-ic">📝</div><div><div class="quiz-hd-en">CHAPTER 4 REVIEW QUIZ</div><div class="quiz-hd-ar">مراجعة الفصل الرابع</div></div></div>
     <div class="quiz-body">
@@ -2087,6 +2252,624 @@ body {
 </div>
 
 <!-- ╔══════════════════════════════════════════════════════════╗
+     ║          CHAPTER 5 OPENER — TEAL (NEW)                   ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-t">
+  <div class="ch-bg-num">05</div>
+  <div class="ch-ico">🎯</div>
+  <div class="ch-tag">CHAPTER FIVE · DISCOVERY TEAL · ✨ NEW</div>
+  <div class="ch-en" style="color:var(--teal-dk)">PROBLEM SOLVING ROADMAP</div>
+  <div class="ch-ar" style="color:var(--teal)">حل المشكلات — رحلة المبرمج الحقيقي</div>
+  <div class="ch-div" style="background:var(--teal)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--teal)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--teal)">▶</span>الانتقال من تعلم المفاهيم إلى تطبيقها على مسائل حقيقية</li>
+      <li><span class="ch-arr" style="color:var(--teal)">▶</span>حل مسائل Codeforces المُختارة بعناية لكل مستوى</li>
+      <li><span class="ch-arr" style="color:var(--teal)">▶</span>متابعة التقدم عبر 6 مراحل من الأساسيات للاستقلال</li>
+      <li><span class="ch-arr" style="color:var(--teal)">▶</span>بناء عقلية حل المشكلات بدلاً من حفظ الحلول</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip" style="color:var(--teal-dk)">م. زهرة عصام — Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">44</div></div>
+</div>
+
+<!-- ─── CH5 · INTRO ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-t"><div class="ph-l"><div class="ph-tag">CH.05 · TEAL</div><span class="ph-title">مقدمة حل المشكلات — Problem Solving Mindset</span></div><div class="ph-pg">46</div></div>
+
+  <div class="brain brain-t">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">كل اللي اتعلمته لحد دلوقتي — الـ Variables والـ Conditions والـ Loops — ده كله أدوات. السؤال المهم: إمتى تستخدم أنهي أداة؟</div></div>
+  </div>
+
+  <div class="lb lb-t">
+    <div class="lb-h"><div class="lb-h-ic">🎯</div><div><div class="lb-en">INTRODUCTION · PROBLEM SOLVING MINDSET</div><div class="lb-ar">من حفظ المفاهيم إلى تطبيقها — العقلية الحقيقية للمبرمج</div></div></div>
+    <div class="lb-body-full">
+      <div class="byte-box bb-t">
+        <div class="byte-hd"><div class="byte-av" style="background:var(--teal)">🤖</div><div class="byte-lbl" style="color:var(--teal)">BYTE SAYS · بايت بيقول</div></div>
+        <div class="byte-txt">أهلاً في أهم فصل في الرحلة كلها! لحد دلوقتي اتعلمت <strong>الأدوات</strong> — Variables، Conditions، Loops، Functions. بس المبرمج الحقيقي مش بس بيعرف الأدوات — هو بيعرف <strong>إمتى وإزاي يستخدمها</strong>. في الفصل ده، هنشتغل على مسائل حقيقية من Codeforces، منظمة في 6 مراحل، من الأسهل للأصعب. الهدف مش إنك تحفظ حلول — الهدف إنك تبني <strong>عقلية حل المشكلات</strong>!</div>
+      </div>
+
+      <div class="cg">
+        <div class="cb cb-t2">
+          <div class="cb-ic">🎓</div>
+          <div class="cb-t">المرحلة اللي فاتت</div>
+          <div class="cb-d">اتعلمت <strong>كل مفهوم لوحده</strong>: "إيه هو الـ if؟"، "إزاي أعمل loop؟" — كل درس كان مفهوم منفصل.</div>
+        </div>
+        <div class="cb cb-t2">
+          <div class="cb-ic">🚀</div>
+          <div class="cb-t">المرحلة الجديدة</div>
+          <div class="cb-d">هتقرا مسألة، تفهمها، تقرر أنهي أدوات تحتاج، وتحلها <strong>بنفسك</strong>. مفيش تلميح للتقنية المطلوبة!</div>
+        </div>
+      </div>
+
+      <div class="tip tip-t2"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">أهم مهارة في حل المشكلات: <strong>لو مش عارف تحل مسألة، متستسلمش</strong>. جرّب، فكّر، ارسم، اكتب. حلول المشكلات بتتعلّم من المحاولات الفاشلة قبل الناجحة!</div></div></div>
+
+      <div class="cb cb-dark" style="margin:14px 0">
+        <div class="cb-t" style="color:rgba(255,255,255,.7)">خطوات حل أي مسألة — 6 خطوات</div>
+        <div class="cb-d" style="color:rgba(255,255,255,.75);line-height:2.2;">
+          <strong style="color:var(--teal-ac);">1.</strong> اقرا المسألة كويس (يمكن مرتين!)<br>
+          <strong style="color:var(--teal-ac);">2.</strong> حدّد الـ Input والـ Output<br>
+          <strong style="color:var(--teal-ac);">3.</strong> فكّر في خطوات الحل (Pseudocode)<br>
+          <strong style="color:var(--teal-ac);">4.</strong> اكتب الكود<br>
+          <strong style="color:var(--teal-ac);">5.</strong> جرّب على أمثلة<br>
+          <strong style="color:var(--teal-ac);">6.</strong> لو غلط — راجع الخطوات مش الكود بس
+        </div>
+      </div>
+
+      <div class="ph-t" style="border-bottom:2.5px solid var(--teal);padding:8px 0;margin:20px 0 14px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:8px;">
+        <span style="font-size:20px;">🗺️</span>
+        خريطة الرحلة الكاملة — 6 مراحل
+      </div>
+
+      <div class="roadmap">
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">1</div>
+          <div><div class="rm-title">الأساسيات — Variables, Conditions</div><div class="rm-sub">12 مسألة · QSheet #1 + Contest #1</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">2</div>
+          <div><div class="rm-title">التكرار — Loops</div><div class="rm-sub">12 مسألة · QSheet #2 + Contest #2</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">3</div>
+          <div><div class="rm-title">القوائم — Python Lists</div><div class="rm-sub">10 مسائل · QSheet #3 + Contest #3</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">4</div>
+          <div><div class="rm-title">النصوص والدوال — Strings & Functions</div><div class="rm-sub">14 مسألة · QSheet #4 + #5</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">5</div>
+          <div><div class="rm-title">الرياضيات والهندسة — Math & Geometry</div><div class="rm-sub">5 مسائل · QSheet #6 (مختارة)</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid var(--teal);">
+          <div class="rm-num" style="background:var(--teal);">6</div>
+          <div><div class="rm-title">الاستقلال — General Problem Solving</div><div class="rm-sub">10 مسائل · QSheet #8 — Easy</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">46</div></div>
+</div>
+
+<!-- ─── CH5 · PHASE 1 ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-t"><div class="ph-l"><div class="ph-tag">CH.05 · TEAL</div><span class="ph-title">المرحلة 1 — المتغيرات والشروط</span></div><div class="ph-pg">48</div></div>
+
+  <div class="ps-phase-badge pspb-t">PHASE 1 — CORE PROBLEM SOLVING</div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 1</div>
+      <div class="ps-level-title">Variables, Data Types & Conditions</div>
+    </div>
+    <div class="ps-level-desc">ابدأ بأساسيات Python: تخزين القيم، أنواع البيانات، والعمليات الحسابية والمقارنات، واتخاذ القرارات باستخدام الشروط.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">Variables</span>
+      <span class="ps-chip">int / float / str / bool</span>
+      <span class="ps-chip">Input & Output</span>
+      <span class="ps-chip">Arithmetic Operators</span>
+      <span class="ps-chip">Comparison Operators</span>
+      <span class="ps-chip">Boolean Logic</span>
+      <span class="ps-chip">if / elif / else</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #1 — Data type · Conditions
+    </div>
+
+    <div class="ps-problems-grid">
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 01</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Say Hello With Python</div>
+        <div class="prob-topic">Input & Output</div>
+        <div class="prob-obj">Reading a name from input and printing a greeting — first taste of I/O.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 02</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Basic Data Types</div>
+        <div class="prob-topic">Data Types</div>
+        <div class="prob-obj">Reading values of different types and printing them back in order.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 03</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Simple Calculator</div>
+        <div class="prob-topic">Arithmetic</div>
+        <div class="prob-obj">Applying +, −, ×, ÷ on two numbers read from input.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 04</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Even, Odd, Positive and Negative</div>
+        <div class="prob-topic">Conditions</div>
+        <div class="prob-obj">Using multiple if/else branches to classify each number.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 05</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Max and Min</div>
+        <div class="prob-topic">Conditions</div>
+        <div class="prob-obj">Finding the largest and smallest of three numbers using comparisons.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 06</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Multiples</div>
+        <div class="prob-topic">Conditions · Modulo</div>
+        <div class="prob-obj">Using % to check if one number is a multiple of another.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+    </div>
+
+    <div class="tip tip-t2" style="margin-top:12px;">
+      <div class="tip-ic">🔗</div>
+      <div><div class="tip-lbl">SOLVE ON CODEFORCES</div>
+      <div class="tip-txt">كل المسائل متاحة على: <strong>codeforces.com/group/MWSDmqGsZm/contest/219158</strong></div></div>
+    </div>
+  </div>
+
+  <div class="ps-level-card" style="border-inline-start-color:var(--orange);">
+    <div class="ps-level-head">
+      <div class="ps-level-num" style="background:var(--orange-lt);color:var(--orange);">Level 2 · Contest</div>
+      <div class="ps-level-title">Contest 1 — Conditions & Basic Logic</div>
+    </div>
+    <div class="ps-level-desc">Checkpoint بعد Level 1. اختبر نفسك: هل تقدر تحل مسائل تستخدم المتغيرات والشروط بدون تلميح من عنوان الدرس؟</div>
+    <div style="background:var(--orange-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--orange-dk);font-weight:700;">
+      📚 المصدر: Contest #1 — 6 مسائل مختارة
+    </div>
+    <div style="background:var(--orange-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:11.5px;color:var(--orange-dk);line-height:1.9;">
+      <strong>ملاحظة:</strong> الـ Contest بيختبر قدرتك على تطبيق كل حاجة اتعلمتها بدون تلميح. لو حسّيت إن مسألة صعبة، ارجع لـ Level 1 وذاكر تاني.
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">48</div></div>
+</div>
+
+<!-- ─── CH5 · PHASE 2 & 3 ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-t"><div class="ph-l"><div class="ph-tag">CH.05 · TEAL</div><span class="ph-title">المرحلة 2 و3 — Loops & Lists</span></div><div class="ph-pg">51</div></div>
+
+  <div class="ps-phase-badge pspb-t">PHASE 2 — REPETITION</div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 3</div>
+      <div class="ps-level-title">Loops & Repetition</div>
+    </div>
+    <div class="ps-level-desc">اتعلم إزاي تكرر خطوات باستخدام for و while، من العدّ البسيط لحد التجميع والحسابات المتكررة.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">for loops</span>
+      <span class="ps-chip">while loops</span>
+      <span class="ps-chip">range()</span>
+      <span class="ps-chip">Counting</span>
+      <span class="ps-chip">Accumulation</span>
+      <span class="ps-chip">Nested Loops</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #2 — Loops (12 مسألة مختارة)
+    </div>
+
+    <div class="ps-problems-grid">
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 01</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">1 to N</div>
+        <div class="prob-topic">for loop</div>
+        <div class="prob-obj">Printing a sequence using range() and a for loop.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 02</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Even Numbers</div>
+        <div class="prob-topic">Loops · Conditions</div>
+        <div class="prob-obj">Filtering numbers inside a loop using a condition.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 03</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Fixed Password</div>
+        <div class="prob-topic">while loop</div>
+        <div class="prob-obj">Using while to keep reading until a condition is met.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 04</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Factorial</div>
+        <div class="prob-topic">Loops · Accumulation</div>
+        <div class="prob-obj">Multiplying repeatedly to compute a factorial.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ps-phase-badge pspb-t" style="margin-top:16px;">PHASE 3 — COLLECTIONS</div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 5</div>
+      <div class="ps-level-title">Python Lists</div>
+    </div>
+    <div class="ps-level-desc">اتعلم إزاي تخزّن مجموعة قيم مع بعض في List واحدة، وتوصل لأي عنصر، وتلف عليهم، وتعمل عمليات أساسية.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">Creating Lists</span>
+      <span class="ps-chip">Indexing</span>
+      <span class="ps-chip">Iterating</span>
+      <span class="ps-chip">len()</span>
+      <span class="ps-chip">min / max</span>
+      <span class="ps-chip">Searching</span>
+      <span class="ps-chip">Counting</span>
+      <span class="ps-chip">Basic List Operations</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #3 — Arrays → Python Lists (10 مسائل مختارة)
+    </div>
+
+    <div class="ps-problems-grid">
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 01</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Summation</div>
+        <div class="prob-topic">Lists · Sum</div>
+        <div class="prob-obj">Reading a list of numbers and summing them.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 02</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Searching</div>
+        <div class="prob-topic">Lists · Search</div>
+        <div class="prob-obj">Finding whether a value exists in a list.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 03</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Reversing</div>
+        <div class="prob-topic">Lists · Reverse</div>
+        <div class="prob-obj">Reversing a list and printing it.</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-top"><span class="prob-num">Problem 04</span><span class="prob-diff easy">Easy</span></div>
+        <div class="prob-title">Sorting</div>
+        <div class="prob-topic">Lists · Sorting</div>
+        <div class="prob-obj">Sorting a list of numbers using sorted() or .sort().</div>
+        <div class="prob-foot"><span class="prob-status not-started"><span class="sdot"></span>Not Started</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">51</div></div>
+</div>
+
+<!-- ─── CH5 · PHASE 4,5,6 ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-t"><div class="ph-l"><div class="ph-tag">CH.05 · TEAL</div><span class="ph-title">المراحل 4 و5 و6 — Strings, Functions, Math, Independent</span></div><div class="ph-pg">57</div></div>
+
+  <div class="ps-phase-badge pspb-t">PHASE 4 — TEXT & REUSABLE CODE</div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 7</div>
+      <div class="ps-level-title">Strings & Text Processing</div>
+    </div>
+    <div class="ps-level-desc">اتعلم إزاي تتعامل مع النصوص كسلاسل حروف: طباعة، عدّ، مقارنة، ومعالجة أساسية.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">Characters</span>
+      <span class="ps-chip">Indexing Strings</span>
+      <span class="ps-chip">Traversal</span>
+      <span class="ps-chip">len()</span>
+      <span class="ps-chip">Counting Characters</span>
+      <span class="ps-chip">Comparing Strings</span>
+      <span class="ps-chip">Basic String Methods</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #4 — Strings (8 مسائل مختارة)
+    </div>
+  </div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 8</div>
+      <div class="ps-level-title">Functions & Reusable Code</div>
+    </div>
+    <div class="ps-level-desc">اتعلم إزاي تكتب function مرة واحدة وتستخدمها فين ما تحتاجها، بمدخلات وقيمة إرجاع.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">def</span>
+      <span class="ps-chip">Calling Functions</span>
+      <span class="ps-chip">Parameters</span>
+      <span class="ps-chip">Arguments</span>
+      <span class="ps-chip">return</span>
+      <span class="ps-chip">Decomposition</span>
+      <span class="ps-chip">Reuse</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #5 — Functions (6 مسائل مختارة)
+    </div>
+  </div>
+
+  <div class="ps-phase-badge pspb-t" style="margin-top:12px;">PHASE 5 — MATHEMATICAL PROBLEM SOLVING</div>
+
+  <div class="ps-level-card">
+    <div class="ps-level-head">
+      <div class="ps-level-num">Level 9</div>
+      <div class="ps-level-title">Math & Geometry</div>
+    </div>
+    <div class="ps-level-desc">مقدمة مبسطة للمسائل الرياضية والهندسية: قسمة، خصائص أرقام، صيغ بسيطة، وإحداثيات.</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">Arithmetic Reasoning</span>
+      <span class="ps-chip">Divisibility</span>
+      <span class="ps-chip">Number Properties</span>
+      <span class="ps-chip">Simple Formulas</span>
+      <span class="ps-chip">Coordinates</span>
+      <span class="ps-chip">Basic Geometry</span>
+    </div>
+    <div style="background:var(--teal-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--teal-dk);font-weight:700;">
+      📚 المصدر: QSheet #6 — Math · Geometry (5 مسائل مختارة)
+    </div>
+  </div>
+
+  <div class="ps-phase-badge pspb-t" style="margin-top:12px;">PHASE 6 — INDEPENDENT PROBLEM SOLVING</div>
+
+  <div class="ps-level-card" style="border-inline-start-color:var(--red);border-inline-start-width:5px;">
+    <div class="ps-level-head">
+      <div class="ps-level-num" style="background:var(--red-lt);color:var(--red);">Level 10 · FINAL</div>
+      <div class="ps-level-title">General Problem Solving — Easy</div>
+    </div>
+    <div class="ps-level-desc">المرحلة الأهم: مسائل بتجمع كل اللي اتعلمته — شروط، حلقات، lists، strings، functions — بدون تلميح للتقنية المطلوبة. هنا بتبقى مبرمج حقيقي!</div>
+    <div class="ps-concepts">
+      <span class="ps-chip">Conditions</span>
+      <span class="ps-chip">Loops</span>
+      <span class="ps-chip">Lists</span>
+      <span class="ps-chip">Strings</span>
+      <span class="ps-chip">Functions</span>
+      <span class="ps-chip">Basic Math Reasoning</span>
+    </div>
+    <div style="background:var(--red-lt);padding:10px 14px;border-radius:var(--r-sm);margin:8px 0;font-size:12px;color:var(--red-dk);font-weight:700;">
+      📚 المصدر: QSheet #8 — General Easy (10 مسائل مختارة)
+    </div>
+
+    <div class="tip tip-r" style="margin-top:12px;">
+      <div class="tip-ic">🏆</div>
+      <div><div class="tip-lbl">COMING NEXT — المراحل القادمة</div>
+      <div class="tip-txt">
+        <strong>Level 11 — Recursion</strong> 🔒 Coming Soon<br>
+        <strong>Level 12 — General Medium</strong> 🔒 Coming Soon<br>
+        <strong>Level 13 — General Hard</strong> 🔒 Coming Soon
+      </div></div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">57</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║              CHAPTER 6 OPENER — RED (NEW)                ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="page">
+<div class="ch-open op-r">
+  <div class="ch-bg-num">06</div>
+  <div class="ch-ico">🔴</div>
+  <div class="ch-tag">CHAPTER SIX · ADVANCED RED · ✨ NEW</div>
+  <div class="ch-en" style="color:var(--red-dk)">BEYOND THE BASICS</div>
+  <div class="ch-ar" style="color:var(--red)">ما بعد الأساسيات — Data Structures & Python</div>
+  <div class="ch-div" style="background:var(--red)"></div>
+  <div class="ch-card">
+    <h3 style="color:var(--red)">أهداف الفصل · LEARNING OBJECTIVES</h3>
+    <ul>
+      <li><span class="ch-arr" style="color:var(--red)">▶</span>فهم الفرق بين Data Structures و Memory</li>
+      <li><span class="ch-arr" style="color:var(--red)">▶</span>معرفة Stack و Queue و Trees و Graphs</li>
+      <li><span class="ch-arr" style="color:var(--red)">▶</span>رؤية خريطة الطريق الكاملة للمرحلة القادمة</li>
+      <li><span class="ch-arr" style="color:var(--red)">▶</span>الاستعداد للمستوى المتقدم</li>
+    </ul>
+  </div>
+  <div class="ch-author-strip" style="color:var(--red-dk);opacity:.5">م. زهرة عصام — Zahra Essam</div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">65</div></div>
+</div>
+
+<!-- ─── CH6 · DATA STRUCTURES ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-r"><div class="ph-l"><div class="ph-tag">CH.06 · RED</div><span class="ph-title">مقدمة هياكل البيانات والذاكرة</span></div><div class="ph-pg">66</div></div>
+
+  <div class="brain brain-r">
+    <div class="brain-ic">🧠</div>
+    <div><div class="brain-lbl">BRAIN TEASER · حيّر دماغك</div><div class="brain-q">لو عندك 5 درجات، بتخزنهم إزاي؟ 5 variables؟ ولا list واحدة؟ إيه الفرق؟</div></div>
+  </div>
+
+  <div class="lb lb-r">
+    <div class="lb-h"><div class="lb-h-ic">📚</div><div><div class="lb-en">TOPIC 6.1 · DATA & DATA STRUCTURES</div><div class="lb-ar">البيانات وهياكل البيانات — من قيمة واحدة لمجموعة منظمة</div></div></div>
+    <div class="lb-body">
+      <div class="lb-main">
+        <div class="byte-box bb-r">
+          <div class="byte-hd"><div class="byte-av" style="background:var(--red)">🤖</div><div class="byte-lbl" style="color:var(--red)">BYTE SAYS · بايت بيقول</div></div>
+          <div class="byte-txt">لحد دلوقتي، كنت بتشتغل مع <strong>variable</strong> واحد بيخزن قيمة واحدة. بس في البرمجة الحقيقية، غالبًا هتشتغل مع <strong>مجموعة قيم</strong>. الـ <strong>Data Structure</strong> هي طريقة منظمة لتخزين مجموعة قيم، عشان تقدر توصل لأي قيمة بسهولة، تضيف، تشيل، أو تعدّل. بدل ما يكون عندك 5 variables منفصلة، بتعمل <strong>list واحدة</strong> فيها كل القيم!</div>
+        </div>
+
+        <div class="cg">
+          <div class="cb cb-r">
+            <div class="cb-ic">📦</div>
+            <div class="cb-t">VARIABLE واحد</div>
+            <div class="cb-d">صندوق واحد، قيمة واحدة. زي: <code style="font-family:var(--f-mono);font-size:11px;">age = 15</code></div>
+          </div>
+          <div class="cb cb-r">
+            <div class="cb-ic">🗂️</div>
+            <div class="cb-t">DATA STRUCTURE</div>
+            <div class="cb-d">مجموعة قيم منظمة. زي: <code style="font-family:var(--f-mono);font-size:11px;">scores = [85, 90, 95]</code></div>
+          </div>
+        </div>
+
+        <div class="tip tip-r"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">كل ما البيانات تكبر، الحاجة لـ data structure منظمة بتبقى أهم. لو عندك 3 طلاب، 3 variables ممكن يكونوا كفاية. لو عندك 300، محتاج List!</div></div></div>
+      </div>
+      <div class="dict dict-r">
+        <div class="dict-t">BYTE'S DICTIONARY</div>
+        <div class="ditem"><div class="den">Data</div><div class="dar">بيانات — أي معلومة: رقم، اسم، درجة</div></div>
+        <div class="ditem"><div class="den">Data Structure</div><div class="dar">هيكل بيانات — طريقة منظمة لتخزين مجموعة</div></div>
+        <div class="ditem"><div class="den">List</div><div class="dar">قائمة — أكثر Data Structure استخداماً</div></div>
+        <div class="ditem"><div class="den">Index</div><div class="dar">رقم العنصر — يبدأ من 0</div></div>
+        <div class="ditem"><div class="den">Element</div><div class="dar">عنصر — قيمة واحدة داخل الـ structure</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">66</div></div>
+</div>
+
+<!-- ─── CH6 · STACK/QUEUE/TREES/GRAPHS ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-r"><div class="ph-l"><div class="ph-tag">CH.06 · RED</div><span class="ph-title">Stack, Queue, Trees & Graphs</span></div><div class="ph-pg">68</div></div>
+
+  <div class="lb lb-r">
+    <div class="lb-h"><div class="lb-h-ic">🗄️</div><div><div class="lb-en">TOPIC 6.2 · STACK, QUEUE, TREES & GRAPHS</div><div class="lb-ar">أنواع هياكل البيانات — نظرة عامة سريعة</div></div></div>
+    <div class="lb-body-full">
+      <div class="byte-box bb-r">
+        <div class="byte-hd"><div class="byte-av" style="background:var(--red)">🤖</div><div class="byte-lbl" style="color:var(--red)">BYTE SAYS · بايت بيقول</div></div>
+        <div class="byte-txt">في أنواع كتير من Data Structures، وكل واحدة ليها استخدام مختلف. مش محتاج تحفظهم كلهم دلوقتي — الهدف إنك <strong>تعرف الفكرة العامة</strong> لكل واحدة، وتستخدمها لما تحتاجها!</div>
+      </div>
+
+      <div class="cg">
+        <div class="cb cb-r">
+          <div class="cb-ic">📚</div>
+          <div class="cb-t">STACK</div>
+          <div class="cb-d"><strong>LIFO</strong> — Last In First Out.<br>زي طبلية أطباق فوق بعض. آخر واحد دخل = أول واحد يخرج.<br><em style="font-size:11px;">مثال: Undo في Word</em></div>
+        </div>
+        <div class="cb cb-r">
+          <div class="cb-ic">🚶</div>
+          <div class="cb-t">QUEUE</div>
+          <div class="cb-d"><strong>FIFO</strong> — First In First Out.<br>زي طابور في السوبر ماركت. أول واحد وصل = أول واحد يخدم.<br><em style="font-size:11px;">مثال: طابعة بتطبع ملفات بترتيب الوصول</em></div>
+        </div>
+        <div class="cb cb-r">
+          <div class="cb-ic">🌳</div>
+          <div class="cb-t">TREE</div>
+          <div class="cb-d">شكل هرمي — عنصر فوق (root)، وعناصر تحته (children).<br><em style="font-size:11px;">مثال: شجرة العيلة، Folders في الكمبيوتر</em></div>
+        </div>
+        <div class="cb cb-r">
+          <div class="cb-ic">🕸️</div>
+          <div class="cb-t">GRAPH</div>
+          <div class="cb-d">مجموعة نقاط متوصلة بخطوط. بدون ترتيب هرمي.<br><em style="font-size:11px;">مثال: خريطة شوارع، شبكة أصحاب على Facebook</em></div>
+        </div>
+      </div>
+
+      <div style="background:var(--red-lt);padding:14px 18px;border-radius:var(--r-sm);margin:14px 0;">
+        <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--red);margin-bottom:8px;font-weight:700;">VISUAL — STACK vs QUEUE</div>
+        <div style="display:flex;gap:20px;align-items:flex-end;justify-content:center;padding:10px 0;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--f-mono);font-size:10px;color:var(--red);font-weight:700;margin-bottom:6px;">STACK (LIFO)</div>
+            <div style="display:flex;flex-direction:column;gap:2px;align-items:center;">
+              <div style="background:var(--red);color:#fff;padding:6px 20px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">30 ← top</div>
+              <div style="background:#FFCDD2;color:var(--red-dk);padding:6px 20px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">20</div>
+              <div style="background:#FFCDD2;color:var(--red-dk);padding:6px 20px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">10</div>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--f-mono);font-size:10px;color:var(--red);font-weight:700;margin-bottom:6px;">QUEUE (FIFO)</div>
+            <div style="display:flex;gap:2px;align-items:center;">
+              <div style="background:var(--red);color:#fff;padding:6px 14px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">10 ← front</div>
+              <div style="background:#FFCDD2;color:var(--red-dk);padding:6px 14px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">20</div>
+              <div style="background:#FFCDD2;color:var(--red-dk);padding:6px 14px;border-radius:4px;font-family:var(--f-mono);font-size:11px;">30 ← rear</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip tip-r"><div class="tip-ic">💡</div><div><div class="tip-lbl">BYTE'S PRO-TIP</div><div class="tip-txt">مش محتاج تحفظ التفاصيل دلوقتي — المهم إنك <strong>سمعت الأسامي دي</strong> وعرفت الفكرة العامة. لما تحتاج تستخدم واحدة منهم، هتعرف إنها موجودة وتدور عليها!</div></div></div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">68</div></div>
+</div>
+
+<!-- ─── CH6 · ROADMAP AHEAD ─── -->
+<div class="page">
+<div class="cp">
+  <div class="ph ph-r"><div class="ph-l"><div class="ph-tag">CH.06 · RED</div><span class="ph-title">خريطة الطريق الكاملة للمرحلة القادمة</span></div><div class="ph-pg">70</div></div>
+
+  <div class="lb lb-r">
+    <div class="lb-h"><div class="lb-h-ic">🗺️</div><div><div class="lb-en">TOPIC 6.3 · THE COMPLETE ROADMAP AHEAD</div><div class="lb-ar">خريطة الطريق — إنت فين رايح بعد الكتاب ده</div></div></div>
+    <div class="lb-body-full">
+      <div class="byte-box bb-r">
+        <div class="byte-hd"><div class="byte-av" style="background:var(--red)">🤖</div><div class="byte-lbl" style="color:var(--red)">BYTE SAYS · بايت بيقول</div></div>
+        <div class="byte-txt">مبروك! خلصت الكتاب! 🎉 بس الرحلة لسه في أولها. ده الكتاب الأول في سلسلة كاملة. خلّينا نشوف إنت فين رايح بعد كده — على موقع Digital Learning Path هتلاقي الرحلة كاملة بترتيبها الصحيح!</div>
+      </div>
+
+      <div class="roadmap">
+        <div class="rm-row" style="border-inline-start:4px solid #475569;">
+          <div class="rm-num" style="background:#475569;">0</div>
+          <div><div class="rm-title">Digital Foundations — أساسيات الكمبيوتر</div><div class="rm-sub">✅ خلصت منه الكتاب ده — هذا الكتاب</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #0EA5E9;">
+          <div class="rm-num" style="background:#0EA5E9;">1</div>
+          <div><div class="rm-title">Computational Thinking — التفكير الحسابي</div><div class="rm-sub">🔵 متاح على الموقع — Logic & Problem Solving</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #0D9488;">
+          <div class="rm-num" style="background:#0D9488;">2</div>
+          <div><div class="rm-title">Algorithm Design — تصميم الخوارزميات</div><div class="rm-sub">🟢 متاح على الموقع — Pseudocode & Flowcharts</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #D97706;">
+          <div class="rm-num" style="background:#D97706;">3</div>
+          <div><div class="rm-title">Visual Programming — Scratch</div><div class="rm-sub">🟠 متاح على الموقع — Events, Motion, Control</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #2563EB;">
+          <div class="rm-num" style="background:#2563EB;">4</div>
+          <div><div class="rm-title">Text Programming — Python</div><div class="rm-sub">🔵 متاح على الموقع — Variables, Loops, Functions</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #7C3AED;">
+          <div class="rm-num" style="background:#7C3AED;">5</div>
+          <div><div class="rm-title">Problem Solving — حل المشكلات</div><div class="rm-sub">🟣 جزء من الكتاب ده (الفصل 5) + الموقع</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px solid #DC2626;">
+          <div class="rm-num" style="background:#DC2626;">6</div>
+          <div><div class="rm-title">Data Structures — هياكل البيانات</div><div class="rm-sub">🔴 بدايتك في الفصل 6 — التفاصيل على الموقع</div></div>
+        </div>
+        <div class="rm-row" style="border-inline-start:4px dashed #B4BECC;opacity:.7;">
+          <div class="rm-num" style="background:#B4BECC;">🔒</div>
+          <div><div class="rm-title">Advanced Algorithms & OOP 🔒</div><div class="rm-sub">Coming Soon على الموقع</div></div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#05102B,#0A1940);border-radius:var(--r);padding:24px 28px;margin-top:20px;display:flex;gap:20px;align-items:center;">
+        <div style="font-size:48px;">🌐</div>
+        <div style="flex:1;">
+          <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:rgba(100,180,255,.5);margin-bottom:6px;">CONTINUE YOUR JOURNEY</div>
+          <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:6px;">هتلاقي الرحلة كاملة على Digital Learning Path</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.65);line-height:1.7;">زور موقعك لمتابعة تقدمك، واكتشاف المستويات القادمة. الرحلة مكمّلة هناك!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">70</div></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
      ║             GRAND FINAL EXAM                             ║
      ╚══════════════════════════════════════════════════════════╝ -->
 <div class="page">
@@ -2095,14 +2878,13 @@ body {
   <div class="finale-hd-txt">
     <div class="finale-hd-en">GRAND FINAL EXAM</div>
     <div class="finale-hd-ar">الامتحان الشامل النهائي</div>
-    <div class="finale-hd-sub">اختبر معرفتك الكاملة من الفصول الأربعة!</div>
-    <div class="finale-score">الدرجة الكلية: <span>50 درجة</span> | الوقت: <span>60 دقيقة</span></div>
+    <div class="finale-hd-sub">اختبر معرفتك الكاملة من الفصول الستة!</div>
+    <div class="finale-score">الدرجة الكلية: <span>60 درجة</span> | الوقت: <span>75 دقيقة</span></div>
   </div>
 </div>
 <div class="cp" style="padding-top:24px">
-  <!-- SECTION A: MCQ -->
   <div class="quiz quiz-b" style="border-color:var(--blue)">
-    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--blue-dk),var(--blue))"><div class="quiz-hd-ic">🔵</div><div><div class="quiz-hd-en">SECTION A — MULTIPLE CHOICE (20 Marks)</div><div class="quiz-hd-ar">قسم أ — اختيار من متعدد (20 درجة)</div></div></div>
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--blue-dk),var(--blue))"><div class="quiz-hd-ic">🔵</div><div><div class="quiz-hd-en">SECTION A — MULTIPLE CHOICE (25 Marks)</div><div class="quiz-hd-ar">قسم أ — اختيار من متعدد (25 درجة)</div></div></div>
     <div class="quiz-body">
       <div class="cg">
         <div>
@@ -2126,8 +2908,6 @@ body {
             <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">5</div><div class="qn-q">أي لغة برمجة تستخدم Compiler؟</div></div>
             <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Python</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>JavaScript</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>C++</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Ruby</div></div>
           </div>
-        </div>
-        <div>
           <div class="qn">
             <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">6</div><div class="qn-q">أول كمبيوتر في العالم اسمه؟</div></div>
             <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>UNIVAC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>ENIAC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>IBM PC</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Apple I</div></div>
@@ -2136,6 +2916,8 @@ body {
             <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">7</div><div class="qn-q">الـ Boolean يحمل؟</div></div>
             <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>أعداد فقط</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>نصوص</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>True أو False</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>صور</div></div>
           </div>
+        </div>
+        <div>
           <div class="qn">
             <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">8</div><div class="qn-q">الـ SDLC يبدأ بأي مرحلة؟</div></div>
             <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Coding</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Testing</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Planning</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Design</div></div>
@@ -2148,12 +2930,26 @@ body {
             <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">10</div><div class="qn-q">الكمبيوتر يفهم فقط نظام؟</div></div>
             <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Decimal</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Hexadecimal</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Binary</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Octal</div></div>
           </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">11</div><div class="qn-q">أي Data Structure بيشتغل بنظام LIFO؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>Queue</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>Stack</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>Tree</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>Graph</div></div>
+          </div>
+          <div class="qn">
+            <div class="qn-hd"><div class="qn-num" style="background:var(--blue)">12</div><div class="qn-q">المرحلة الأولى في حل أي مسألة برمجية هي؟</div></div>
+            <div class="qn-opts"><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">أ</div>كتابة الكود</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ب</div>فهم المسألة</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">ج</div>تشغيل البرنامج</div><div class="qopt"><div class="qopt-lbl" style="background:var(--blue)">د</div>البحث على الإنترنت</div></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">72</div></div>
+</div>
 
-  <!-- SECTION B: Short Answers -->
+<!-- ─── FINAL EXAM PAGE 2 ─── -->
+<div class="page">
+<div class="cp" style="padding-top:36px">
+
   <div class="quiz" style="border-color:var(--green)">
     <div class="quiz-hd" style="background:linear-gradient(135deg,var(--green-dk),var(--green))"><div class="quiz-hd-ic">🟢</div><div><div class="quiz-hd-en">SECTION B — SHORT ANSWERS (15 Marks)</div><div class="quiz-hd-ar">قسم ب — إجابات قصيرة (15 درجة)</div></div></div>
     <div class="quiz-body">
@@ -2164,34 +2960,35 @@ body {
       <div class="qn"><div class="qn-hd"><div class="qn-num" style="background:var(--green)">5</div><div class="qn-q">اذكر مراحل الـ SDLC بالترتيب وفسّر لماذا الكود مرحلة واحدة فقط. (3 درجات)</div></div><div class="qn-ans-long" style="min-height:50px"></div></div>
     </div>
   </div>
-</div>
-<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">44</div></div>
-</div>
 
-<!-- ─── GRAND FINAL EXAM — PAGE 2 ─── -->
-<div class="page">
-<div class="cp" style="padding-top:36px">
-
-  <!-- SECTION C: Practical -->
-  <div class="quiz" style="border-color:var(--orange)">
-    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--orange-dk),var(--orange))"><div class="quiz-hd-ic">🟠</div><div><div class="quiz-hd-en">SECTION C — PRACTICAL APPLICATIONS (15 Marks)</div><div class="quiz-hd-ar">قسم ج — تطبيقات عملية (15 درجة)</div></div></div>
+  <div class="quiz" style="border-color:var(--teal)">
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--teal-dk),var(--teal))"><div class="quiz-hd-ic">🩵</div><div><div class="quiz-hd-en">SECTION C — PROBLEM SOLVING (10 Marks)</div><div class="quiz-hd-ar">قسم ج — حل المشكلات (10 درجات)</div></div></div>
     <div class="quiz-body">
       <div class="qn">
-        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">1</div><div class="qn-q">اكتب Pseudocode لـ Algorithm يطلب رقم من المستخدم ويحدد إذا كان زوجي أم فردي. (5 درجات)</div></div>
-        <div class="qn-ans-long" style="min-height:120px"></div>
+        <div class="qn-hd"><div class="qn-num" style="background:var(--teal)">1</div><div class="qn-q">اكتب Pseudocode لـ Algorithm يطلب رقم من المستخدم ويحدد إذا كان زوجي أم فردي. (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:100px"></div>
       </div>
       <div class="qn">
-        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">2</div><div class="qn-q">ارسم Flowchart لبرنامج يحوّل الدرجة لحرف: A (90+)، B (80-89)، C (70-79)، D (60-69)، F (أقل من 60). (5 درجات)</div></div>
-        <div class="qn-ans-long" style="min-height:180px"></div>
-      </div>
-      <div class="qn">
-        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">3</div><div class="qn-q">اكتب Function بـ Pseudocode اسمها calculateSum تأخذ Array من 5 أعداد وترجع مجموعهم. (5 درجات)</div></div>
-        <div class="qn-ans-long" style="min-height:130px"></div>
+        <div class="qn-hd"><div class="qn-num" style="background:var(--teal)">2</div><div class="qn-q">لو عندك 5 أرقام، إزاي تستخدم List و Loop لحساب مجموعهم؟ اشرح الخطوات. (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:100px"></div>
       </div>
     </div>
   </div>
 
-  <!-- SCORE CARD -->
+  <div class="quiz" style="border-color:var(--orange)">
+    <div class="quiz-hd" style="background:linear-gradient(135deg,var(--orange-dk),var(--orange))"><div class="quiz-hd-ic">🟠</div><div><div class="quiz-hd-en">SECTION D — PRACTICAL APPLICATIONS (10 Marks)</div><div class="quiz-hd-ar">قسم د — تطبيقات عملية (10 درجات)</div></div></div>
+    <div class="quiz-body">
+      <div class="qn">
+        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">1</div><div class="qn-q">ارسم Flowchart لبرنامج يحوّل الدرجة لحرف: A (90+)، B (80-89)، C (70-79)، D (60-69)، F (أقل من 60). (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:150px"></div>
+      </div>
+      <div class="qn">
+        <div class="qn-hd"><div class="qn-num" style="background:var(--orange)">2</div><div class="qn-q">اكتب Function بـ Pseudocode اسمها calculateSum تأخذ List من 5 أعداد وترجع مجموعهم. (5 درجات)</div></div>
+        <div class="qn-ans-long" style="min-height:120px"></div>
+      </div>
+    </div>
+  </div>
+
   <div style="background:var(--ink);border-radius:var(--r);padding:22px 28px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;text-align:center">
     <div>
       <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">STUDENT NAME</div>
@@ -2199,34 +2996,32 @@ body {
     </div>
     <div>
       <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION A</div>
-      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--blue-ac);font-size:11px">/ 20</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--blue-ac);font-size:11px">/ 25</div>
     </div>
     <div>
       <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION B</div>
       <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--green-ac);font-size:11px">/ 15</div>
     </div>
     <div>
-      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION C</div>
-      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--orange-ac);font-size:11px">/ 15</div>
+      <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:6px">SECTION C+D</div>
+      <div style="border-bottom:1.5px solid rgba(255,255,255,.15);padding-bottom:12px;height:36px;font-family:var(--f-mono);color:var(--teal-ac);font-size:11px">/ 20</div>
     </div>
     <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1.5px solid rgba(255,255,255,.1)">
       <div style="font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5)">TOTAL SCORE</div>
-      <div style="font-family:var(--f-mono);font-size:18px;font-weight:700;color:#fff">_____ / 50</div>
+      <div style="font-family:var(--f-mono);font-size:18px;font-weight:700;color:#fff">_____ / 60</div>
       <div style="font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,.4)">GRADE: _____</div>
     </div>
   </div>
 
-  <!-- CLOSING BYTE MESSAGE -->
   <div style="background:linear-gradient(135deg,#05102B,#0A1940);border-radius:var(--r);padding:28px 32px;display:flex;align-items:center;gap:20px;margin-top:8px">
     <div style="font-size:56px;flex-shrink:0">🤖</div>
     <div>
       <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:rgba(100,180,255,.5);margin-bottom:8px">BYTE'S FINAL MESSAGE</div>
       <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:6px">بايت بيقول: مبروووووك! 🎉</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8;">كملت أصعب رحلة في عالم التقنية! من أول ما الكمبيوتر ده عبارة إيه، لحد ما عرفت تكتب Algorithm وتفهم Binary والـ SDLC. <strong style="color:#69F0AE;">ده مش نهاية — ده البداية الحقيقية!</strong> دلوقتي عندك الأساس اللي كل مبرمج في العالم بنى عليه. الخطوة الجاية؟ افتح Python وابدأ تكتب كود حقيقي!</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8;">كملت أصعب رحلة في عالم التقنية! من أول ما الكمبيوتر ده عبارة إيه، لحد ما عرفت تكتب Algorithm وتفهم Binary والـ SDLC وحل المشكلات بـ 6 مراحل. <strong style="color:#69F0AE;">ده مش نهاية — ده البداية الحقيقية!</strong> دلوقتي عندك الأساس اللي كل مبرمج في العالم بنى عليه. الخطوة الجاية؟ افتح Python وابدأ تكتب كود حقيقي!</div>
     </div>
   </div>
 
-  <!-- AUTHOR CREDIT -->
   <div style="text-align:center;padding:16px;background:var(--bg);border-radius:var(--r-sm);margin-top:8px;border:1.5px solid var(--rule)">
     <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:var(--ink-5);margin-bottom:4px">AUTHORED & DESIGNED BY</div>
     <div style="font-size:17px;font-weight:900;color:var(--ink)">م. زهرة عصام — Eng. Zahra Essam</div>
@@ -2234,7 +3029,7 @@ body {
     <div style="font-size:12px;color:var(--ink-5);margin-top:6px;font-style:italic">إهداء إلى د. عبدالله حبشي — Dedicated to Dr. Abdullah Habashy</div>
   </div>
 </div>
-<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">46</div></div>
+<div class="pf"><div class="pf-copy">Zahra Essam</div><div class="pf-contact"></div><div class="pf-pg">74</div></div>
 </div>
 
 </body>
